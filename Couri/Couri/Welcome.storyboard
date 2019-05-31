@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TCL-Xn-lMW">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Page View Controller-->
+        <scene sceneID="FVD-Wv-FAT">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="TCL-Xn-lMW" customClass="PageViewController" customModule="Couri" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bAn-UW-JNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-862" y="19"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tzJ-Av-gAw">
+            <objects>
+                <viewController storyboardIdentifier="welcome1" id="YBO-ea-3ey" customClass="ViewController" customModule="Couri" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bin-aJ-y2t">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAZ-Y9-ZFD">
+                                <rect key="frame" x="207" y="550" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                <color key="textColor" name="shopDescription"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jiY-gI-AJL">
+                                <rect key="frame" x="59" y="274.5" width="296" height="347"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop" translatesAutoresizingMaskIntoConstraints="NO" id="INc-3w-dbf">
+                                        <rect key="frame" x="48" y="0.0" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="204-0H-epD"/>
+                                            <constraint firstAttribute="height" constant="200" id="rUc-mC-b8e"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9T-ww-oOY">
+                                        <rect key="frame" x="110.5" y="220" width="75" height="41"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                        <color key="textColor" name="shopText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get connected to a network of Couriers  near you who deliver from all of your  favorite restaurants." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkJ-vi-83w">
+                                        <rect key="frame" x="0.0" y="281" width="296" height="66"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                        <color key="textColor" name="shopDescription"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="switchOn" translatesAutoresizingMaskIntoConstraints="NO" id="816-eq-aPH">
+                                <rect key="frame" x="20" y="44" width="50" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Izw-ef-NwA"/>
+                                    <constraint firstAttribute="height" constant="130" id="plb-s5-WhK"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="welcome1_top"/>
+                        <constraints>
+                            <constraint firstItem="jiY-gI-AJL" firstAttribute="centerX" secondItem="bin-aJ-y2t" secondAttribute="centerX" id="D1K-L2-qdN"/>
+                            <constraint firstItem="jiY-gI-AJL" firstAttribute="centerY" secondItem="bin-aJ-y2t" secondAttribute="centerY" id="dEZ-Wd-IwG"/>
+                            <constraint firstItem="816-eq-aPH" firstAttribute="top" secondItem="8qL-CY-U4X" secondAttribute="top" id="u9R-ee-GHK"/>
+                            <constraint firstItem="816-eq-aPH" firstAttribute="leading" secondItem="8qL-CY-U4X" secondAttribute="leading" constant="20" id="zmK-hM-6SI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="8qL-CY-U4X"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vxd-xB-K3I" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="37.600000000000001" y="18.472906403940886"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ViV-Ov-bAD">
+            <objects>
+                <viewController storyboardIdentifier="welcome3" id="acf-wP-vUw" customClass="ViewController" customModule="Couri" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hgU-oN-DKz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xbv-2L-CcH">
+                                <rect key="frame" x="57" y="672" width="300" height="130"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rla-SO-ekv">
+                                        <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                                        <color key="backgroundColor" name="honeyYellow"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="1ME-GW-mze"/>
+                                            <constraint firstAttribute="height" constant="50" id="tud-NP-g74"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                        <state key="normal" title="Create Account">
+                                            <color key="titleColor" name="shopText"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.shadowColor">
+                                                <color key="value" red="1" green="0.1695918474" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="size" keyPath="layer.shadowOffset">
+                                                <size key="value" width="0.0" height="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9i-aX-0Nn">
+                                        <rect key="frame" x="0.0" y="80" width="300" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="Fe1-Cs-KtZ"/>
+                                            <constraint firstAttribute="width" constant="300" id="HBX-du-lEN"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                        <state key="normal" title="Login">
+                                            <color key="titleColor" name="shopText"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4qY-Uq-ESQ">
+                                <rect key="frame" x="52" y="272" width="310.5" height="325"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rocket" translatesAutoresizingMaskIntoConstraints="NO" id="vo8-hL-nnp">
+                                        <rect key="frame" x="55" y="0.0" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="dPU-St-W8b"/>
+                                            <constraint firstAttribute="height" constant="200" id="g4P-XK-NV0"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Get Started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oX5-cM-PhR">
+                                        <rect key="frame" x="34.5" y="220" width="241" height="41"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                        <color key="textColor" name="shopText"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It’s really that simple! Join the community  that begins one delivery at a time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAK-6d-upT">
+                                        <rect key="frame" x="0.0" y="281" width="310.5" height="44"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                        <color key="textColor" name="shopDescription"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" name="welcome1_top"/>
+                        <constraints>
+                            <constraint firstItem="xbv-2L-CcH" firstAttribute="top" secondItem="4qY-Uq-ESQ" secondAttribute="bottom" constant="75" id="3Ib-ej-MZw"/>
+                            <constraint firstItem="4qY-Uq-ESQ" firstAttribute="centerX" secondItem="hgU-oN-DKz" secondAttribute="centerX" id="Sgu-25-TRU"/>
+                            <constraint firstItem="77A-tv-18Y" firstAttribute="bottom" secondItem="xbv-2L-CcH" secondAttribute="bottom" constant="60" id="iRV-LA-XcD"/>
+                            <constraint firstItem="xbv-2L-CcH" firstAttribute="centerX" secondItem="hgU-oN-DKz" secondAttribute="centerX" id="nVw-Qu-EzY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="77A-tv-18Y"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="25"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hvg-2h-9PO" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1357.9710144927537" y="18.75"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="C8m-Q3-Otq">
+            <objects>
+                <viewController storyboardIdentifier="welcome2" id="IDr-72-MAj" customClass="ViewController" customModule="Couri" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WaD-Py-iEl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSE-nm-ahq">
+                                <rect key="frame" x="207" y="550" width="0.0" height="0.0"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                <color key="textColor" name="shopDescription"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="R2H-v5-ZFf">
+                                <rect key="frame" x="50.5" y="274.5" width="313.5" height="347"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deliver" translatesAutoresizingMaskIntoConstraints="NO" id="0uA-PJ-kPq">
+                                        <rect key="frame" x="56.5" y="0.0" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="Azf-7P-cUL"/>
+                                            <constraint firstAttribute="width" constant="200" id="Fy4-CE-1vX"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deliver" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xj-yX-uqe">
+                                        <rect key="frame" x="103.5" y="220" width="106" height="41"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fulfill orders and earn money! Simply turn  on the app when you’re at a restaurant  and deliver to people back home." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlH-AH-J8D">
+                                        <rect key="frame" x="0.0" y="281" width="313.5" height="66"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="switchOff" translatesAutoresizingMaskIntoConstraints="NO" id="5Xw-Rd-nSr">
+                                <rect key="frame" x="20" y="44" width="50" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="BWe-GX-qmy"/>
+                                    <constraint firstAttribute="width" constant="50" id="WB0-yO-l85"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" name="darkMode"/>
+                        <constraints>
+                            <constraint firstItem="5Xw-Rd-nSr" firstAttribute="leading" secondItem="NaI-8U-Qpp" secondAttribute="leading" constant="20" id="27w-mJ-RoK"/>
+                            <constraint firstItem="5Xw-Rd-nSr" firstAttribute="top" secondItem="NaI-8U-Qpp" secondAttribute="top" id="EQW-6f-LL8"/>
+                            <constraint firstItem="R2H-v5-ZFf" firstAttribute="centerX" secondItem="WaD-Py-iEl" secondAttribute="centerX" id="V2L-MN-aU2"/>
+                            <constraint firstItem="R2H-v5-ZFf" firstAttribute="centerY" secondItem="WaD-Py-iEl" secondAttribute="centerY" id="hQH-V3-gSz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NaI-8U-Qpp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mRC-Gh-VUM" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="694" y="18"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="deliver" width="61.333332061767578" height="61.333332061767578"/>
+        <image name="rocket" width="61.666667938232422" height="64.333335876464844"/>
+        <image name="shop" width="62" height="61.333332061767578"/>
+        <image name="switchOff" width="14.333333015441895" height="43.333332061767578"/>
+        <image name="switchOn" width="14.333333015441895" height="43.333332061767578"/>
+        <namedColor name="darkMode">
+            <color red="0.17647058823529413" green="0.19215686274509805" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="honeyYellow">
+            <color red="1" green="0.88999998569488525" blue="0.54900002479553223" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="shopDescription">
+            <color red="0.4392156862745098" green="0.46666666666666667" blue="0.58431372549019611" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="shopText">
+            <color red="0.1803921568627451" green="0.19607843137254902" blue="0.25490196078431371" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="welcome1_top">
+            <color red="0.9137254901960784" green="0.9137254901960784" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
