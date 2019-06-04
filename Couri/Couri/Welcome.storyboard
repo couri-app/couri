@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TCL-Xn-lMW">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -24,7 +24,7 @@
             <objects>
                 <viewController storyboardIdentifier="welcome1" id="YBO-ea-3ey" customClass="ViewController" customModule="Couri" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bin-aJ-y2t">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FAZ-Y9-ZFD">
@@ -35,23 +35,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jiY-gI-AJL">
-                                <rect key="frame" x="59" y="274.5" width="296" height="347"/>
+                                <rect key="frame" x="59.333333333333343" y="194.66666666666666" width="295.66666666666663" height="346.66666666666674"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shop" translatesAutoresizingMaskIntoConstraints="NO" id="INc-3w-dbf">
-                                        <rect key="frame" x="48" y="0.0" width="200" height="200"/>
+                                        <rect key="frame" x="47.666666666666657" y="0.0" width="200" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="204-0H-epD"/>
                                             <constraint firstAttribute="height" constant="200" id="rUc-mC-b8e"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shop" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U9T-ww-oOY">
-                                        <rect key="frame" x="110.5" y="220" width="75" height="41"/>
+                                        <rect key="frame" x="110.33333333333331" y="220.00000000000003" width="75" height="40.999999999999972"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
                                         <color key="textColor" name="shopText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Get connected to a network of Couriers  near you who deliver from all of your  favorite restaurants." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OkJ-vi-83w">
-                                        <rect key="frame" x="0.0" y="281" width="296" height="66"/>
+                                        <rect key="frame" x="0.0" y="281" width="295.66666666666669" height="65.666666666666686"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                         <color key="textColor" name="shopDescription"/>
                                         <nil key="highlightedColor"/>
@@ -59,7 +59,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="switchOn" translatesAutoresizingMaskIntoConstraints="NO" id="816-eq-aPH">
-                                <rect key="frame" x="20" y="44" width="50" height="130"/>
+                                <rect key="frame" x="20" y="20" width="50" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="Izw-ef-NwA"/>
                                     <constraint firstAttribute="height" constant="130" id="plb-s5-WhK"/>
@@ -85,11 +85,11 @@
             <objects>
                 <viewController storyboardIdentifier="welcome3" id="acf-wP-vUw" customClass="ViewController" customModule="Couri" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hgU-oN-DKz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xbv-2L-CcH">
-                                <rect key="frame" x="57" y="672" width="300" height="130"/>
+                                <rect key="frame" x="57" y="546" width="300" height="130"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rla-SO-ekv">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
@@ -134,23 +134,23 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="4qY-Uq-ESQ">
-                                <rect key="frame" x="52" y="272" width="310.5" height="325"/>
+                                <rect key="frame" x="51.666666666666657" y="146" width="310.66666666666674" height="325"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rocket" translatesAutoresizingMaskIntoConstraints="NO" id="vo8-hL-nnp">
-                                        <rect key="frame" x="55" y="0.0" width="200" height="200"/>
+                                        <rect key="frame" x="55.333333333333343" y="0.0" width="200" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="dPU-St-W8b"/>
                                             <constraint firstAttribute="height" constant="200" id="g4P-XK-NV0"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's Get Started" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oX5-cM-PhR">
-                                        <rect key="frame" x="34.5" y="220" width="241" height="41"/>
+                                        <rect key="frame" x="35.000000000000014" y="220" width="240.66666666666669" height="41"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
                                         <color key="textColor" name="shopText"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It’s really that simple! Join the community  that begins one delivery at a time." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iAK-6d-upT">
-                                        <rect key="frame" x="0.0" y="281" width="310.5" height="44"/>
+                                        <rect key="frame" x="0.0" y="281" width="310.66666666666669" height="44"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                         <color key="textColor" name="shopDescription"/>
                                         <nil key="highlightedColor"/>
@@ -182,7 +182,7 @@
             <objects>
                 <viewController storyboardIdentifier="welcome2" id="IDr-72-MAj" customClass="ViewController" customModule="Couri" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WaD-Py-iEl">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iSE-nm-ahq">
@@ -193,23 +193,23 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="R2H-v5-ZFf">
-                                <rect key="frame" x="50.5" y="274.5" width="313.5" height="347"/>
+                                <rect key="frame" x="50.333333333333343" y="194.66666666666666" width="313.66666666666663" height="346.66666666666674"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="deliver" translatesAutoresizingMaskIntoConstraints="NO" id="0uA-PJ-kPq">
-                                        <rect key="frame" x="56.5" y="0.0" width="200" height="200"/>
+                                        <rect key="frame" x="56.666666666666657" y="0.0" width="199.99999999999997" height="200"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="200" id="Azf-7P-cUL"/>
                                             <constraint firstAttribute="width" constant="200" id="Fy4-CE-1vX"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deliver" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xj-yX-uqe">
-                                        <rect key="frame" x="103.5" y="220" width="106" height="41"/>
+                                        <rect key="frame" x="103.66666666666666" y="220.00000000000003" width="106" height="40.999999999999972"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fulfill orders and earn money! Simply turn  on the app when you’re at a restaurant  and deliver to people back home." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlH-AH-J8D">
-                                        <rect key="frame" x="0.0" y="281" width="313.5" height="66"/>
+                                        <rect key="frame" x="0.0" y="281" width="313.66666666666669" height="65.666666666666686"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -217,7 +217,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="switchOff" translatesAutoresizingMaskIntoConstraints="NO" id="5Xw-Rd-nSr">
-                                <rect key="frame" x="20" y="44" width="50" height="130"/>
+                                <rect key="frame" x="20" y="20" width="50" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="BWe-GX-qmy"/>
                                     <constraint firstAttribute="width" constant="50" id="WB0-yO-l85"/>

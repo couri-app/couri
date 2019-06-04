@@ -57,7 +57,7 @@ class PageViewController: UIPageViewController, UIPageViewControllerDelegate, UI
     
     // Returns a new UIStoryboard Object
     func newVC(viewController: String) -> UIViewController {
-        return UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: viewController)
+        return UIStoryboard(name: "Welcome", bundle: nil).instantiateViewController(withIdentifier: viewController)
     }
     
     // Gets the page before the current View
