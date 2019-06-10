@@ -47,9 +47,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //Restaurant UIView containing Restaurant Table View
     @IBOutlet weak var restaurantUIView: UIView!
     @IBOutlet weak var restaurantLabel: UILabel!
-    @IBAction func nextPage(_ sender: UIButton) {
-        performSegue(withIdentifier: "<#T##String#>", sender: <#T##Any?#>)
-    }
+    @IBOutlet weak var nextPageButton: UIButton!
     
     public var isOn = false
     
@@ -61,9 +59,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         view.layer.shadowOpacity = Float(CGFloat(opacity))
     }
     
+    //Created a function that adds shadows buttons for my own ease of use
+    func addShadowToButton(button: UIButton, opacity: Double, radius: Int) {
+        button.layer.shadowRadius = CGFloat(radius)
+        button.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowOpacity = Float(CGFloat(opacity))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Button to expaned Restaurant View
+        //Button to expanded Restaurant View
+        addShadowToButton(button: nextPageButton, opacity: 0.1, radius: 8)
         
         //Restaurant UIView Aesthetics
         restaurantUIView.layer.cornerRadius = 20

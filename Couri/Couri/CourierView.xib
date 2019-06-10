@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CourierView" customModule="Couri" customModuleProvider="target">
+            <connections>
+                <outlet property="courierBackground" destination="mVb-W8-yWb" id="Xf1-YZ-XKD"/>
+                <outlet property="courierImage" destination="T2n-4f-VJD" id="14h-48-Pmq"/>
+                <outlet property="courierName" destination="qRU-6w-Lyh" id="JfW-Uf-3Nq"/>
+                <outlet property="courierView" destination="PN2-C8-JmC" id="L0l-IO-DRk"/>
+                <outlet property="deliveriesMade" destination="Ki6-xb-sqr" id="tBO-hh-KyG"/>
+                <outlet property="selectCourierButton" destination="MZT-sG-ALU" id="7k2-cn-wXH"/>
+                <outlet property="timeAway" destination="Jov-Tx-lL1" id="I9R-jK-0JI"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="PN2-C8-JmC" userLabel="CourierView">
+            <rect key="frame" x="0.0" y="0.0" width="329" height="78"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="LZq-b3-9Qk">
+                    <rect key="frame" x="60" y="18.5" width="116" height="41"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JESS C." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qRU-6w-Lyh">
+                            <rect key="frame" x="0.0" y="0.0" width="116" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="24" id="V4l-R5-0v5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QFZ-21-JVm">
+                            <rect key="frame" x="0.0" y="26" width="116" height="15"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(28)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ki6-xb-sqr">
+                                    <rect key="frame" x="94.5" y="0.5" width="21.5" height="16.5"/>
+                                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="stars" translatesAutoresizingMaskIntoConstraints="NO" id="Nsb-1s-rkQ">
+                                    <rect key="frame" x="0.0" y="2" width="86" height="13"/>
+                                </imageView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="Ki6-xb-sqr" secondAttribute="trailing" id="1bI-pn-AOr"/>
+                                <constraint firstItem="Nsb-1s-rkQ" firstAttribute="top" secondItem="QFZ-21-JVm" secondAttribute="top" constant="2" id="BjJ-gr-Pk4"/>
+                                <constraint firstAttribute="height" constant="15" id="Cwa-eu-7kc"/>
+                                <constraint firstItem="Nsb-1s-rkQ" firstAttribute="centerY" secondItem="Ki6-xb-sqr" secondAttribute="centerY" id="TsP-B6-RWF"/>
+                                <constraint firstItem="Nsb-1s-rkQ" firstAttribute="leading" secondItem="QFZ-21-JVm" secondAttribute="leading" id="mCK-34-CmV"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="Suu-E1-tIV">
+                    <rect key="frame" x="206" y="9.5" width="32.5" height="59"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jov-Tx-lL1">
+                            <rect key="frame" x="0.0" y="0.0" width="32.5" height="34.5"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="25"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNQ-sp-chB">
+                            <rect key="frame" x="2.5" y="24.5" width="27.5" height="34.5"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="16"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MZT-sG-ALU">
+                    <rect key="frame" x="268.5" y="14" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="SVn-O0-VxL"/>
+                        <constraint firstAttribute="height" constant="50" id="bUf-aU-sUc"/>
+                    </constraints>
+                    <state key="normal" image="forward"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mVb-W8-yWb">
+                    <rect key="frame" x="12" y="19" width="40" height="40"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Jess Icon" translatesAutoresizingMaskIntoConstraints="NO" id="T2n-4f-VJD">
+                            <rect key="frame" x="-5" y="0.0" width="50" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Ikr-m5-0ft"/>
+                                <constraint firstAttribute="width" constant="50" id="ffA-TS-I52"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.99786144495010376" green="0.54936987161636353" blue="0.54900842905044556" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="a6y-3P-NiU"/>
+                        <constraint firstItem="T2n-4f-VJD" firstAttribute="centerX" secondItem="mVb-W8-yWb" secondAttribute="centerX" id="fvl-yj-Tb0"/>
+                        <constraint firstItem="T2n-4f-VJD" firstAttribute="centerY" secondItem="mVb-W8-yWb" secondAttribute="centerY" id="mFB-cU-9aW"/>
+                        <constraint firstAttribute="height" constant="40" id="wfV-hc-JPo"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="LZq-b3-9Qk" firstAttribute="leading" secondItem="mVb-W8-yWb" secondAttribute="trailing" constant="8" id="EDL-cg-xht"/>
+                <constraint firstItem="Suu-E1-tIV" firstAttribute="centerY" secondItem="PN2-C8-JmC" secondAttribute="centerY" id="OXG-TZ-j8p"/>
+                <constraint firstItem="mVb-W8-yWb" firstAttribute="centerY" secondItem="PN2-C8-JmC" secondAttribute="centerY" id="fl2-ib-ogK"/>
+                <constraint firstItem="LZq-b3-9Qk" firstAttribute="centerY" secondItem="PN2-C8-JmC" secondAttribute="centerY" id="k1l-nu-oeq"/>
+                <constraint firstItem="Suu-E1-tIV" firstAttribute="leading" secondItem="LZq-b3-9Qk" secondAttribute="trailing" constant="30" id="tAD-v8-lfH"/>
+                <constraint firstAttribute="trailing" secondItem="MZT-sG-ALU" secondAttribute="trailing" constant="10.5" id="vxE-QL-2ph"/>
+                <constraint firstItem="MZT-sG-ALU" firstAttribute="centerY" secondItem="PN2-C8-JmC" secondAttribute="centerY" id="wO6-Gf-zPE"/>
+                <constraint firstItem="MZT-sG-ALU" firstAttribute="leading" secondItem="Suu-E1-tIV" secondAttribute="trailing" constant="30" id="xWO-06-oGv"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-252.89855072463769" y="-417.1875"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Jess Icon" width="528" height="560"/>
+        <image name="forward" width="94" height="94"/>
+        <image name="stars" width="86" height="13"/>
+    </resources>
+</document>
