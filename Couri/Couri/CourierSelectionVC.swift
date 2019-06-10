@@ -6,4 +6,9 @@
 //  Copyright © 2019 Couri. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+// Unique class for courier selection cell in tableview
+class CourierCell: UITableViewCell {
+    @IBOutlet weak var courierView: CourierView!
+}
