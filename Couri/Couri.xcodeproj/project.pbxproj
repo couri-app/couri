@@ -23,6 +23,7 @@
 		8B9A9C1B22AC8315009E6990 /* RestaurantView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B9A9C1922AC8314009E6990 /* RestaurantView.xib */; };
 		8BBE199E22ACCD80000F5336 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBE199D22ACCD7F000F5336 /* RestaurantViewController.swift */; };
 		8BCD7F0322AECCE400C7E0E1 /* CourierView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BCD7F0222AECCE400C7E0E1 /* CourierView.storyboard */; };
+		8BCD7F0522AED3AE00C7E0E1 /* CourierSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		8B9A9C1922AC8314009E6990 /* RestaurantView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RestaurantView.xib; path = "../../../../Library/Autosave Information/Testing/Couri Tests/Couri Tests/RestaurantView.xib"; sourceTree = "<group>"; };
 		8BBE199D22ACCD7F000F5336 /* RestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantViewController.swift; path = "../../../../Library/Autosave Information/Testing/Couri Tests/Couri Tests/RestaurantViewController.swift"; sourceTree = "<group>"; };
 		8BCD7F0222AECCE400C7E0E1 /* CourierView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CourierView.storyboard; sourceTree = "<group>"; };
+		8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourierSelectionVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			children = (
 				8B0FB20B22AE20BB00B6D740 /* CourierView.xib */,
 				8BCD7F0222AECCE400C7E0E1 /* CourierView.storyboard */,
+				8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */,
 				8B0FB20D22AE216900B6D740 /* CourierView.swift */,
 				8B9A9C1822AC8314009E6990 /* RestaurantView.swift */,
 				8BBE199D22ACCD7F000F5336 /* RestaurantViewController.swift */,
@@ -290,6 +293,7 @@
 				3C78797B229E699400F058FE /* PageViewController.swift in Sources */,
 				8B0FB20E22AE216900B6D740 /* CourierView.swift in Sources */,
 				8BBE199E22ACCD80000F5336 /* RestaurantViewController.swift in Sources */,
+				8BCD7F0522AED3AE00C7E0E1 /* CourierSelectionVC.swift in Sources */,
 				3C787947229E321B00F058FE /* ViewController.swift in Sources */,
 				3C78798322A10BED00F058FE /* DownAnimation.swift in Sources */,
 				8B9A9C1A22AC8315009E6990 /* RestaurantView.swift in Sources */,
