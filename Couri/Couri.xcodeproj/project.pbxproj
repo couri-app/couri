@@ -17,6 +17,10 @@
 		3C78797B229E699400F058FE /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C78797A229E699400F058FE /* PageViewController.swift */; };
 		3C78797D22A0D99F00F058FE /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C78797C22A0D99F00F058FE /* Welcome.storyboard */; };
 		3C78798322A10BED00F058FE /* DownAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C78798222A10BED00F058FE /* DownAnimation.swift */; };
+		8B9A9C1A22AC8315009E6990 /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A9C1822AC8314009E6990 /* RestaurantView.swift */; };
+		8B9A9C1B22AC8315009E6990 /* RestaurantView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B9A9C1922AC8314009E6990 /* RestaurantView.xib */; };
+		8BBE199E22ACCD80000F5336 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BBE199D22ACCD7F000F5336 /* RestaurantViewController.swift */; };
+		8BBE19A122ACCD96000F5336 /* Restaurant.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BBE199F22ACCD96000F5336 /* Restaurant.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		3C78797A229E699400F058FE /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		3C78797C22A0D99F00F058FE /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		3C78798222A10BED00F058FE /* DownAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownAnimation.swift; sourceTree = "<group>"; };
+		8B9A9C1822AC8314009E6990 /* RestaurantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantView.swift; path = "../../../../Library/Autosave Information/Testing/Couri Tests/Couri Tests/RestaurantView.swift"; sourceTree = "<group>"; };
+		8B9A9C1922AC8314009E6990 /* RestaurantView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RestaurantView.xib; path = "../../../../Library/Autosave Information/Testing/Couri Tests/Couri Tests/RestaurantView.xib"; sourceTree = "<group>"; };
+		8BBE199D22ACCD7F000F5336 /* RestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantViewController.swift; path = "../../../../Library/Autosave Information/Testing/Couri Tests/Couri Tests/RestaurantViewController.swift"; sourceTree = "<group>"; };
+		8BBE19A022ACCD96000F5336 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../../../Library/Autosave Information/Testing/Couri Tests/Couri Tests/Base.lproj/Restaurant.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,10 @@
 		3C787943229E321B00F058FE /* Couri */ = {
 			isa = PBXGroup;
 			children = (
+				8B9A9C1822AC8314009E6990 /* RestaurantView.swift */,
+				8BBE199D22ACCD7F000F5336 /* RestaurantViewController.swift */,
+				8BBE199F22ACCD96000F5336 /* Restaurant.storyboard */,
+				8B9A9C1922AC8314009E6990 /* RestaurantView.xib */,
 				3C787944229E321B00F058FE /* AppDelegate.swift */,
 				3C787946229E321B00F058FE /* ViewController.swift */,
 				3C787948229E321B00F058FE /* Main.storyboard */,
@@ -240,8 +252,10 @@
 			files = (
 				3C78794F229E321C00F058FE /* LaunchScreen.storyboard in Resources */,
 				3C78797D22A0D99F00F058FE /* Welcome.storyboard in Resources */,
+				8BBE19A122ACCD96000F5336 /* Restaurant.storyboard in Resources */,
 				3C78794C229E321C00F058FE /* Assets.xcassets in Resources */,
 				3C78794A229E321B00F058FE /* Main.storyboard in Resources */,
+				8B9A9C1B22AC8315009E6990 /* RestaurantView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,8 +281,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C78797B229E699400F058FE /* PageViewController.swift in Sources */,
+				8BBE199E22ACCD80000F5336 /* RestaurantViewController.swift in Sources */,
 				3C787947229E321B00F058FE /* ViewController.swift in Sources */,
 				3C78798322A10BED00F058FE /* DownAnimation.swift in Sources */,
+				8B9A9C1A22AC8315009E6990 /* RestaurantView.swift in Sources */,
 				3C787945229E321B00F058FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -319,6 +335,14 @@
 				3C78794E229E321C00F058FE /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		8BBE199F22ACCD96000F5336 /* Restaurant.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BBE19A022ACCD96000F5336 /* Base */,
+			);
+			name = Restaurant.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
