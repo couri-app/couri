@@ -16,13 +16,13 @@
 		3C787965229E321D00F058FE /* CouriUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C787964229E321D00F058FE /* CouriUITests.swift */; };
 		3C78797B229E699400F058FE /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C78797A229E699400F058FE /* PageViewController.swift */; };
 		3C78797D22A0D99F00F058FE /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C78797C22A0D99F00F058FE /* Welcome.storyboard */; };
-		3C78798322A10BED00F058FE /* DownAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C78798222A10BED00F058FE /* DownAnimation.swift */; };
 		3CFB92D822AEE30200E6C990 /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB92D522AEE30200E6C990 /* RestaurantView.swift */; };
 		3CFB92D922AEE30200E6C990 /* RestaurantView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CFB92D622AEE30200E6C990 /* RestaurantView.xib */; };
 		3CFB92DA22AEE30200E6C990 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */; };
 		8B0FB20C22AE20BB00B6D740 /* CourierView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B0FB20B22AE20BB00B6D740 /* CourierView.xib */; };
 		8B0FB20E22AE216900B6D740 /* CourierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0FB20D22AE216900B6D740 /* CourierView.swift */; };
 		8BCD7F0522AED3AE00C7E0E1 /* CourierSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */; };
+		8BCD7F2F22B00BAD00C7E0E1 /* SidebarLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F2E22B00BAD00C7E0E1 /* SidebarLauncher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,15 +56,15 @@
 		3C787960229E321D00F058FE /* CouriUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CouriUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C787964229E321D00F058FE /* CouriUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouriUITests.swift; sourceTree = "<group>"; };
 		3C787966229E321D00F058FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3C78797A229E699400F058FE /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
-		3C78797C22A0D99F00F058FE /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
-		3C78798222A10BED00F058FE /* DownAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownAnimation.swift; sourceTree = "<group>"; };
-		3CFB92D522AEE30200E6C990 /* RestaurantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
-		3CFB92D622AEE30200E6C990 /* RestaurantView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantView.xib; sourceTree = "<group>"; };
-		3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
-		8B0FB20B22AE20BB00B6D740 /* CourierView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourierView.xib; sourceTree = "<group>"; };
-		8B0FB20D22AE216900B6D740 /* CourierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourierView.swift; sourceTree = "<group>"; };
-		8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourierSelectionVC.swift; sourceTree = "<group>"; };
+		3C78797A229E699400F058FE /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PageViewController.swift; path = ../PageViewController.swift; sourceTree = "<group>"; };
+		3C78797C22A0D99F00F058FE /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Welcome.storyboard; path = ../Welcome.storyboard; sourceTree = "<group>"; };
+		3CFB92D522AEE30200E6C990 /* RestaurantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantView.swift; path = ../RestaurantView.swift; sourceTree = "<group>"; };
+		3CFB92D622AEE30200E6C990 /* RestaurantView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RestaurantView.xib; path = ../RestaurantView.xib; sourceTree = "<group>"; };
+		3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantViewController.swift; path = ../RestaurantViewController.swift; sourceTree = "<group>"; };
+		8B0FB20B22AE20BB00B6D740 /* CourierView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CourierView.xib; path = ../CourierView.xib; sourceTree = "<group>"; };
+		8B0FB20D22AE216900B6D740 /* CourierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CourierView.swift; path = ../CourierView.swift; sourceTree = "<group>"; };
+		8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CourierSelectionVC.swift; path = ../CourierSelectionVC.swift; sourceTree = "<group>"; };
+		8BCD7F2E22B00BAD00C7E0E1 /* SidebarLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarLauncher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,21 +115,16 @@
 		3C787943229E321B00F058FE /* Couri */ = {
 			isa = PBXGroup;
 			children = (
-				3CFB92D522AEE30200E6C990 /* RestaurantView.swift */,
-				3CFB92D622AEE30200E6C990 /* RestaurantView.xib */,
-				3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */,
-				8B0FB20B22AE20BB00B6D740 /* CourierView.xib */,
-				8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */,
-				8B0FB20D22AE216900B6D740 /* CourierView.swift */,
+				8BCD7F2D22B009E600C7E0E1 /* Profile */,
+				8BCD7F3022B00C9900C7E0E1 /* Restaurant Picker */,
+				8BCD7F3122B00D8100C7E0E1 /* Courier Picker */,
+				8BCD7F3222B00E5E00C7E0E1 /* Welcome Pages */,
 				3C787944229E321B00F058FE /* AppDelegate.swift */,
 				3C787946229E321B00F058FE /* ViewController.swift */,
 				3C787948229E321B00F058FE /* Main.storyboard */,
-				3C78794B229E321C00F058FE /* Assets.xcassets */,
 				3C78794D229E321C00F058FE /* LaunchScreen.storyboard */,
 				3C787950229E321C00F058FE /* Info.plist */,
-				3C78797A229E699400F058FE /* PageViewController.swift */,
-				3C78797C22A0D99F00F058FE /* Welcome.storyboard */,
-				3C78798222A10BED00F058FE /* DownAnimation.swift */,
+				3C78794B229E321C00F058FE /* Assets.xcassets */,
 			);
 			path = Couri;
 			sourceTree = "<group>";
@@ -150,6 +145,43 @@
 				3C787966229E321D00F058FE /* Info.plist */,
 			);
 			path = CouriUITests;
+			sourceTree = "<group>";
+		};
+		8BCD7F2D22B009E600C7E0E1 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				8BCD7F2E22B00BAD00C7E0E1 /* SidebarLauncher.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		8BCD7F3022B00C9900C7E0E1 /* Restaurant Picker */ = {
+			isa = PBXGroup;
+			children = (
+				3CFB92D522AEE30200E6C990 /* RestaurantView.swift */,
+				3CFB92D622AEE30200E6C990 /* RestaurantView.xib */,
+				3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */,
+			);
+			path = "Restaurant Picker";
+			sourceTree = "<group>";
+		};
+		8BCD7F3122B00D8100C7E0E1 /* Courier Picker */ = {
+			isa = PBXGroup;
+			children = (
+				8B0FB20B22AE20BB00B6D740 /* CourierView.xib */,
+				8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */,
+				8B0FB20D22AE216900B6D740 /* CourierView.swift */,
+			);
+			path = "Courier Picker";
+			sourceTree = "<group>";
+		};
+		8BCD7F3222B00E5E00C7E0E1 /* Welcome Pages */ = {
+			isa = PBXGroup;
+			children = (
+				3C78797A229E699400F058FE /* PageViewController.swift */,
+				3C78797C22A0D99F00F058FE /* Welcome.storyboard */,
+			);
+			path = "Welcome Pages";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -292,7 +324,7 @@
 				8BCD7F0522AED3AE00C7E0E1 /* CourierSelectionVC.swift in Sources */,
 				3C787947229E321B00F058FE /* ViewController.swift in Sources */,
 				3CFB92D822AEE30200E6C990 /* RestaurantView.swift in Sources */,
-				3C78798322A10BED00F058FE /* DownAnimation.swift in Sources */,
+				8BCD7F2F22B00BAD00C7E0E1 /* SidebarLauncher.swift in Sources */,
 				3C787945229E321B00F058FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
