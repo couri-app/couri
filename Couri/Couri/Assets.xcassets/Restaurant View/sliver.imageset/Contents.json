@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "sliver.jpg",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "sliver.jpg",
       "scale" : "2x"
     },
     {
