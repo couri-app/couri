@@ -12,10 +12,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Courier Selection View Controller-->
         <scene sceneID="bzN-Qi-OdJ">
             <objects>
-                <viewController id="7Sn-pM-aub" sceneMemberID="viewController">
+                <viewController id="7Sn-pM-aub" customClass="CourierSelectionViewController" customModule="Couri" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xnh-Fq-H6i">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -202,7 +202,7 @@
                                         <rect key="frame" x="8" y="74.5" width="382" height="414.5"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="89" id="beE-ob-KSN">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CourierCell" rowHeight="89" id="beE-ob-KSN" customClass="CourierCell" customModule="Couri" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="382" height="89"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="beE-ob-KSN" id="Iwm-sq-Dr5">
@@ -224,8 +224,15 @@
                                                         <constraint firstAttribute="bottom" secondItem="p5X-Qp-7ku" secondAttribute="bottom" id="tcO-45-MdM"/>
                                                     </constraints>
                                                 </tableViewCellContentView>
+                                                <connections>
+                                                    <outlet property="courierView" destination="p5X-Qp-7ku" id="BB8-Pd-uT9"/>
+                                                </connections>
                                             </tableViewCell>
                                         </prototypes>
+                                        <connections>
+                                            <outlet property="dataSource" destination="7Sn-pM-aub" id="l4y-D3-R8N"/>
+                                            <outlet property="delegate" destination="7Sn-pM-aub" id="8LO-L4-vRs"/>
+                                        </connections>
                                     </tableView>
                                 </subviews>
                                 <color key="backgroundColor" name="honeyYellow"/>
@@ -257,6 +264,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S8o-tr-Vfg"/>
                     </view>
+                    <connections>
+                        <outlet property="courierCircle" destination="Ffb-Z0-3eQ" id="UMv-yM-tC9"/>
+                        <outlet property="fillerView" destination="S3X-ee-uxI" id="zBe-fE-tqk"/>
+                        <outlet property="orderCircle" destination="UFc-Uf-yWh" id="Dzy-B8-Dz1"/>
+                        <outlet property="registerCircle" destination="ftX-da-eoH" id="Qow-F5-Uov"/>
+                        <outlet property="restaurantCircle" destination="nb0-mE-3Kc" id="hHl-Dv-eNO"/>
+                        <outlet property="titleLabel" destination="UwU-IM-U7n" id="pFi-pg-nhw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1zm-0a-pBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

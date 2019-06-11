@@ -48,7 +48,7 @@ class CourierView: UIView {
             courierName.text = courier.courierName
             courierBackground.layer.backgroundColor = courier.colorProfile
             courierBackground.layer.cornerRadius = courierBackground.frame.width/2
-            deliveriesMade.text = String(courier.deliveriesMade)
+            deliveriesMade.text = "(\(String(courier.deliveriesMade)))"
             courierImage.image = courier.courierImage
             timeAway.text = String(courier.timeAway)
             

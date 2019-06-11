@@ -68,6 +68,7 @@ class RestaurantView: UIView {
     }
 }
 
+
 // Extension entirely made up of aesthetic touch-up methods
 extension RestaurantView {
     
@@ -90,10 +91,10 @@ extension RestaurantView {
     
     // Gives shadow to argument: UIView
     func addShadowObject(object: UIView) {
-        object.layer.shadowRadius = 6
+        object.layer.shadowRadius = 8
         object.layer.shadowColor = #colorLiteral(red: 0.07881314767, green: 0.07881314767, blue: 0.07881314767, alpha: 1)
         object.layer.shadowOffset = CGSize(width: 0, height: 0)
-        object.layer.shadowOpacity = 0.2
+        object.layer.shadowOpacity = 0.1
         object.layer.shadowRadius = 4
     }
     

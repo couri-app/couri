@@ -33,7 +33,7 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="24" id="V4l-R5-0v5"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="25"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -53,10 +53,11 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="Ki6-xb-sqr" secondAttribute="trailing" id="1bI-pn-AOr"/>
-                                <constraint firstItem="Nsb-1s-rkQ" firstAttribute="top" secondItem="QFZ-21-JVm" secondAttribute="top" constant="2" id="BjJ-gr-Pk4"/>
                                 <constraint firstAttribute="height" constant="15" id="Cwa-eu-7kc"/>
                                 <constraint firstItem="Nsb-1s-rkQ" firstAttribute="centerY" secondItem="Ki6-xb-sqr" secondAttribute="centerY" id="TsP-B6-RWF"/>
+                                <constraint firstItem="Ki6-xb-sqr" firstAttribute="leading" secondItem="Nsb-1s-rkQ" secondAttribute="trailing" constant="8.5" id="dC7-Dw-DBK"/>
                                 <constraint firstItem="Nsb-1s-rkQ" firstAttribute="leading" secondItem="QFZ-21-JVm" secondAttribute="leading" id="mCK-34-CmV"/>
+                                <constraint firstAttribute="bottom" secondItem="Nsb-1s-rkQ" secondAttribute="bottom" id="uqJ-Yn-Pza"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -108,11 +109,12 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstItem="mVb-W8-yWb" firstAttribute="leading" secondItem="PN2-C8-JmC" secondAttribute="leading" constant="12" id="72V-MC-Pf2"/>
                 <constraint firstItem="LZq-b3-9Qk" firstAttribute="leading" secondItem="mVb-W8-yWb" secondAttribute="trailing" constant="8" id="EDL-cg-xht"/>
                 <constraint firstItem="Suu-E1-tIV" firstAttribute="centerY" secondItem="PN2-C8-JmC" secondAttribute="centerY" id="OXG-TZ-j8p"/>
                 <constraint firstItem="mVb-W8-yWb" firstAttribute="centerY" secondItem="PN2-C8-JmC" secondAttribute="centerY" id="fl2-ib-ogK"/>
+                <constraint firstItem="Suu-E1-tIV" firstAttribute="leading" secondItem="PN2-C8-JmC" secondAttribute="leading" constant="206" id="gHe-1U-IFg"/>
                 <constraint firstItem="LZq-b3-9Qk" firstAttribute="centerY" secondItem="PN2-C8-JmC" secondAttribute="centerY" id="k1l-nu-oeq"/>
-                <constraint firstItem="Suu-E1-tIV" firstAttribute="leading" secondItem="LZq-b3-9Qk" secondAttribute="trailing" constant="30" id="tAD-v8-lfH"/>
                 <constraint firstAttribute="trailing" secondItem="MZT-sG-ALU" secondAttribute="trailing" constant="10.5" id="vxE-QL-2ph"/>
                 <constraint firstItem="MZT-sG-ALU" firstAttribute="centerY" secondItem="PN2-C8-JmC" secondAttribute="centerY" id="wO6-Gf-zPE"/>
                 <constraint firstItem="MZT-sG-ALU" firstAttribute="leading" secondItem="Suu-E1-tIV" secondAttribute="trailing" constant="30" id="xWO-06-oGv"/>
