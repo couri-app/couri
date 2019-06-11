@@ -121,6 +121,6 @@
         </view>
     </objects>
     <resources>
-        <image name="cupcakin" width="1000" height="667"/>
+        <image name="cupcakin" width="500" height="333.5"/>
     </resources>
 </document>

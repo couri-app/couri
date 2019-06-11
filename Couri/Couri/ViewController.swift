@@ -69,6 +69,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         //Button to expanded Restaurant View
         addShadowToButton(button: nextPageButton, opacity: 0.1, radius: 8)
         
@@ -89,7 +91,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             view?.layer.cornerRadius = (view?.frame.width)!/2
         }
 
-        
         //Aesthetic settings upon start for various buttons
         button.layer.shadowColor = #colorLiteral(red: 0.07881314767, green: 0.07881314767, blue: 0.07881314767, alpha: 1)
         button.layer.shadowRadius = 8
