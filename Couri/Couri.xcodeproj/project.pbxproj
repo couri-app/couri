@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,12 +17,16 @@
 		3C78797D22A0D99F00F058FE /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C78797C22A0D99F00F058FE /* Welcome.storyboard */; };
 		3CFB92D922AEE30200E6C990 /* RestaurantView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CFB92D622AEE30200E6C990 /* RestaurantView.xib */; };
 		3CFB92DA22AEE30200E6C990 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */; };
+		526850E2722E684583ED9580 /* Pods_CouriUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA9DD7B480463C9FB1751D51 /* Pods_CouriUITests.framework */; };
+		582622AB6D472461D59E8929 /* Pods_CouriTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18908BF8A4D970B22B71842D /* Pods_CouriTests.framework */; };
 		8B0FB20C22AE20BB00B6D740 /* CourierView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B0FB20B22AE20BB00B6D740 /* CourierView.xib */; };
 		8B0FB20E22AE216900B6D740 /* CourierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0FB20D22AE216900B6D740 /* CourierView.swift */; };
 		8BCD7F0522AED3AE00C7E0E1 /* CourierSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */; };
 		8BCD7F2F22B00BAD00C7E0E1 /* SidebarLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F2E22B00BAD00C7E0E1 /* SidebarLauncher.swift */; };
+		EB9B9D149303AEF7096386D7 /* Pods_Couri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE28A22C17985251CA214297 /* Pods_Couri.framework */; };
 		F919076D22B1719E00E690C4 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919076C22B1719E00E690C4 /* PageViewController.swift */; };
 		F919076F22B171CC00E690C4 /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919076E22B171CB00E690C4 /* RestaurantView.swift */; };
+		F919077122B180E700E690C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F919077022B180E700E690C4 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18908BF8A4D970B22B71842D /* Pods_CouriTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CouriTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		303B5B6E5B3AED5CD6A8FDE4 /* Pods-CouriTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CouriTests.debug.xcconfig"; path = "Target Support Files/Pods-CouriTests/Pods-CouriTests.debug.xcconfig"; sourceTree = "<group>"; };
+		33BEAF165539506CCB785ACD /* Pods-CouriUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CouriUITests.debug.xcconfig"; path = "Target Support Files/Pods-CouriUITests/Pods-CouriUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		356A43806A033D5A429341F1 /* Pods-Couri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Couri.debug.xcconfig"; path = "Target Support Files/Pods-Couri/Pods-Couri.debug.xcconfig"; sourceTree = "<group>"; };
 		3C787941229E321B00F058FE /* Couri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Couri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C787944229E321B00F058FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C787946229E321B00F058FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,8 +71,14 @@
 		8B0FB20D22AE216900B6D740 /* CourierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CourierView.swift; path = "../Courier PIcker/CourierView.swift"; sourceTree = "<group>"; };
 		8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CourierSelectionVC.swift; path = "../Courier PIcker/CourierSelectionVC.swift"; sourceTree = "<group>"; };
 		8BCD7F2E22B00BAD00C7E0E1 /* SidebarLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarLauncher.swift; sourceTree = "<group>"; };
+		A0B7030D582CB18E3FF9702E /* Pods-CouriTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CouriTests.release.xcconfig"; path = "Target Support Files/Pods-CouriTests/Pods-CouriTests.release.xcconfig"; sourceTree = "<group>"; };
+		D2A1587CF9A80E5DAE8DDCB6 /* Pods-Couri.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Couri.release.xcconfig"; path = "Target Support Files/Pods-Couri/Pods-Couri.release.xcconfig"; sourceTree = "<group>"; };
+		D61527D565159EB33C330C81 /* Pods-CouriUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CouriUITests.release.xcconfig"; path = "Target Support Files/Pods-CouriUITests/Pods-CouriUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DE28A22C17985251CA214297 /* Pods_Couri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Couri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F919076C22B1719E00E690C4 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		F919076E22B171CB00E690C4 /* RestaurantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
+		F919077022B180E700E690C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA9DD7B480463C9FB1751D51 /* Pods_CouriUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CouriUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB9B9D149303AEF7096386D7 /* Pods_Couri.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				582622AB6D472461D59E8929 /* Pods_CouriTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,12 +102,23 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				526850E2722E684583ED9580 /* Pods_CouriUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		195CE31A0549D94705A22475 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE28A22C17985251CA214297 /* Pods_Couri.framework */,
+				18908BF8A4D970B22B71842D /* Pods_CouriTests.framework */,
+				FA9DD7B480463C9FB1751D51 /* Pods_CouriUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		3C787938229E321B00F058FE = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +126,8 @@
 				3C787958229E321D00F058FE /* CouriTests */,
 				3C787963229E321D00F058FE /* CouriUITests */,
 				3C787942229E321B00F058FE /* Products */,
+				FEC87D3FE70B5E4F3793D049 /* Pods */,
+				195CE31A0549D94705A22475 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +153,7 @@
 				3C787948229E321B00F058FE /* Main.storyboard */,
 				3C78794D229E321C00F058FE /* LaunchScreen.storyboard */,
 				3C787950229E321C00F058FE /* Info.plist */,
+				F919077022B180E700E690C4 /* GoogleService-Info.plist */,
 				3C78794B229E321C00F058FE /* Assets.xcassets */,
 			);
 			path = Couri;
@@ -184,6 +214,19 @@
 			path = "Welcome Pages";
 			sourceTree = "<group>";
 		};
+		FEC87D3FE70B5E4F3793D049 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				356A43806A033D5A429341F1 /* Pods-Couri.debug.xcconfig */,
+				D2A1587CF9A80E5DAE8DDCB6 /* Pods-Couri.release.xcconfig */,
+				303B5B6E5B3AED5CD6A8FDE4 /* Pods-CouriTests.debug.xcconfig */,
+				A0B7030D582CB18E3FF9702E /* Pods-CouriTests.release.xcconfig */,
+				33BEAF165539506CCB785ACD /* Pods-CouriUITests.debug.xcconfig */,
+				D61527D565159EB33C330C81 /* Pods-CouriUITests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -191,9 +234,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C787969229E321D00F058FE /* Build configuration list for PBXNativeTarget "Couri" */;
 			buildPhases = (
+				EFDC05C383B54762AC1121C8 /* [CP] Check Pods Manifest.lock */,
 				3C78793D229E321B00F058FE /* Sources */,
 				3C78793E229E321B00F058FE /* Frameworks */,
 				3C78793F229E321B00F058FE /* Resources */,
+				EB8DBFC3475422FFB2B5A2FC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -208,6 +253,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C78796C229E321D00F058FE /* Build configuration list for PBXNativeTarget "CouriTests" */;
 			buildPhases = (
+				0183612D8C8B046CC4B71B7F /* [CP] Check Pods Manifest.lock */,
 				3C787951229E321D00F058FE /* Sources */,
 				3C787952229E321D00F058FE /* Frameworks */,
 				3C787953229E321D00F058FE /* Resources */,
@@ -226,6 +272,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3C78796F229E321D00F058FE /* Build configuration list for PBXNativeTarget "CouriUITests" */;
 			buildPhases = (
+				59CD6EF84E2BD6E1A241B368 /* [CP] Check Pods Manifest.lock */,
 				3C78795C229E321D00F058FE /* Sources */,
 				3C78795D229E321D00F058FE /* Frameworks */,
 				3C78795E229E321D00F058FE /* Resources */,
@@ -294,6 +341,7 @@
 				3C78794A229E321B00F058FE /* Main.storyboard in Resources */,
 				8B0FB20C22AE20BB00B6D740 /* CourierView.xib in Resources */,
 				3CFB92D922AEE30200E6C990 /* RestaurantView.xib in Resources */,
+				F919077122B180E700E690C4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +360,92 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0183612D8C8B046CC4B71B7F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CouriTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		59CD6EF84E2BD6E1A241B368 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CouriUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EB8DBFC3475422FFB2B5A2FC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Couri/Pods-Couri-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Couri/Pods-Couri-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Couri/Pods-Couri-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EFDC05C383B54762AC1121C8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Couri-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3C78793D229E321B00F058FE /* Sources */ = {
@@ -498,6 +632,7 @@
 		};
 		3C78796A229E321D00F058FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 356A43806A033D5A429341F1 /* Pods-Couri.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -516,6 +651,7 @@
 		};
 		3C78796B229E321D00F058FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D2A1587CF9A80E5DAE8DDCB6 /* Pods-Couri.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -534,6 +670,7 @@
 		};
 		3C78796D229E321D00F058FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 303B5B6E5B3AED5CD6A8FDE4 /* Pods-CouriTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -555,6 +692,7 @@
 		};
 		3C78796E229E321D00F058FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A0B7030D582CB18E3FF9702E /* Pods-CouriTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -576,6 +714,7 @@
 		};
 		3C787970229E321D00F058FE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 33BEAF165539506CCB785ACD /* Pods-CouriUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -596,6 +735,7 @@
 		};
 		3C787971229E321D00F058FE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D61527D565159EB33C330C81 /* Pods-CouriUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

@@ -1,0 +1,6 @@
+framework module Pods_CouriUITests {
+  umbrella header "Pods-CouriUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
