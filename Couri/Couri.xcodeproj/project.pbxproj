@@ -14,15 +14,15 @@
 		3C78794F229E321C00F058FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C78794D229E321C00F058FE /* LaunchScreen.storyboard */; };
 		3C78795A229E321D00F058FE /* CouriTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C787959229E321D00F058FE /* CouriTests.swift */; };
 		3C787965229E321D00F058FE /* CouriUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C787964229E321D00F058FE /* CouriUITests.swift */; };
-		3C78797B229E699400F058FE /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C78797A229E699400F058FE /* PageViewController.swift */; };
 		3C78797D22A0D99F00F058FE /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C78797C22A0D99F00F058FE /* Welcome.storyboard */; };
-		3CFB92D822AEE30200E6C990 /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB92D522AEE30200E6C990 /* RestaurantView.swift */; };
 		3CFB92D922AEE30200E6C990 /* RestaurantView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3CFB92D622AEE30200E6C990 /* RestaurantView.xib */; };
 		3CFB92DA22AEE30200E6C990 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */; };
 		8B0FB20C22AE20BB00B6D740 /* CourierView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B0FB20B22AE20BB00B6D740 /* CourierView.xib */; };
 		8B0FB20E22AE216900B6D740 /* CourierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0FB20D22AE216900B6D740 /* CourierView.swift */; };
 		8BCD7F0522AED3AE00C7E0E1 /* CourierSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */; };
 		8BCD7F2F22B00BAD00C7E0E1 /* SidebarLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F2E22B00BAD00C7E0E1 /* SidebarLauncher.swift */; };
+		F919076D22B1719E00E690C4 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919076C22B1719E00E690C4 /* PageViewController.swift */; };
+		F919076F22B171CC00E690C4 /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919076E22B171CB00E690C4 /* RestaurantView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,15 +56,15 @@
 		3C787960229E321D00F058FE /* CouriUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CouriUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C787964229E321D00F058FE /* CouriUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouriUITests.swift; sourceTree = "<group>"; };
 		3C787966229E321D00F058FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3C78797A229E699400F058FE /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PageViewController.swift; path = ../PageViewController.swift; sourceTree = "<group>"; };
-		3C78797C22A0D99F00F058FE /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Welcome.storyboard; path = ../Welcome.storyboard; sourceTree = "<group>"; };
-		3CFB92D522AEE30200E6C990 /* RestaurantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantView.swift; path = ../RestaurantView.swift; sourceTree = "<group>"; };
-		3CFB92D622AEE30200E6C990 /* RestaurantView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RestaurantView.xib; path = ../RestaurantView.xib; sourceTree = "<group>"; };
-		3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantViewController.swift; path = ../RestaurantViewController.swift; sourceTree = "<group>"; };
-		8B0FB20B22AE20BB00B6D740 /* CourierView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CourierView.xib; path = ../CourierView.xib; sourceTree = "<group>"; };
-		8B0FB20D22AE216900B6D740 /* CourierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CourierView.swift; path = ../CourierView.swift; sourceTree = "<group>"; };
-		8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CourierSelectionVC.swift; path = ../CourierSelectionVC.swift; sourceTree = "<group>"; };
+		3C78797C22A0D99F00F058FE /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		3CFB92D622AEE30200E6C990 /* RestaurantView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantView.xib; sourceTree = "<group>"; };
+		3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
+		8B0FB20B22AE20BB00B6D740 /* CourierView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CourierView.xib; path = "../Courier PIcker/CourierView.xib"; sourceTree = "<group>"; };
+		8B0FB20D22AE216900B6D740 /* CourierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CourierView.swift; path = "../Courier PIcker/CourierView.swift"; sourceTree = "<group>"; };
+		8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CourierSelectionVC.swift; path = "../Courier PIcker/CourierSelectionVC.swift"; sourceTree = "<group>"; };
 		8BCD7F2E22B00BAD00C7E0E1 /* SidebarLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarLauncher.swift; sourceTree = "<group>"; };
+		F919076C22B1719E00E690C4 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		F919076E22B171CB00E690C4 /* RestaurantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +158,7 @@
 		8BCD7F3022B00C9900C7E0E1 /* Restaurant Picker */ = {
 			isa = PBXGroup;
 			children = (
-				3CFB92D522AEE30200E6C990 /* RestaurantView.swift */,
+				F919076E22B171CB00E690C4 /* RestaurantView.swift */,
 				3CFB92D622AEE30200E6C990 /* RestaurantView.xib */,
 				3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */,
 			);
@@ -178,7 +178,7 @@
 		8BCD7F3222B00E5E00C7E0E1 /* Welcome Pages */ = {
 			isa = PBXGroup;
 			children = (
-				3C78797A229E699400F058FE /* PageViewController.swift */,
+				F919076C22B1719E00E690C4 /* PageViewController.swift */,
 				3C78797C22A0D99F00F058FE /* Welcome.storyboard */,
 			);
 			path = "Welcome Pages";
@@ -318,12 +318,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C78797B229E699400F058FE /* PageViewController.swift in Sources */,
 				3CFB92DA22AEE30200E6C990 /* RestaurantViewController.swift in Sources */,
 				8B0FB20E22AE216900B6D740 /* CourierView.swift in Sources */,
 				8BCD7F0522AED3AE00C7E0E1 /* CourierSelectionVC.swift in Sources */,
+				F919076F22B171CC00E690C4 /* RestaurantView.swift in Sources */,
 				3C787947229E321B00F058FE /* ViewController.swift in Sources */,
-				3CFB92D822AEE30200E6C990 /* RestaurantView.swift in Sources */,
+				F919076D22B1719E00E690C4 /* PageViewController.swift in Sources */,
 				8BCD7F2F22B00BAD00C7E0E1 /* SidebarLauncher.swift in Sources */,
 				3C787945229E321B00F058FE /* AppDelegate.swift in Sources */,
 			);
@@ -501,7 +501,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3VYWMVTZL4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Couri/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -519,7 +519,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3VYWMVTZL4;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Couri/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
