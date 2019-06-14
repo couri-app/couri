@@ -7,12 +7,19 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseUI
+import FirebaseAuth
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FUIAuthDelegate {
     weak var tableView: UITableView!
     
     var restaurantLibrary = RestaurantLibrary()
     
+    //Sets variables needed for authentication procedure, declared as fileprivate for setting only.
+    fileprivate(set) var auth:Auth?
+    fileprivate(set) var authUI: FUIAuth?
+    fileprivate(set) var authStateListenerHandle: AuthStateDidChangeListenerHandle?
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restaurantLibrary.restaurants.count
     }
@@ -70,6 +77,23 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Authentication code to set up UI, must be done before we get to any other part of the app
+        self.auth = Auth.auth()
+        self.authUI = FUIAuth.defaultAuthUI()
+        self.authUI?.delegate = self
+        
+        //This detects any changes in authentication, and if a change is detected then it will summon the authentication ui.
+        self.authStateListenerHandle = self.auth?.addStateDidChangeListener {
+            (auth, user) in guard user != nil else {
+                self.loginAction(sender: self)
+                return
+            }
+        }
+        let providers: [FUIAuthProvider] = [ FUIEmailAuth(), FUIGoogleAuth() ]
+        
+        //Sets the authUI providers as the providers listed above
+        self.authUI?.providers = providers
+        
         
         //Button to expanded Restaurant View
         addShadowToButton(button: nextPageButton, opacity: 0.1, radius: 8)
@@ -110,6 +134,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     
+    @IBAction func loginAction(sender: AnyObject) {
+        //Present the default login view controller provided by authUI
+        //**DAVID IF YOU WANT TO CHANGE THE AUTHUI TO DO YOUR THING, ITS HERE!!**
+        let authViewController = authUI?.authViewController()
+        self.present(authViewController!, animated: true, completion: nil)
+    }
     
     @IBAction func down(_ sender: UIButton) {
         if isOn {
