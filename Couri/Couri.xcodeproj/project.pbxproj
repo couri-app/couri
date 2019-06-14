@@ -26,7 +26,7 @@
 		EB9B9D149303AEF7096386D7 /* Pods_Couri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE28A22C17985251CA214297 /* Pods_Couri.framework */; };
 		F919076D22B1719E00E690C4 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919076C22B1719E00E690C4 /* PageViewController.swift */; };
 		F919076F22B171CC00E690C4 /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F919076E22B171CB00E690C4 /* RestaurantView.swift */; };
-		F919077122B180E700E690C4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F919077022B180E700E690C4 /* GoogleService-Info.plist */; };
+		F9B38D1822B435F500EF0437 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F9B38D1722B435F500EF0437 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,7 +77,7 @@
 		DE28A22C17985251CA214297 /* Pods_Couri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Couri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F919076C22B1719E00E690C4 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		F919076E22B171CB00E690C4 /* RestaurantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
-		F919077022B180E700E690C4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F9B38D1722B435F500EF0437 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FA9DD7B480463C9FB1751D51 /* Pods_CouriUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CouriUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -152,8 +152,8 @@
 				3C787946229E321B00F058FE /* ViewController.swift */,
 				3C787948229E321B00F058FE /* Main.storyboard */,
 				3C78794D229E321C00F058FE /* LaunchScreen.storyboard */,
+				F9B38D1722B435F500EF0437 /* GoogleService-Info.plist */,
 				3C787950229E321C00F058FE /* Info.plist */,
-				F919077022B180E700E690C4 /* GoogleService-Info.plist */,
 				3C78794B229E321C00F058FE /* Assets.xcassets */,
 			);
 			path = Couri;
@@ -339,10 +339,10 @@
 				3C78794F229E321C00F058FE /* LaunchScreen.storyboard in Resources */,
 				3C78797D22A0D99F00F058FE /* Welcome.storyboard in Resources */,
 				3C78794C229E321C00F058FE /* Assets.xcassets in Resources */,
+				F9B38D1822B435F500EF0437 /* GoogleService-Info.plist in Resources */,
 				3C78794A229E321B00F058FE /* Main.storyboard in Resources */,
 				8B0FB20C22AE20BB00B6D740 /* CourierView.xib in Resources */,
 				3CFB92D922AEE30200E6C990 /* RestaurantView.xib in Resources */,
-				F919077122B180E700E690C4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
