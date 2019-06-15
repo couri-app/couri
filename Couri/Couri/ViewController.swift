@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     fileprivate(set) var auth:Auth?
     fileprivate(set) var authUI: FUIAuth?
     fileprivate(set) var authStateListenerHandle: AuthStateDidChangeListenerHandle?
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restaurantLibrary.restaurants.count
     }
