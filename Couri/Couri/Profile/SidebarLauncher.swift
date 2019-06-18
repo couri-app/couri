@@ -36,7 +36,6 @@ class SidebarLauncher: UIView {
     func commonInit() {
         Bundle.main.loadNibNamed("Scrollview", owner: self, options: nil)
         self.addSubview(sidebarView)
-        
     }
     
     // Outlets
@@ -75,6 +74,7 @@ class SidebarLauncher: UIView {
             sidebarContainerView.layer.cornerRadius = 40
             sidebarContainerView.layer.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
             sidebarView.frame = CGRect(x: 0, y: 0, width: barWidth, height: window.frame.height)
+            sidebarView.contentSize = CGSize(width: barWidth, height: CGFloat(1000))
             
             blackView.frame = window.frame
             blackView.alpha = 0

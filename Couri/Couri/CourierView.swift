@@ -11,6 +11,8 @@ import UIKit
 
 // Restaurant class with the following parameters: number of couriers, name of restaurant, restaurant's categories, restaurant's description, front-page image for restaurant
 
+
+
 class CourierView: UIView {
     @IBOutlet var courierView: UIView!
     

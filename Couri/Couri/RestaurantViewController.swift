@@ -14,7 +14,7 @@ class RestaurantCell: UITableViewCell {
 }
 
 class RestaurantUIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     var restaurantLibrary = RestaurantLibrary()
     
     // Outlet connections for our UIView
@@ -55,13 +55,24 @@ extension RestaurantUIViewController {
         let currentRestaurant = restaurantLibrary.restaurants[indexPath.row]
         cell.restaurantView.restaurant = currentRestaurant
         cell.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "ShowRestaurantDetail", sender: self)
     }
     
     // Simply sets the height of each cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 370
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? RestaurantDetailViewController {
+            destination.restaurant = restaurantLibrary.restaurants[(tableView.indexPathForSelectedRow?.row)!]
+        }
     }
     
     // Aesthetic function for adding shadows to buttons

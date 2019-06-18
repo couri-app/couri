@@ -13,7 +13,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         performSegue(withIdentifier: "Transfer", sender: self)
     }
     
-    weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     var restaurantLibrary = RestaurantLibrary()
     
@@ -26,14 +26,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let currentRestaurant = restaurantLibrary.restaurants[indexPath.row]
         cell.restaurantView.restaurant = currentRestaurant
         cell.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "MainShowDetail", sender: self)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 350
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? RestaurantDetailViewController {
+            destination.restaurant = restaurantLibrary.restaurants[(tableView.indexPathForSelectedRow?.row)!]
+        }
+    }
 
     //Top layer buttons
     @IBOutlet weak var button: UIButton!
@@ -53,7 +63,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var restaurantLabel: UILabel!
     @IBOutlet weak var nextPageButton: UIButton!
     
-    public var isOn = false
+    public var isOn = true
     
     //Created a function that adds shadows the UIViews for my own ease of use
     func addShadowToView(view: UIView, opacity: Double, radius: Int) {
@@ -73,7 +83,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         //Button to expanded Restaurant View
         addShadowToButton(button: nextPageButton, opacity: 0.1, radius: 8)
@@ -96,24 +105,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
 
         //Aesthetic settings upon start for various buttons
-        button.layer.shadowColor = #colorLiteral(red: 0.07881314767, green: 0.07881314767, blue: 0.07881314767, alpha: 1)
-        button.layer.shadowRadius = 8
-        button.layer.shadowOpacity = 0.1
-        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        addShadowToButton(button: button, opacity: 0.2, radius: 3)
         
         //Aesthetics for shop upon initialization
         shopView.layer.cornerRadius = 20
         addShadowToView(view: shopView, opacity: 0.1, radius: 10)
-        descriptionLabel.text = "Enjoy deliveries from nearby Couriers"
-        descriptionLabel.font = UIFont(name: "AvenirNext-medium", size: 16)
         
         //Aesthetics for balance label
-        balanceLabel.font = UIFont(name: "AvenirNext-medium", size: 16)
         balanceLabel.layer.backgroundColor = #colorLiteral(red: 1, green: 0.8901960784, blue: 0.5490196078, alpha: 1)
         balanceLabel.layer.cornerRadius = 4
+        balanceLabel.numberOfLines = 0
         
         sidebarLauncher.delegate = self
-
     }
 
     @IBAction func down(_ sender: UIButton) {
@@ -126,7 +129,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             titleLabel.textColor = #colorLiteral(red: 1, green: 0.8901960784, blue: 0.5490196078, alpha: 1)
             shopView.backgroundColor = #colorLiteral(red: 0.1764705882, green: 0.1921568627, blue: 0.2549019608, alpha: 1)
             descriptionLabel.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-            descriptionLabel.text = "Deliver to your dankest friends"
+            descriptionLabel.text = "Deliver to customers near you"
+            descriptionLabel.numberOfLines = 0
             shopView.layer.shadowOpacity = 0.3
             isOn = !isOn
             
@@ -140,6 +144,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
             descriptionLabel.textColor = #colorLiteral(red: 0.07881314767, green: 0.07881314767, blue: 0.07881314767, alpha: 1)
             descriptionLabel.text = "Enjoy deliveries from nearby Couriers"
+            descriptionLabel.numberOfLines = 0
             shopView.layer.shadowOpacity = 0.1
             isOn = !isOn
         }
@@ -152,5 +157,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func hamburgerMenu(_ sender: Any) {
         handleMore()
+    }
+}
+
+class TransferVC: UIViewController {
+    @IBOutlet weak var cancelTapped: UIButton!
+    @IBAction func cancel(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
 }

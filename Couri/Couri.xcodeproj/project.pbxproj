@@ -22,6 +22,7 @@
 		8B0FB20C22AE20BB00B6D740 /* CourierView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B0FB20B22AE20BB00B6D740 /* CourierView.xib */; };
 		8B0FB20E22AE216900B6D740 /* CourierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0FB20D22AE216900B6D740 /* CourierView.swift */; };
 		8BA4565822B47600003A01D7 /* Scrollview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BA4565722B47600003A01D7 /* Scrollview.xib */; };
+		8BCA2F0C22B8DBA100A8874D /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCA2F0B22B8DBA100A8874D /* RestaurantDetailViewController.swift */; };
 		8BCD7F0522AED3AE00C7E0E1 /* CourierSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */; };
 		8BCD7F2F22B00BAD00C7E0E1 /* SidebarLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F2E22B00BAD00C7E0E1 /* SidebarLauncher.swift */; };
 		8BCD7F3422B057F100C7E0E1 /* userInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F3322B057F100C7E0E1 /* userInfo.swift */; };
@@ -66,6 +67,7 @@
 		8B0FB20B22AE20BB00B6D740 /* CourierView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CourierView.xib; path = ../CourierView.xib; sourceTree = "<group>"; };
 		8B0FB20D22AE216900B6D740 /* CourierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CourierView.swift; path = ../CourierView.swift; sourceTree = "<group>"; };
 		8BA4565722B47600003A01D7 /* Scrollview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Scrollview.xib; sourceTree = "<group>"; };
+		8BCA2F0B22B8DBA100A8874D /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CourierSelectionVC.swift; path = ../CourierSelectionVC.swift; sourceTree = "<group>"; };
 		8BCD7F2E22B00BAD00C7E0E1 /* SidebarLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarLauncher.swift; sourceTree = "<group>"; };
 		8BCD7F3322B057F100C7E0E1 /* userInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userInfo.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				3CFB92D522AEE30200E6C990 /* RestaurantView.swift */,
 				3CFB92D622AEE30200E6C990 /* RestaurantView.xib */,
 				3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */,
+				8BCA2F0B22B8DBA100A8874D /* RestaurantDetailViewController.swift */,
 			);
 			path = "Restaurant Picker";
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			files = (
 				3C78797B229E699400F058FE /* PageViewController.swift in Sources */,
 				3CFB92DA22AEE30200E6C990 /* RestaurantViewController.swift in Sources */,
+				8BCA2F0C22B8DBA100A8874D /* RestaurantDetailViewController.swift in Sources */,
 				8B0FB20E22AE216900B6D740 /* CourierView.swift in Sources */,
 				8BCD7F0522AED3AE00C7E0E1 /* CourierSelectionVC.swift in Sources */,
 				3C787947229E321B00F058FE /* ViewController.swift in Sources */,

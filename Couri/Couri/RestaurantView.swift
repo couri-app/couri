@@ -42,7 +42,6 @@ class RestaurantView: UIView {
     @IBOutlet weak var restaurantCategories: UILabel!
     @IBOutlet weak var restaurantDescription: UILabel!
     @IBOutlet weak var numberCouriers: UILabel!
-    @IBOutlet weak var shopButton: UIButton!
     @IBOutlet weak var numberBackground: UIView!
     
     //All of the variables become connected to what is actually in our Restaurant class (.xib file is connected to Restaurant class)
@@ -57,8 +56,6 @@ class RestaurantView: UIView {
             //Aesthetic touch-ups
             restaurantDescription.numberOfLines = 0
             addCornerRadius()
-            addShadowButton(button: shopButton)
-            shopButton.layer.cornerRadius = 20
             addShadow()
             addShadowObject(object: numberBackground)
             numberBackground.layer.cornerRadius = numberBackground.frame.width/2

@@ -19,7 +19,6 @@
                 <outlet property="restaurantImage" destination="Gm0-hw-yIh" id="PnX-xm-imw"/>
                 <outlet property="restaurantName" destination="qbk-wd-JmU" id="auy-IN-OQm"/>
                 <outlet property="restaurantView" destination="X3a-bZ-sfr" id="2es-97-dTh"/>
-                <outlet property="shopButton" destination="v8n-1l-58t" id="eVV-dD-3iv"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -71,23 +70,10 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v8n-1l-58t">
-                    <rect key="frame" x="91.5" y="317" width="150" height="34"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="150" id="fqb-Ip-KkH"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="16"/>
-                    <state key="normal" title="Shop">
-                        <color key="titleColor" red="0.07881314767" green="0.07881314767" blue="0.07881314767" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="T6l-52-a1Y" firstAttribute="centerX" secondItem="bHf-SP-7xB" secondAttribute="centerX" id="0ot-Lx-Hzh"/>
-                <constraint firstItem="v8n-1l-58t" firstAttribute="bottom" secondItem="Gm0-hw-yIh" secondAttribute="bottom" constant="17" id="6Ra-ry-j6g"/>
-                <constraint firstItem="v8n-1l-58t" firstAttribute="centerX" secondItem="Gm0-hw-yIh" secondAttribute="centerX" id="7Rs-IU-BE5"/>
                 <constraint firstAttribute="trailing" secondItem="Gm0-hw-yIh" secondAttribute="trailing" id="Ayy-qz-r1s"/>
                 <constraint firstItem="ljE-dY-zeA" firstAttribute="width" secondItem="WdU-pK-pEC" secondAttribute="width" id="JRu-jY-mXQ"/>
                 <constraint firstItem="zhw-6b-HdN" firstAttribute="trailing" secondItem="qbk-wd-JmU" secondAttribute="trailing" constant="16" id="JmZ-TC-s3i"/>
