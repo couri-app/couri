@@ -59,16 +59,16 @@
 		3C787960229E321D00F058FE /* CouriUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CouriUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C787964229E321D00F058FE /* CouriUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouriUITests.swift; sourceTree = "<group>"; };
 		3C787966229E321D00F058FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3C78797A229E699400F058FE /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PageViewController.swift; path = ../PageViewController.swift; sourceTree = "<group>"; };
-		3C78797C22A0D99F00F058FE /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Welcome.storyboard; path = ../Welcome.storyboard; sourceTree = "<group>"; };
-		3CFB92D522AEE30200E6C990 /* RestaurantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantView.swift; path = ../RestaurantView.swift; sourceTree = "<group>"; };
-		3CFB92D622AEE30200E6C990 /* RestaurantView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RestaurantView.xib; path = ../RestaurantView.xib; sourceTree = "<group>"; };
-		3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantViewController.swift; path = ../RestaurantViewController.swift; sourceTree = "<group>"; };
-		8B0FB20B22AE20BB00B6D740 /* CourierView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CourierView.xib; path = ../CourierView.xib; sourceTree = "<group>"; };
-		8B0FB20D22AE216900B6D740 /* CourierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CourierView.swift; path = ../CourierView.swift; sourceTree = "<group>"; };
+		3C78797A229E699400F058FE /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		3C78797C22A0D99F00F058FE /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
+		3CFB92D522AEE30200E6C990 /* RestaurantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
+		3CFB92D622AEE30200E6C990 /* RestaurantView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RestaurantView.xib; sourceTree = "<group>"; };
+		3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
+		8B0FB20B22AE20BB00B6D740 /* CourierView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourierView.xib; sourceTree = "<group>"; };
+		8B0FB20D22AE216900B6D740 /* CourierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourierView.swift; sourceTree = "<group>"; };
 		8BA4565722B47600003A01D7 /* Scrollview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Scrollview.xib; sourceTree = "<group>"; };
 		8BCA2F0B22B8DBA100A8874D /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
-		8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CourierSelectionVC.swift; path = ../CourierSelectionVC.swift; sourceTree = "<group>"; };
+		8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourierSelectionVC.swift; sourceTree = "<group>"; };
 		8BCD7F2E22B00BAD00C7E0E1 /* SidebarLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarLauncher.swift; sourceTree = "<group>"; };
 		8BCD7F3322B057F100C7E0E1 /* userInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
