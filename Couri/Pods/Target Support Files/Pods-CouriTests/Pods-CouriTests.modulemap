@@ -1,0 +1,6 @@
+framework module Pods_CouriTests {
+  umbrella header "Pods-CouriTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module Pods_Couri {
+  umbrella header "Pods-Couri-umbrella.h"
+
+  export *
+  module * { export * }
+}
