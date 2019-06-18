@@ -21,8 +21,10 @@
 		3CFB92DA22AEE30200E6C990 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */; };
 		8B0FB20C22AE20BB00B6D740 /* CourierView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B0FB20B22AE20BB00B6D740 /* CourierView.xib */; };
 		8B0FB20E22AE216900B6D740 /* CourierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0FB20D22AE216900B6D740 /* CourierView.swift */; };
+		8BA4565822B47600003A01D7 /* Scrollview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BA4565722B47600003A01D7 /* Scrollview.xib */; };
 		8BCD7F0522AED3AE00C7E0E1 /* CourierSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */; };
 		8BCD7F2F22B00BAD00C7E0E1 /* SidebarLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F2E22B00BAD00C7E0E1 /* SidebarLauncher.swift */; };
+		8BCD7F3422B057F100C7E0E1 /* userInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F3322B057F100C7E0E1 /* userInfo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,8 +65,10 @@
 		3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantViewController.swift; path = ../RestaurantViewController.swift; sourceTree = "<group>"; };
 		8B0FB20B22AE20BB00B6D740 /* CourierView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = CourierView.xib; path = ../CourierView.xib; sourceTree = "<group>"; };
 		8B0FB20D22AE216900B6D740 /* CourierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CourierView.swift; path = ../CourierView.swift; sourceTree = "<group>"; };
+		8BA4565722B47600003A01D7 /* Scrollview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Scrollview.xib; sourceTree = "<group>"; };
 		8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CourierSelectionVC.swift; path = ../CourierSelectionVC.swift; sourceTree = "<group>"; };
 		8BCD7F2E22B00BAD00C7E0E1 /* SidebarLauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarLauncher.swift; sourceTree = "<group>"; };
+		8BCD7F3322B057F100C7E0E1 /* userInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = userInfo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,8 @@
 		8BCD7F2D22B009E600C7E0E1 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				8BCD7F3322B057F100C7E0E1 /* userInfo.swift */,
+				8BA4565722B47600003A01D7 /* Scrollview.xib */,
 				8BCD7F2E22B00BAD00C7E0E1 /* SidebarLauncher.swift */,
 			);
 			path = Profile;
@@ -289,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C78794F229E321C00F058FE /* LaunchScreen.storyboard in Resources */,
+				8BA4565822B47600003A01D7 /* Scrollview.xib in Resources */,
 				3C78797D22A0D99F00F058FE /* Welcome.storyboard in Resources */,
 				3C78794C229E321C00F058FE /* Assets.xcassets in Resources */,
 				3C78794A229E321B00F058FE /* Main.storyboard in Resources */,
@@ -324,6 +331,7 @@
 				8BCD7F0522AED3AE00C7E0E1 /* CourierSelectionVC.swift in Sources */,
 				3C787947229E321B00F058FE /* ViewController.swift in Sources */,
 				3CFB92D822AEE30200E6C990 /* RestaurantView.swift in Sources */,
+				8BCD7F3422B057F100C7E0E1 /* userInfo.swift in Sources */,
 				8BCD7F2F22B00BAD00C7E0E1 /* SidebarLauncher.swift in Sources */,
 				3C787945229E321B00F058FE /* AppDelegate.swift in Sources */,
 			);

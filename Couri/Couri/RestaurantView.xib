@@ -117,7 +117,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
             <viewLayoutGuide key="safeArea" id="zhw-6b-HdN"/>
-            <point key="canvasLocation" x="613.768115942029" y="-370.3125"/>
+            <point key="canvasLocation" x="549" y="-374"/>
         </view>
     </objects>
     <resources>

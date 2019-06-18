@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TransferSelectionDelegate {
+    func goToNextScene() {
+        performSegue(withIdentifier: "Transfer", sender: self)
+    }
+    
     weak var tableView: UITableView!
     
     var restaurantLibrary = RestaurantLibrary()
@@ -108,9 +112,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         balanceLabel.layer.backgroundColor = #colorLiteral(red: 1, green: 0.8901960784, blue: 0.5490196078, alpha: 1)
         balanceLabel.layer.cornerRadius = 4
         
+        sidebarLauncher.delegate = self
+
     }
-    
-    
+
     @IBAction func down(_ sender: UIButton) {
         if isOn {
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 3, initialSpringVelocity: 1, options: [], animations: {
@@ -124,6 +129,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             descriptionLabel.text = "Deliver to your dankest friends"
             shopView.layer.shadowOpacity = 0.3
             isOn = !isOn
+            
         } else {
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 3, initialSpringVelocity: 1, options: [], animations: {
                 self.button.transform = CGAffineTransform(translationX: 0, y: 0)
@@ -138,7 +144,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             isOn = !isOn
         }
     }
-
-
+    let sidebarLauncher = SidebarLauncher()
+    
+    func handleMore() {
+        sidebarLauncher.showSidebar()
+    }
+    
+    @IBAction func hamburgerMenu(_ sender: Any) {
+        handleMore()
+    }
 }
-

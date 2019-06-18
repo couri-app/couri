@@ -31,10 +31,10 @@ class RestaurantUIViewController: UIViewController, UITableViewDelegate, UITable
         // Necessary additions to set up the tableView
         func setupTableView() {
             
-            //IMPORTANT: registering tableview and adding Reuse Identifier
+            // IMPORTANT: registering tableview and adding Reuse Identifier
             tableView.register(RestaurantCell.self, forCellReuseIdentifier: "RestaurantCell")
             
-            //Aesthetics
+            // Aesthetics
             addShadowToButton(button: backButton, opacity: 0.1, radius: 8)
             tableView.backgroundView = nil
             tableView.backgroundColor = #colorLiteral(red: 1, green: 0.8901960784, blue: 0.5490196078, alpha: 1)
@@ -61,7 +61,7 @@ extension RestaurantUIViewController {
     
     // Simply sets the height of each cell
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 400
+        return 370
     }
     
     // Aesthetic function for adding shadows to buttons

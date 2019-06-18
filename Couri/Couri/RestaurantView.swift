@@ -26,7 +26,7 @@ class RestaurantView: UIView {
     
     func commonInit() {
         Bundle.main.loadNibNamed("RestaurantView", owner: self, options: nil)
-    restaurantView.translatesAutoresizingMaskIntoConstraints = false
+        restaurantView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(restaurantView)
         restaurantView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         restaurantView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
