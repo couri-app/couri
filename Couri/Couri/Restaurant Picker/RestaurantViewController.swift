@@ -27,18 +27,7 @@ class RestaurantUIViewController: UIViewController, UITableViewDelegate, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         titleLabel.numberOfLines = 0
-        
-        // Necessary additions to set up the tableView
-        func setupTableView() {
-            
-            // IMPORTANT: registering tableview and adding Reuse Identifier
-            tableView.register(RestaurantCell.self, forCellReuseIdentifier: "RestaurantCell")
-            
-            // Aesthetics
-            addShadowToButton(button: backButton, opacity: 0.1, radius: 8)
-            tableView.backgroundView = nil
-            tableView.backgroundColor = #colorLiteral(red: 1, green: 0.8901960784, blue: 0.5490196078, alpha: 1)
-        }
+        addShadowToButton(button: backButton, opacity: 0.1, radius: 8)
     }
 }
 

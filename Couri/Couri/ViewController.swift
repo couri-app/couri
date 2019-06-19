@@ -97,12 +97,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.authUI = FUIAuth.defaultAuthUI()
         self.authUI?.delegate = self
         
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
+//        let firebaseAuth = Auth.auth()
+//        do {
+//            try firebaseAuth.signOut()
+//        } catch let signOutError as NSError {
+//            print ("Error signing out: %@", signOutError)
+//        }
         
         //This detects any changes in authentication, and if a change is detected then it will summon the authentication ui.
         self.authStateListenerHandle = self.auth?.addStateDidChangeListener {

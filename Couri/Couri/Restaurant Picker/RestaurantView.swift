@@ -49,7 +49,7 @@ class RestaurantView: UIView {
         didSet {
             restaurantImage.image = restaurant.imageName
             restaurantName.text = restaurant.restaurantName
-            restaurantCategories.text = restaurant.categories
+            restaurantCategories.text = restaurant.categoryDescription
             restaurantDescription.text = restaurant.description
             numberCouriers.text = String(restaurant.courierCount)
             
@@ -115,16 +115,18 @@ extension RestaurantView {
 class Restaurant {
     var courierCount: Int
     var restaurantName: String
-    var categories: String
+    var categoryDescription: String
     var description: String
     var imageName: UIImage
+    var categoryArray: [Category]
     
-    init(courierCount: Int, restaurantName: String, categories: String, description: String, imageName: UIImage) {
+    init(courierCount: Int, restaurantName: String, categoryDescription: String, description: String, imageName: UIImage, categoryArray: [Category]) {
         self.courierCount = courierCount
         self.restaurantName = restaurantName
-        self.categories = categories
+        self.categoryDescription = categoryDescription
         self.description = description
         self.imageName = imageName
+        self.categoryArray = categoryArray
     }
 }
 
@@ -140,10 +142,10 @@ struct RestaurantLibrary {
 // Extension of RestaurantLibrary struct that contains all of the relevant information.
 extension RestaurantLibrary {
     mutating func generateRestaurantLibrary() {
-        let rareTeaBancroft = Restaurant(courierCount: 0, restaurantName: "RareTea on Bancroft", categories: "Milk Tea, Smoothies, Snacks", description: "Authentic boba tea shop. Offers a variety of organic milk tea, fresh fruit tea and smoothies.", imageName: #imageLiteral(resourceName: "rareteaBancroft"))
-        let cupcakinBakeShop = Restaurant(courierCount: 0, restaurantName: "Cupcakin' Bake Shop", categories: "Cupcakes, Pastries", description: "Cupcakes in a range of creative flavors, toppings and sizes offered in a quaint, colorful bakeshop.", imageName: #imageLiteral(resourceName: "cupcakin"))
-        let sliverPizzeria = Restaurant(courierCount: 0, restaurantName: "Sliver Pizzeria", categories: "Pizza, Salad", description: "Socially conscious pie parlor showcases specialty pizzas, a full bar, and live bands in a funky space.", imageName: #imageLiteral(resourceName: "sliver"))
-        let gypsys = Restaurant(courierCount: 0, restaurantName: "Gypsy's", categories: "Italian, Pastas, Salads", description: "Fast food outfit with late hours provides Italian comfort dishes to student-heavy clientele", imageName: #imageLiteral(resourceName: "gypsys"))
+        let rareTeaBancroft = Restaurant(courierCount: 0, restaurantName: "RareTea on Bancroft", categoryDescription: "Milk Tea, Smoothies, Snacks", description: "Authentic boba tea shop. Offers a variety of organic milk tea, fresh fruit tea and smoothies.", imageName: #imageLiteral(resourceName: "rareteaBancroft"))
+        let cupcakinBakeShop = Restaurant(courierCount: 0, restaurantName: "Cupcakin' Bake Shop", categoryDescription: "Cupcakes, Pastries", description: "Cupcakes in a range of creative flavors, toppings and sizes offered in a quaint, colorful bakeshop.", imageName: #imageLiteral(resourceName: "cupcakin"))
+        let sliverPizzeria = Restaurant(courierCount: 0, restaurantName: "Sliver Pizzeria", categoryDescription: "Pizza, Salad", description: "Socially conscious pie parlor showcases specialty pizzas, a full bar, and live bands in a funky space.", imageName: #imageLiteral(resourceName: "sliver"))
+        let gypsys = Restaurant(courierCount: 0, restaurantName: "Gypsy's", categoryDescription: "Italian, Pastas, Salads", description: "Fast food outfit with late hours provides Italian comfort dishes to student-heavy clientele", imageName: #imageLiteral(resourceName: "gypsys"))
         
         restaurants = [rareTeaBancroft, cupcakinBakeShop, sliverPizzeria, gypsys]
     }
