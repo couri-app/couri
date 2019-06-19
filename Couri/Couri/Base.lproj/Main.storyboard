@@ -586,6 +586,21 @@
             </objects>
             <point key="canvasLocation" x="937" y="-696"/>
         </scene>
+        <!--Authentication View Controller-->
+        <scene sceneID="5kF-tw-nHm">
+            <objects>
+                <viewController id="962-aB-HOr" customClass="AuthenticationViewController" customModule="Couri" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kKL-Sl-mOf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="gxy-87-uwU"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yeX-T0-nHt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="105" y="-696"/>
+        </scene>
         <!--Courier Selection View Controller-->
         <scene sceneID="pA5-OB-Vh4">
             <objects>
@@ -873,6 +888,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GMT-BH-Jkz"/>
+        <segue reference="KL2-hA-kGO"/>
     </inferredMetricsTieBreakers>
 </document>

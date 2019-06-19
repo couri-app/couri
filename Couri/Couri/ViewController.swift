@@ -155,6 +155,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //Present the default login view controller provided by authUI
         //**DAVID IF YOU WANT TO CHANGE THE AUTHUI TO DO YOUR THING, ITS HERE!!**
         let authViewController = authUI?.authViewController()
+        //let authViewController = AuthenticationViewController()
         self.present(authViewController!, animated: true, completion: nil)
     }
     

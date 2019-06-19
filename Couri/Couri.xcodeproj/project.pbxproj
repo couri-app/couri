@@ -30,6 +30,8 @@
 		8BCD7F2F22B00BAD00C7E0E1 /* SidebarLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F2E22B00BAD00C7E0E1 /* SidebarLauncher.swift */; };
 		8BCD7F3422B057F100C7E0E1 /* userInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F3322B057F100C7E0E1 /* userInfo.swift */; };
 		F99D3B1622B954BD00CFF346 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F99D3B1522B954BD00CFF346 /* GoogleService-Info.plist */; };
+		F9E711F922BAD92E00272FF7 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E711F822BAD92E00272FF7 /* AuthenticationViewController.swift */; };
+		F9E711FB22BAE08C00272FF7 /* Welcome3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9E711FA22BAE08C00272FF7 /* Welcome3ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -85,6 +87,8 @@
 		C2E0F23F22D310FAEA8AC1A1 /* Pods-CouriUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CouriUITests.release.xcconfig"; path = "Target Support Files/Pods-CouriUITests/Pods-CouriUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EFEF81D667B66815D79435D2 /* Pods_Couri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Couri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F99D3B1522B954BD00CFF346 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F9E711F822BAD92E00272FF7 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		F9E711FA22BAE08C00272FF7 /* Welcome3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome3ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,7 @@
 		3C787943229E321B00F058FE /* Couri */ = {
 			isa = PBXGroup;
 			children = (
+				F9E711F122BAD50600272FF7 /* Authentication UI */,
 				8BCD7F2D22B009E600C7E0E1 /* Profile */,
 				8BCD7F3022B00C9900C7E0E1 /* Restaurant Picker */,
 				8BCD7F3122B00D8100C7E0E1 /* Courier Picker */,
@@ -209,6 +214,7 @@
 			children = (
 				3C78797A229E699400F058FE /* PageViewController.swift */,
 				3C78797C22A0D99F00F058FE /* Welcome.storyboard */,
+				F9E711FA22BAE08C00272FF7 /* Welcome3ViewController.swift */,
 			);
 			path = "Welcome Pages";
 			sourceTree = "<group>";
@@ -234,6 +240,14 @@
 				C2E0F23F22D310FAEA8AC1A1 /* Pods-CouriUITests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		F9E711F122BAD50600272FF7 /* Authentication UI */ = {
+			isa = PBXGroup;
+			children = (
+				F9E711F822BAD92E00272FF7 /* AuthenticationViewController.swift */,
+			);
+			path = "Authentication UI";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -481,11 +495,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C78797B229E699400F058FE /* PageViewController.swift in Sources */,
+				F9E711FB22BAE08C00272FF7 /* Welcome3ViewController.swift in Sources */,
 				3CFB92DA22AEE30200E6C990 /* RestaurantViewController.swift in Sources */,
 				8BCA2F0C22B8DBA100A8874D /* RestaurantDetailViewController.swift in Sources */,
 				8B0FB20E22AE216900B6D740 /* CourierView.swift in Sources */,
 				8BCD7F0522AED3AE00C7E0E1 /* CourierSelectionVC.swift in Sources */,
 				3C787947229E321B00F058FE /* ViewController.swift in Sources */,
+				F9E711F922BAD92E00272FF7 /* AuthenticationViewController.swift in Sources */,
 				3CFB92D822AEE30200E6C990 /* RestaurantView.swift in Sources */,
 				8BCD7F3422B057F100C7E0E1 /* userInfo.swift in Sources */,
 				8BCD7F2F22B00BAD00C7E0E1 /* SidebarLauncher.swift in Sources */,
