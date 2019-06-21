@@ -54,7 +54,8 @@ class RestaurantView: UIView {
             numberCouriers.text = String(restaurant.courierCount)
             
             //Aesthetic touch-ups
-            restaurantDescription.numberOfLines = 0
+            restaurantDescription.numberOfLines = 4
+            restaurantCategories.numberOfLines = 0
             addCornerRadius()
             addShadow()
             addShadowObject(object: numberBackground)
@@ -91,7 +92,7 @@ extension RestaurantView {
         object.layer.shadowRadius = 8
         object.layer.shadowColor = #colorLiteral(red: 0.07881314767, green: 0.07881314767, blue: 0.07881314767, alpha: 1)
         object.layer.shadowOffset = CGSize(width: 0, height: 0)
-        object.layer.shadowOpacity = 0.1
+        object.layer.shadowOpacity = 0.2
         object.layer.shadowRadius = 4
     }
     
@@ -113,20 +114,17 @@ extension RestaurantView {
 // Restaurant class with the following parameters: number of couriers, name of restaurant, restaurant's categories, restaurant's description, front-page image for restaurant
 
 class Restaurant {
-    var courierCount: Int
+    var courierCount = 0
     var restaurantName: String
     var categoryDescription: String
     var description: String
     var imageName: UIImage
-    var categoryArray: [Category]
     
-    init(courierCount: Int, restaurantName: String, categoryDescription: String, description: String, imageName: UIImage, categoryArray: [Category]) {
-        self.courierCount = courierCount
+    init(restaurantName: String, categoryDescription: String, description: String, imageName: UIImage) {
         self.restaurantName = restaurantName
         self.categoryDescription = categoryDescription
         self.description = description
         self.imageName = imageName
-        self.categoryArray = categoryArray
     }
 }
 
@@ -142,11 +140,12 @@ struct RestaurantLibrary {
 // Extension of RestaurantLibrary struct that contains all of the relevant information.
 extension RestaurantLibrary {
     mutating func generateRestaurantLibrary() {
-        let rareTeaBancroft = Restaurant(courierCount: 0, restaurantName: "RareTea on Bancroft", categoryDescription: "Milk Tea, Smoothies, Snacks", description: "Authentic boba tea shop. Offers a variety of organic milk tea, fresh fruit tea and smoothies.", imageName: #imageLiteral(resourceName: "rareteaBancroft"))
-        let cupcakinBakeShop = Restaurant(courierCount: 0, restaurantName: "Cupcakin' Bake Shop", categoryDescription: "Cupcakes, Pastries", description: "Cupcakes in a range of creative flavors, toppings and sizes offered in a quaint, colorful bakeshop.", imageName: #imageLiteral(resourceName: "cupcakin"))
-        let sliverPizzeria = Restaurant(courierCount: 0, restaurantName: "Sliver Pizzeria", categoryDescription: "Pizza, Salad", description: "Socially conscious pie parlor showcases specialty pizzas, a full bar, and live bands in a funky space.", imageName: #imageLiteral(resourceName: "sliver"))
-        let gypsys = Restaurant(courierCount: 0, restaurantName: "Gypsy's", categoryDescription: "Italian, Pastas, Salads", description: "Fast food outfit with late hours provides Italian comfort dishes to student-heavy clientele", imageName: #imageLiteral(resourceName: "gypsys"))
+        let rareTeaBancroft = Restaurant(restaurantName: "RareTea on Bancroft", categoryDescription: "Milk Tea, Smoothies, Snacks", description: "Authentic boba tea shop. Offers a variety of organic milk tea, fresh fruit tea and smoothies.", imageName: #imageLiteral(resourceName: "rareteaBancroft"))
+        let cupcakinBakeShop = Restaurant(restaurantName: "Cupcakin' Bake Shop", categoryDescription: "Cupcakes, Pastries", description: "Cupcakes in a range of creative flavors, toppings and sizes offered in a quaint, colorful bakeshop.", imageName: #imageLiteral(resourceName: "cupcakin"))
+        let sliverPizzeria = Restaurant(restaurantName: "Sliver Pizzeria", categoryDescription: "Pizza, Salad", description: "Socially conscious pie parlor showcases specialty pizzas, a full bar, and live bands in a funky space.", imageName: #imageLiteral(resourceName: "sliver"))
+        let gypsys = Restaurant(restaurantName: "Gypsy's", categoryDescription: "Italian, Pastas, Salads", description: "Fast food outfit with late hours provides Italian comfort dishes to student-heavy clientele", imageName: #imageLiteral(resourceName: "gypsys"))
+        let tapiocaExpress = Restaurant(restaurantName: "Tapioca Express", categoryDescription: "Coffee & Tea, Juice Bars & Smoothies, Bubble Tea, Boba", description: "Tapioca Express harvests the finest ingredients from Taiwan and provides quality teas, boba, and snacks to our customers.", imageName: #imageLiteral(resourceName: "tapioca express"))
         
-        restaurants = [rareTeaBancroft, cupcakinBakeShop, sliverPizzeria, gypsys]
+        restaurants = [tapiocaExpress, rareTeaBancroft, cupcakinBakeShop, sliverPizzeria, gypsys]
     }
 }

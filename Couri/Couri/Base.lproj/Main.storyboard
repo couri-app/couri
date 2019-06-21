@@ -504,7 +504,7 @@
         <!--Restaurant Detail View Controller-->
         <scene sceneID="10J-T0-xYA">
             <objects>
-                <viewController id="iPm-Qy-J0I" customClass="RestaurantDetailViewController" customModule="Couri" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="iPm-Qy-J0I" customClass="RestaurantDetailViewController" customModule="Couri" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CSY-ag-zdg">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -612,9 +612,34 @@
                                                             </collectionViewCell>
                                                         </cells>
                                                     </collectionView>
-                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tiM-V4-bqS">
+                                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tiM-V4-bqS" customClass="SelfSizedTableView" customModule="Couri" customModuleProvider="target">
                                                         <rect key="frame" x="19" y="247" width="321" height="317"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <prototypes>
+                                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="menuCell" rowHeight="89" id="kAD-xC-fDM" customClass="MenuItemCell" customModule="Couri" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="28" width="321" height="89"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kAD-xC-fDM" id="iAK-tM-ffO">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="321" height="88.666666666666671"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <subviews>
+                                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XjP-hf-6UY" customClass="MenuItemCell" customModule="Couri" customModuleProvider="target">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="321" height="100"/>
+                                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="100" id="KNp-pG-yMe"/>
+                                                                            </constraints>
+                                                                        </view>
+                                                                    </subviews>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="trailing" secondItem="XjP-hf-6UY" secondAttribute="trailing" id="1Ca-Nk-i15"/>
+                                                                        <constraint firstItem="XjP-hf-6UY" firstAttribute="leading" secondItem="iAK-tM-ffO" secondAttribute="leading" id="kML-G3-qij"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="XjP-hf-6UY" secondAttribute="bottom" id="wMT-uG-FJw"/>
+                                                                        <constraint firstItem="XjP-hf-6UY" firstAttribute="top" secondItem="iAK-tM-ffO" secondAttribute="top" id="wdq-if-yLg"/>
+                                                                    </constraints>
+                                                                </tableViewCellContentView>
+                                                            </tableViewCell>
+                                                        </prototypes>
                                                     </tableView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -676,17 +701,19 @@
                             <constraint firstItem="Pp9-jN-4Bv" firstAttribute="top" secondItem="Pwm-uQ-Rok" secondAttribute="top" id="7uZ-k2-IsQ"/>
                             <constraint firstItem="Pwm-uQ-Rok" firstAttribute="trailing" secondItem="Pp9-jN-4Bv" secondAttribute="trailing" id="THK-nw-0bF"/>
                             <constraint firstItem="Pp9-jN-4Bv" firstAttribute="leading" secondItem="Pwm-uQ-Rok" secondAttribute="leading" id="mGr-00-NlR"/>
-                            <constraint firstItem="Pp9-jN-4Bv" firstAttribute="bottom" secondItem="Pwm-uQ-Rok" secondAttribute="bottom" constant="34" id="ug0-5G-RYn"/>
+                            <constraint firstItem="Pp9-jN-4Bv" firstAttribute="bottom" secondItem="CSY-ag-zdg" secondAttribute="bottom" id="ug0-5G-RYn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pwm-uQ-Rok"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="O2H-0P-fsn" id="TWo-ui-wr4"/>
                         <outlet property="containerView" destination="O7c-tP-C4e" id="qPO-Jg-XyH"/>
+                        <outlet property="masterTableView" destination="tiM-V4-bqS" id="fSv-Mb-TGm"/>
                         <outlet property="menuCategoryCV" destination="gyv-RZ-byE" id="hm1-Wa-HJh"/>
                         <outlet property="restaurantCategories" destination="FRE-sS-eLu" id="dpL-o0-OHl"/>
                         <outlet property="restaurantImage" destination="Whq-hN-yut" id="rUD-Yy-epq"/>
                         <outlet property="restaurantNameLabel" destination="1Lj-h1-Z2E" id="b7Q-ga-7md"/>
+                        <outlet property="scrollView" destination="Pp9-jN-4Bv" id="8tV-iV-c6J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fz-95-pO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1021,6 +1048,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KL2-hA-kGO"/>
+        <segue reference="GMT-BH-Jkz"/>
     </inferredMetricsTieBreakers>
 </document>

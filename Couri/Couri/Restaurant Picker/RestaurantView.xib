@@ -87,16 +87,16 @@
                 <constraint firstItem="zhw-6b-HdN" firstAttribute="top" secondItem="T6l-52-a1Y" secondAttribute="top" constant="25" id="bSX-Xx-RrW"/>
                 <constraint firstItem="bHf-SP-7xB" firstAttribute="leading" secondItem="zhw-6b-HdN" secondAttribute="leading" constant="19" id="bmc-J1-AW2"/>
                 <constraint firstItem="qbk-wd-JmU" firstAttribute="leading" secondItem="ljE-dY-zeA" secondAttribute="leading" id="cWz-qM-MJA"/>
-                <constraint firstItem="bHf-SP-7xB" firstAttribute="top" secondItem="T6l-52-a1Y" secondAttribute="bottom" constant="7" id="i9R-2A-3Rm"/>
+                <constraint firstItem="bHf-SP-7xB" firstAttribute="top" secondItem="T6l-52-a1Y" secondAttribute="bottom" constant="7" id="fh7-gY-O4j"/>
                 <constraint firstItem="Gm0-hw-yIh" firstAttribute="leading" secondItem="X3a-bZ-sfr" secondAttribute="leading" id="lAP-SZ-MSe"/>
                 <constraint firstItem="qbk-wd-JmU" firstAttribute="top" secondItem="X3a-bZ-sfr" secondAttribute="top" constant="19" id="lax-TB-fLh"/>
-                <constraint firstItem="WdU-pK-pEC" firstAttribute="top" secondItem="bHf-SP-7xB" secondAttribute="top" id="pji-8k-L4P"/>
                 <constraint firstItem="qbk-wd-JmU" firstAttribute="top" secondItem="T6l-52-a1Y" secondAttribute="top" id="qde-r5-daI"/>
                 <constraint firstItem="bHf-SP-7xB" firstAttribute="leading" secondItem="T6l-52-a1Y" secondAttribute="leading" id="rsi-6P-eig"/>
                 <constraint firstItem="Gm0-hw-yIh" firstAttribute="top" secondItem="WdU-pK-pEC" secondAttribute="bottom" constant="20" id="sC8-WI-psH"/>
                 <constraint firstItem="ljE-dY-zeA" firstAttribute="leading" secondItem="WdU-pK-pEC" secondAttribute="leading" id="uzI-tp-WCq"/>
                 <constraint firstItem="JiR-lB-CVN" firstAttribute="height" secondItem="T6l-52-a1Y" secondAttribute="height" id="vzE-jE-WPH"/>
                 <constraint firstItem="zhw-6b-HdN" firstAttribute="trailing" secondItem="WdU-pK-pEC" secondAttribute="trailing" constant="16" id="y0v-Gp-Jvd"/>
+                <constraint firstItem="WdU-pK-pEC" firstAttribute="top" secondItem="ljE-dY-zeA" secondAttribute="bottom" constant="6" id="zTL-DA-NTz"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>

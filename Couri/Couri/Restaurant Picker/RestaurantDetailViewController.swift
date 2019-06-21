@@ -8,13 +8,11 @@
 
 import UIKit
 
-class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    var restaurantForCategory = RestaurantForCategory()
+class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
     private let cellID = "categoryCellID"
-
     var restaurant: Restaurant?
+    let menuLibrary = MenuLibrary()
 
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
@@ -22,6 +20,8 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
     @IBOutlet weak var restaurantCategories: UILabel!
     @IBOutlet weak var menuCategoryCV: UICollectionView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var masterTableView: SelfSizedTableView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBAction func backTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -29,9 +29,20 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        masterTableView.isScrollEnabled = false
+        masterTableView.maxHeight = view.frame.height
+        masterTableView.alwaysBounceVertical = false
+        masterTableView.register(MenuItemCell.self, forCellReuseIdentifier: "menuCell")
+        masterTableView.rowHeight = UITableView.automaticDimension
+        masterTableView.estimatedRowHeight = 100
+        masterTableView.delegate = self
+        masterTableView.dataSource = self
+    
         restaurantNameLabel.text = restaurant?.restaurantName
         restaurantImage.image = restaurant?.imageName
         restaurantCategories.text = restaurant?.categoryDescription
+        restaurantCategories.numberOfLines = 0
         setupCV()
         
         //Aesthetics
@@ -46,6 +57,7 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
         menuCategoryCV.delegate = self
         
         menuCategoryCV.register(CategoryCell.self, forCellWithReuseIdentifier: cellID)
+        
         let collectionViewLayout = menuCategoryCV.collectionViewLayout as? UICollectionViewFlowLayout
         
         collectionViewLayout?.sectionInset = UIEdgeInsets(top: 0, left: 19, bottom: 0, right: 19)
@@ -69,83 +81,55 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
     }
 }
 
-class CategoryCell: UICollectionViewCell {
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
+extension RestaurantDetailViewController {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return menuLibrary.tapiocaExpressMenu.count
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    var categorySelected = false
-    
-    let buttonView: UIImageView = {
-        let view = UIImageView()
-        view.image = UIImage(named: "boba icon")
-        view.contentMode = .scaleAspectFit
-        
-        return view
-    }()
-    
-    let categoryLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Hot Milk Tea"
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.font = UIFont(name: "AvenirNext-Regular", size: 10)
-        
-        return label
-    }()
-    
-    func setupViews() {
-        addSubview(buttonView)
-        addSubview(categoryLabel)
-        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectCategory)))
-        
-        backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        layer.cornerRadius = 10
-        addShadowObject(object: self)
-        
-        buttonView.translatesAutoresizingMaskIntoConstraints = false
-        categoryLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        addConstraints([
-            buttonView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            buttonView.topAnchor.constraint(equalTo: self.topAnchor, constant: 5),
-            buttonView.widthAnchor.constraint(equalToConstant: 30),
-            buttonView.heightAnchor.constraint(equalToConstant: 30),
-            categoryLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            categoryLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
-            categoryLabel.widthAnchor.constraint(equalToConstant: frame.width)
-            ])
-    }
-    
-    func deselectCategory() {
-        backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        categoryLabel.font = UIFont(name: "AvenirNext-Regular", size: 10)
-        categorySelected = false
-    }
-    
-    @objc func selectCategory() {
-        if categorySelected == true {
-            deselectCategory()
-            } else {
-            backgroundColor = #colorLiteral(red: 1, green: 0.8899999857, blue: 0.5490000248, alpha: 1)
-            self.categoryLabel.font = UIFont(name: "AvenirNext-Bold", size: 10)
-            self.categorySelected = true
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = masterTableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as! MenuItemCell
+
+        if menuLibrary.tapiocaExpressMenu[indexPath.row].itemDescription != nil {
+            cell.itemDescription.text = menuLibrary.tapiocaExpressMenu[indexPath.row].itemDescription!
+        } else {
+            cell.itemPrice.topAnchor.constraint(equalTo: cell.itemName.bottomAnchor, constant: 5).isActive = true
         }
+        
+        if menuLibrary.tapiocaExpressMenu[indexPath.row].itemImage != nil {
+            cell.itemImage.image = UIImage(named: menuLibrary.tapiocaExpressMenu[indexPath.row].itemImage!)
+        } else {
+            cell.itemName.leftAnchor.constraint(equalTo: cell.leftAnchor).isActive = true
+            cell.itemName.topAnchor.constraint(equalTo: cell.topAnchor, constant: 10).isActive = true
+        }
+        
+        cell.itemName.text = menuLibrary.tapiocaExpressMenu[indexPath.row].itemName
+        cell.itemPrice.text = "$\(menuLibrary.tapiocaExpressMenu[indexPath.row].itemPrice)"
+
+        return cell
     }
     
-    func addShadowObject(object: UIView) {
-        object.layer.shadowRadius = 8
-        object.layer.shadowColor = #colorLiteral(red: 0.07881314767, green: 0.07881314767, blue: 0.07881314767, alpha: 1)
-        object.layer.shadowOffset = CGSize(width: 0, height: 0)
-        object.layer.shadowOpacity = 0.2
-        object.layer.shadowRadius = 3
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if menuLibrary.tapiocaExpressMenu[indexPath.row].itemImage != nil, menuLibrary.tapiocaExpressMenu[indexPath.row].itemDescription == nil {
+            return 90
+        } else if menuLibrary.tapiocaExpressMenu[indexPath.row].itemDescription != nil {
+            return 110
+        } else {
+            return 70
+        }
     }
 }
 
-
+class SelfSizedTableView: UITableView {
+    var maxHeight: CGFloat = UIScreen.main.bounds.size.height
+    
+    override func reloadData() {
+        super.reloadData()
+        self.invalidateIntrinsicContentSize()
+        self.layoutIfNeeded()
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        let height = min(contentSize.height, maxHeight)
+        return CGSize(width: contentSize.width, height: height)
+    }
+}
