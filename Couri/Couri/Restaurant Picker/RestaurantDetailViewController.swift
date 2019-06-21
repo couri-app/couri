@@ -6,14 +6,14 @@
 //  Copyright © 2019 Couri. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
 class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
     private let cellID = "categoryCellID"
     var restaurant: Restaurant?
-    let menuLibrary = MenuLibrary()
-
+    
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var restaurantImage: UIImageView!
@@ -55,7 +55,6 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
         menuCategoryCV.translatesAutoresizingMaskIntoConstraints = false
         menuCategoryCV.dataSource = self
         menuCategoryCV.delegate = self
-        
         menuCategoryCV.register(CategoryCell.self, forCellWithReuseIdentifier: cellID)
         
         let collectionViewLayout = menuCategoryCV.collectionViewLayout as? UICollectionViewFlowLayout
@@ -65,11 +64,25 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        if let count = restaurant?.categories.count {
+            return count
+        } else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! CategoryCell
+        cell.categoryLabel.text = restaurant?.categories[indexPath.row]
+        if cell.categoryLabel.text == restaurant?.categories[0] {
+            cell.selectCategory()
+        }
+
+        if UIImage(named: (restaurant?.categories[indexPath.row])!) != nil {
+            cell.buttonView.image = UIImage(named: (restaurant?.categories[indexPath.row])!)
+        }
+        
+        return cell
     }
     
     func addShadowObject(object: UIView) {
@@ -83,35 +96,39 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
 
 extension RestaurantDetailViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return menuLibrary.tapiocaExpressMenu.count
+        if let count = restaurant?.menuItems.count {
+            return count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = masterTableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as! MenuItemCell
 
-        if menuLibrary.tapiocaExpressMenu[indexPath.row].itemDescription != nil {
-            cell.itemDescription.text = menuLibrary.tapiocaExpressMenu[indexPath.row].itemDescription!
+        if restaurant?.menuItems[indexPath.row].itemDescription != nil {
+            cell.itemDescription.text = restaurant?.menuItems[indexPath.row].itemDescription
         } else {
             cell.itemPrice.topAnchor.constraint(equalTo: cell.itemName.bottomAnchor, constant: 5).isActive = true
         }
         
-        if menuLibrary.tapiocaExpressMenu[indexPath.row].itemImage != nil {
-            cell.itemImage.image = UIImage(named: menuLibrary.tapiocaExpressMenu[indexPath.row].itemImage!)
+        if restaurant?.menuItems[indexPath.row].itemImage != nil {
+            cell.itemImage.image = UIImage(named: (restaurant?.menuItems[indexPath.row].itemImage)!)
         } else {
             cell.itemName.leftAnchor.constraint(equalTo: cell.leftAnchor).isActive = true
             cell.itemName.topAnchor.constraint(equalTo: cell.topAnchor, constant: 10).isActive = true
         }
         
-        cell.itemName.text = menuLibrary.tapiocaExpressMenu[indexPath.row].itemName
-        cell.itemPrice.text = "$\(menuLibrary.tapiocaExpressMenu[indexPath.row].itemPrice)"
-
+        cell.itemName.text = restaurant?.menuItems[indexPath.row].itemName
+        cell.itemPrice.text = "$\(String(format: "%.2f", (restaurant?.menuItems[indexPath.row].itemPrice)!))"
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if menuLibrary.tapiocaExpressMenu[indexPath.row].itemImage != nil, menuLibrary.tapiocaExpressMenu[indexPath.row].itemDescription == nil {
+        if restaurant?.menuItems[indexPath.row].itemImage != nil, restaurant?.menuItems[indexPath.row].itemDescription == nil {
             return 90
-        } else if menuLibrary.tapiocaExpressMenu[indexPath.row].itemDescription != nil {
+        } else if restaurant?.menuItems[indexPath.row].itemDescription != nil {
             return 110
         } else {
             return 70

@@ -8,18 +8,7 @@
 
 import UIKit
 
-class MenuCategory: NSObject {
-    var categoryName = String()
-    var iconName: String?
-    var id: String?
-}
-
-//struct CategoryLibrary {
-//    var tapiocaExpressCategories:
-//}
-
 class CategoryCell: UICollectionViewCell {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -33,7 +22,6 @@ class CategoryCell: UICollectionViewCell {
     
     let buttonView: UIImageView = {
         let view = UIImageView()
-        view.image = UIImage(named: "boba icon")
         view.contentMode = .scaleAspectFit
         
         return view
@@ -41,7 +29,6 @@ class CategoryCell: UICollectionViewCell {
     
     let categoryLabel: UILabel = {
         let label = UILabel()
-        label.text = "Hot Milk Tea"
         label.textAlignment = .center
         label.numberOfLines = 0
         label.font = UIFont(name: "AvenirNext-Regular", size: 10)

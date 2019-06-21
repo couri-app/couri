@@ -30,7 +30,6 @@ struct MenuLibrary {
         item1.itemPrice = 5.35
         item1.itemImage = "crispy chicken"
         item1.itemCategory = "Snacks"
-        item1.itemDescription = nil
         
         let item2 = MenuItem()
         item2.itemName = "T.E. Crispy Chicken"
@@ -44,19 +43,16 @@ struct MenuLibrary {
         item3.itemPrice = 3.50
         item3.itemImage = "thai tea"
         item3.itemCategory = "Milk Tea"
-        item3.itemDescription = nil
         
         let item4 = MenuItem()
         item4.itemName = "T.E. Fried Potstickers"
         item4.itemPrice = 4.35
         item4.itemImage = "potstickers"
         item4.itemCategory = "Snacks"
-        item4.itemDescription = nil
         
         let item5 = MenuItem()
         item5.itemName = "Korean Short Ribs"
         item5.itemPrice = 9.95
-        item5.itemImage = nil
         item5.itemCategory = "Snacks"
         item5.itemDescription = "Served with side salad. No combo drink substitution"
 
@@ -65,8 +61,6 @@ struct MenuLibrary {
 }
 
 class MenuItemCell: UITableViewCell {
-    var menuLibrary = MenuLibrary()
-    var menuItem = MenuItem()
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
