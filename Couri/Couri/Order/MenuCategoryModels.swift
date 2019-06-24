@@ -9,6 +9,7 @@
 import UIKit
 
 class CategoryCell: UICollectionViewCell {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -18,7 +19,12 @@ class CategoryCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    var categorySelected = false
+    override var isSelected: Bool {
+        didSet {
+            self.backgroundColor = isSelected ? UIColor(named: "honeyYellow") : UIColor.white
+            self.categoryLabel.font = isSelected ? UIFont(name: "AvenirNext-Bold", size: 10) : UIFont(name: "AvenirNext-Regular", size: 10)
+        }
+    }
     
     let buttonView: UIImageView = {
         let view = UIImageView()
@@ -39,7 +45,6 @@ class CategoryCell: UICollectionViewCell {
     func setupViews() {
         addSubview(buttonView)
         addSubview(categoryLabel)
-        self.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectCategory)))
         
         backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         layer.cornerRadius = 10
@@ -57,22 +62,6 @@ class CategoryCell: UICollectionViewCell {
             categoryLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
             categoryLabel.widthAnchor.constraint(equalToConstant: frame.width)
             ])
-    }
-    
-    func deselectCategory() {
-        backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        categoryLabel.font = UIFont(name: "AvenirNext-Regular", size: 10)
-        categorySelected = false
-    }
-    
-    @objc func selectCategory() {
-        if categorySelected == true {
-            deselectCategory()
-        } else {
-            backgroundColor = #colorLiteral(red: 1, green: 0.8899999857, blue: 0.5490000248, alpha: 1)
-            self.categoryLabel.font = UIFont(name: "AvenirNext-Bold", size: 10)
-            self.categorySelected = true
-        }
     }
     
     func addShadowObject(object: UIView) {

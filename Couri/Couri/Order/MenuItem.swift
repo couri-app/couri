@@ -12,7 +12,7 @@ import UIKit
 class MenuItem {
     var itemName = String()
     var itemPrice = Double()
-    var itemImage: String? = nil
+    var itemImage: UIImage? = nil
     var itemCategory = String()
     var quantity = 0
     var itemDescription: String? = nil
@@ -20,6 +20,8 @@ class MenuItem {
 
 struct MenuLibrary {
     var tapiocaExpressMenu: [MenuItem] = []
+    var rareTeaMenu: [MenuItem] = []
+    var sliverMenu: [MenuItem] = []
     init() {
         generateLibrary()
     }
@@ -28,26 +30,26 @@ struct MenuLibrary {
         let item1 = MenuItem()
         item1.itemName = "T.E. Crispy Chicken"
         item1.itemPrice = 5.35
-        item1.itemImage = "crispy chicken"
+        item1.itemImage = UIImage(named: "crispy chicken")
         item1.itemCategory = "Snacks"
         
         let item2 = MenuItem()
         item2.itemName = "T.E. Crispy Chicken"
         item2.itemPrice = 8.25
-        item2.itemImage = "crispy chicken salad"
+        item2.itemImage = UIImage(named: "crispy chicken salad")
         item2.itemCategory = "Snacks"
         item2.itemDescription = "Served with side salad. No combo drink substitutions."
         
         let item3 = MenuItem()
         item3.itemName = "Thai Tea"
         item3.itemPrice = 3.50
-        item3.itemImage = "thai tea"
+        item3.itemImage = UIImage(named: "thai tea")
         item3.itemCategory = "Milk Tea"
         
         let item4 = MenuItem()
         item4.itemName = "T.E. Fried Potstickers"
         item4.itemPrice = 4.35
-        item4.itemImage = "potstickers"
+        item4.itemImage = UIImage(named: "potstickers")
         item4.itemCategory = "Snacks"
         
         let item5 = MenuItem()
@@ -56,11 +58,43 @@ struct MenuLibrary {
         item5.itemCategory = "Snacks"
         item5.itemDescription = "Served with side salad. No combo drink substitution"
 
+        let rareTea1 = MenuItem()
+        rareTea1.itemName = "Thai Milk Tea"
+        rareTea1.itemPrice = 4.50
+        rareTea1.itemCategory = "Milk Tea"
+        
+        let rareTea2 = MenuItem()
+        rareTea2.itemName = "Black Milk Tea"
+        rareTea2.itemPrice = 4.50
+        rareTea2.itemCategory = "Milk Tea"
+        
+        let rareTea3 = MenuItem()
+        rareTea3.itemName = "Oolong Milk Tea"
+        rareTea3.itemPrice = 4.50
+        rareTea3.itemCategory = "Milk Tea"
+        
+        let rareTea4 = MenuItem()
+        rareTea4.itemName = "Taro Milk Tea"
+        rareTea4.itemPrice = 4.50
+        rareTea4.itemCategory = "Milk Tea"
+        
+        let rareTea5 = MenuItem()
+        rareTea5.itemName = "Wintermelon Tea"
+        rareTea5.itemPrice = 4.50
+        rareTea5.itemCategory = "Tea"
+        
+        let sliver1 = MenuItem()
+        sliver1.itemName = "Slice of Pepperoni"
+        sliver1.itemPrice = 8.59
+        
+        sliverMenu = [sliver1]
         tapiocaExpressMenu = [item1, item2, item3, item4, item5]
+        rareTeaMenu = [rareTea1, rareTea2, rareTea3, rareTea4, rareTea5]
     }
 }
 
 class MenuItemCell: UITableViewCell {
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -108,7 +142,7 @@ class MenuItemCell: UITableViewCell {
         itemName.translatesAutoresizingMaskIntoConstraints = false
         itemDescription.translatesAutoresizingMaskIntoConstraints = false
         itemPrice.translatesAutoresizingMaskIntoConstraints = false
-
+        
         addConstraints([
             itemImage.widthAnchor.constraint(equalToConstant: 70),
             itemImage.heightAnchor.constraint(equalToConstant: 70),

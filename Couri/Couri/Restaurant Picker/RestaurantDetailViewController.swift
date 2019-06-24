@@ -22,6 +22,7 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var masterTableView: SelfSizedTableView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet var contentView: UIView!
     
     @IBAction func backTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
@@ -48,17 +49,25 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
         //Aesthetics
         containerView.layer.cornerRadius = 20
         addShadowObject(object: containerView)
-
+        addShadowButton(button: backButton)
+        restaurantImage.layer.cornerRadius = 10
+        restaurantImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        addGradientLayerInForeground(frame: restaurantImage.frame, colors: [UIColor.white.withAlphaComponent(0), UIColor.white])
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        menuCategoryCV.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: [])
+    }
+    
+    // MARK: Setup Category CollectionView
     func setupCV() {
         menuCategoryCV.translatesAutoresizingMaskIntoConstraints = false
         menuCategoryCV.dataSource = self
         menuCategoryCV.delegate = self
         menuCategoryCV.register(CategoryCell.self, forCellWithReuseIdentifier: cellID)
         
+        //Layout things. Sets margins
         let collectionViewLayout = menuCategoryCV.collectionViewLayout as? UICollectionViewFlowLayout
-        
         collectionViewLayout?.sectionInset = UIEdgeInsets(top: 0, left: 19, bottom: 0, right: 19)
         collectionViewLayout?.invalidateLayout()
     }
@@ -73,27 +82,43 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! CategoryCell
+        
+        // Sets label text and images for each category
         cell.categoryLabel.text = restaurant?.categories[indexPath.row]
-        if cell.categoryLabel.text == restaurant?.categories[0] {
-            cell.selectCategory()
-        }
-
         if UIImage(named: (restaurant?.categories[indexPath.row])!) != nil {
             cell.buttonView.image = UIImage(named: (restaurant?.categories[indexPath.row])!)
         }
-        
+
         return cell
+    }
+    
+    func addGradientLayerInForeground(frame: CGRect, colors:[UIColor]) {
+        let gradient = CAGradientLayer()
+        gradient.frame = frame
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 0.0, y: 1.0)
+        gradient.colors = colors.map{$0.cgColor}
+        restaurantImage.layer.addSublayer(gradient)
     }
     
     func addShadowObject(object: UIView) {
         object.layer.shadowRadius = 8
         object.layer.shadowColor = #colorLiteral(red: 0.07881314767, green: 0.07881314767, blue: 0.07881314767, alpha: 1)
         object.layer.shadowOffset = CGSize(width: 0, height: 0)
-        object.layer.shadowOpacity = 0.1
-        object.layer.shadowRadius = 4
+        object.layer.shadowOpacity = 0.3
+        object.layer.shadowRadius = 6
+    }
+    
+    func addShadowButton(button: UIButton) {
+        button.layer.shadowRadius = 8
+        button.layer.shadowColor = #colorLiteral(red: 0.07881314767, green: 0.07881314767, blue: 0.07881314767, alpha: 1)
+        button.layer.shadowOffset = CGSize(width: 0, height: 0)
+        button.layer.shadowOpacity = 0.2
+        button.layer.shadowRadius = 10
     }
 }
 
+//MARK: Setup Menu TableView
 extension RestaurantDetailViewController {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let count = restaurant?.menuItems.count {
@@ -105,26 +130,31 @@ extension RestaurantDetailViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = masterTableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as! MenuItemCell
-
+        
+        // If there is an item description, set it. If there isn't, anchor the price label's top constraint to the item name instead of the item description
         if restaurant?.menuItems[indexPath.row].itemDescription != nil {
             cell.itemDescription.text = restaurant?.menuItems[indexPath.row].itemDescription
         } else {
             cell.itemPrice.topAnchor.constraint(equalTo: cell.itemName.bottomAnchor, constant: 5).isActive = true
         }
         
+        // If there is an item image, set it. If there isn't, anchor the name lable's left hand side to the left-most side of the cell.
         if restaurant?.menuItems[indexPath.row].itemImage != nil {
-            cell.itemImage.image = UIImage(named: (restaurant?.menuItems[indexPath.row].itemImage)!)
+            cell.itemImage.image = restaurant?.menuItems[indexPath.row].itemImage
         } else {
             cell.itemName.leftAnchor.constraint(equalTo: cell.leftAnchor).isActive = true
             cell.itemName.topAnchor.constraint(equalTo: cell.topAnchor, constant: 10).isActive = true
         }
         
+        // Since menu items require both names and prices, these don't need if statements to be set.
         cell.itemName.text = restaurant?.menuItems[indexPath.row].itemName
         cell.itemPrice.text = "$\(String(format: "%.2f", (restaurant?.menuItems[indexPath.row].itemPrice)!))"
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         return cell
     }
     
+    // Different cell heights depending on whether or not there is an image and/or description
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if restaurant?.menuItems[indexPath.row].itemImage != nil, restaurant?.menuItems[indexPath.row].itemDescription == nil {
             return 90
@@ -134,8 +164,19 @@ extension RestaurantDetailViewController {
             return 70
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? MenuDetailVC {
+            destination.item = restaurant?.menuItems[(masterTableView.indexPathForSelectedRow?.row)!]
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "orderDetail", sender: self)
+    }
 }
 
+// This allows the UITableView to stretch to the complete length of its contents. Scrolling is disabled for this page's TableView.
 class SelfSizedTableView: UITableView {
     var maxHeight: CGFloat = UIScreen.main.bounds.size.height
     

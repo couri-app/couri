@@ -30,9 +30,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "restaurantdisplay", for: indexPath) as! RestaurantDisplay
         let currentRestaurant = restaurantLibrary.restaurants[indexPath.row]
-        cell.restaurantView.restaurant = currentRestaurant
+        cell.restaurant = currentRestaurant
         cell.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
@@ -91,71 +91,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Authentication code to set up UI, must be done before we get to any other part of the app
-        self.auth = Auth.auth()
-        self.authUI = FUIAuth.defaultAuthUI()
-        self.authUI?.delegate = self
-        
-//        let firebaseAuth = Auth.auth()
-//        do {
-//            try firebaseAuth.signOut()
-//        } catch let signOutError as NSError {
-//            print ("Error signing out: %@", signOutError)
-//        }
-        
-        //This detects any changes in authentication, and if a change is detected then it will summon the authentication ui.
-        self.authStateListenerHandle = self.auth?.addStateDidChangeListener {
-            (auth, user) in guard user != nil else {
-                self.loginAction(sender: self)
-                return
-            }
-        }
-        let providers: [FUIAuthProvider] = [ FUIEmailAuth(), FUIGoogleAuth() ]
-        
-        //Sets the authUI providers as the providers listed above
-        self.authUI?.providers = providers
-        
-        //Button to expanded Restaurant View
-        addShadowToButton(button: nextPageButton, opacity: 0.1, radius: 8)
-        
-        //Restaurant UIView Aesthetics
-        restaurantUIView.layer.cornerRadius = 20
-        addShadowToView(view: restaurantUIView, opacity: 0.1, radius: 10)
-        restaurantLabel.numberOfLines = 0
-        
-        //Breadcrumb trail images (giving all of them a shadow)
-        addShadowToView(view: restaurantBreadcrumb, opacity: 0.1, radius: 8)
-        addShadowToView(view: orderBreadcrumb, opacity: 0.1, radius: 8)
-        addShadowToView(view: registerBreadcrumb, opacity: 0.1, radius: 8)
-        addShadowToView(view: courierBreadcrumb, opacity: 0.1, radius: 8)
-        
-        //Breadcrumb trail images (giving all of them a circular frame)
-        let breadcrumbArray = [restaurantBreadcrumb, orderBreadcrumb, registerBreadcrumb, courierBreadcrumb]
-        for view in breadcrumbArray {
-            view?.layer.cornerRadius = (view?.frame.width)!/2
-        }
-
-        //Aesthetic settings upon start for various buttons
-        addShadowToButton(button: button, opacity: 0.2, radius: 3)
-        
-        //Aesthetics for shop upon initialization
-        shopView.layer.cornerRadius = 20
-        addShadowToView(view: shopView, opacity: 0.1, radius: 10)
-        
-        //Aesthetics for balance label
-        balanceLabel.layer.backgroundColor = #colorLiteral(red: 1, green: 0.8901960784, blue: 0.5490196078, alpha: 1)
-        balanceLabel.layer.cornerRadius = 4
-        balanceLabel.numberOfLines = 0
+        setupViews()
+        setupFirebase()
         
         sidebarLauncher.delegate = self
     }
 
-    @IBAction func loginAction(sender: AnyObject) {
-        //Present the default login view controller provided by authUI
-        //**DAVID IF YOU WANT TO CHANGE THE AUTHUI TO DO YOUR THING, ITS HERE!!**
-        let authViewController = authUI?.authViewController()
-        self.present(authViewController!, animated: true, completion: nil)
+    @objc func loginAction(sender: AnyObject) {
+//        Present the default login view controller provided by authUI
+//        **DAVID IF YOU WANT TO CHANGE THE AUTHUI TO DO YOUR THING, ITS HERE!!**
+        
+//        let authViewController = authUI?.authViewController()
+//        self.present(authViewController!, animated: true, completion: nil)
     }
     
     @IBAction func down(_ sender: UIButton) {
@@ -163,6 +110,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 3, initialSpringVelocity: 1, options: [], animations: {
                 self.button.transform = CGAffineTransform(translationX: 0, y: 90)
             })
+            
             view.backgroundColor = #colorLiteral(red: 0.1764705882, green: 0.1921568627, blue: 0.2549019608, alpha: 1)
             titleLabel.text = "DELIVER"
             titleLabel.textColor = #colorLiteral(red: 1, green: 0.8901960784, blue: 0.5490196078, alpha: 1)
@@ -188,6 +136,69 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             isOn = !isOn
         }
     }
+    
+    func setupFirebase() {
+        //Authentication code to set up UI, must be done before we get to any other part of the app
+        self.auth = Auth.auth()
+        self.authUI = FUIAuth.defaultAuthUI()
+        self.authUI?.delegate = self
+        
+        //        let firebaseAuth = Auth.auth()
+        //        do {
+        //            try firebaseAuth.signOut()
+        //        } catch let signOutError as NSError {
+        //            print ("Error signing out: %@", signOutError)
+        //        }
+        
+        //This detects any changes in authentication, and if a change is detected then it will summon the authentication ui.
+        self.authStateListenerHandle = self.auth?.addStateDidChangeListener {
+            (auth, user) in guard user != nil else {
+                self.loginAction(sender: self)
+                return
+            }
+        }
+        let providers: [FUIAuthProvider] = [ FUIEmailAuth(), FUIGoogleAuth() ]
+        
+        //Sets the authUI providers as the providers listed above
+        self.authUI?.providers = providers
+    }
+    
+    func setupViews() {
+        tableView.register(RestaurantDisplay.self, forCellReuseIdentifier: "restaurantdisplay")
+        
+        //Button to expanded Restaurant View
+        addShadowToButton(button: nextPageButton, opacity: 0.1, radius: 8)
+        
+        //Restaurant UIView Aesthetics
+        restaurantUIView.layer.cornerRadius = 20
+        addShadowToView(view: restaurantUIView, opacity: 0.1, radius: 10)
+        restaurantLabel.numberOfLines = 0
+        
+        //Breadcrumb trail images (giving all of them a shadow)
+        addShadowToView(view: restaurantBreadcrumb, opacity: 0.1, radius: 8)
+        addShadowToView(view: orderBreadcrumb, opacity: 0.1, radius: 8)
+        addShadowToView(view: registerBreadcrumb, opacity: 0.1, radius: 8)
+        addShadowToView(view: courierBreadcrumb, opacity: 0.1, radius: 8)
+        
+        //Breadcrumb trail images (giving all of them a circular frame)
+        let breadcrumbArray = [restaurantBreadcrumb, orderBreadcrumb, registerBreadcrumb, courierBreadcrumb]
+        for view in breadcrumbArray {
+            view?.layer.cornerRadius = (view?.frame.width)!/2
+        }
+        
+        //Aesthetic settings upon start for various buttons
+        addShadowToButton(button: button, opacity: 0.2, radius: 3)
+        
+        //Aesthetics for shop upon initialization
+        shopView.layer.cornerRadius = 20
+        addShadowToView(view: shopView, opacity: 0.1, radius: 10)
+        
+        //Aesthetics for balance label
+        balanceLabel.layer.backgroundColor = #colorLiteral(red: 1, green: 0.8901960784, blue: 0.5490196078, alpha: 1)
+        balanceLabel.layer.cornerRadius = 4
+        balanceLabel.numberOfLines = 0
+    }
+    
     let sidebarLauncher = SidebarLauncher()
     
     func handleMore() {

@@ -9,9 +9,6 @@
 import UIKit
 
 // Unique class for the restaurant cell in the tableview
-class RestaurantCell: UITableViewCell {
-    @IBOutlet weak var restaurantView: RestaurantView!
-}
 
 class RestaurantUIViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
@@ -28,22 +25,22 @@ class RestaurantUIViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         titleLabel.numberOfLines = 0
         addShadowToButton(button: backButton, opacity: 0.1, radius: 8)
+        tableView.register(RestaurantDisplay.self, forCellReuseIdentifier: "restaurantdisplay")
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 }
 
-
 extension RestaurantUIViewController {
-    
     // Must have the below two functions. The first one returns and sets the number of rows in the tableview, and the second adds content to your cell in order of how they're indexed in the library
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return restaurantLibrary.restaurants.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell", for: indexPath) as! RestaurantCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "restaurantdisplay", for: indexPath) as! RestaurantDisplay
         let currentRestaurant = restaurantLibrary.restaurants[indexPath.row]
-        cell.restaurantView.restaurant = currentRestaurant
-        cell.layer.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
+        cell.restaurant = currentRestaurant
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         return cell
@@ -54,8 +51,9 @@ extension RestaurantUIViewController {
     }
     
     // Simply sets the height of each cell
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 370
+        return 350
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
