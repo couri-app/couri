@@ -43,6 +43,7 @@ class CategoryCell: UICollectionViewCell {
     }()
     
     func setupViews() {
+        
         addSubview(buttonView)
         addSubview(categoryLabel)
         
