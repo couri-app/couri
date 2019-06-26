@@ -22,6 +22,8 @@ struct MenuLibrary {
     var tapiocaExpressMenu: [MenuItem] = []
     var rareTeaMenu: [MenuItem] = []
     var sliverMenu: [MenuItem] = []
+    var gongchaMenu: [MenuItem] = []
+    
     init() {
         generateLibrary()
     }
@@ -87,9 +89,53 @@ struct MenuLibrary {
         sliver1.itemName = "Slice of Pepperoni"
         sliver1.itemPrice = 8.59
         
+        let gc1 = MenuItem()
+        gc1.itemName = "Mustache"
+        gc1.itemCategory = "Mustache"
+        gc1.itemImage = UIImage(named: "GC Mustache")
+        gc1.itemPrice = 4.50
+        
+        let gc2 = MenuItem()
+        gc2.itemName = "QQ Passion Foam Tea"
+        gc2.itemImage = UIImage(named: "GC Creative Mix")
+        gc2.itemPrice = 4.50
+        
+        let gc3 = MenuItem()
+        gc3.itemName = "Pearl Milk Tea"
+        gc3.itemImage = UIImage(named: "GC Milk Tea")
+        gc3.itemPrice = 4.50
+        
+        let gc4 = MenuItem()
+        gc4.itemName = "Earl Grey Fresh Milk tea"
+        gc4.itemImage = UIImage(named: "GC Fresh Milk")
+        gc4.itemDescription = "This one is so dank that when you drink it, you'll have dreams about it for the rest of your life"
+        gc4.itemPrice = 4.50
+        
+        let gc5 = MenuItem()
+        gc5.itemName = "Premium Brewed Tea"
+        gc5.itemImage = UIImage(named: "GC Brewed Tea")
+        gc5.itemPrice = 4.50
+        
+        let gc6 = MenuItem()
+        gc6.itemName = "Coffee"
+        gc6.itemImage = UIImage(named: "GC Coffee")
+        gc6.itemPrice = 4.50
+        
+        let gc7 = MenuItem()
+        gc7.itemName = "Matcha Smoothie"
+        gc7.itemImage = UIImage(named: "GC Smoothie")
+        gc7.itemPrice = 4.50
+        
+        let gc8 = MenuItem()
+        gc8.itemName = "Sparkling Rainbow Lychee"
+        gc8.itemImage = UIImage(named: "GC Sparkling")
+        gc8.itemPrice = 4.50
+        
+        gongchaMenu = [gc1, gc2, gc3, gc4, gc5, gc6, gc7, gc8]
         sliverMenu = [sliver1]
         tapiocaExpressMenu = [item1, item2, item3, item4, item5]
         rareTeaMenu = [rareTea1, rareTea2, rareTea3, rareTea4, rareTea5]
+        
     }
 }
 
@@ -136,6 +182,7 @@ class MenuItemCell: UITableViewCell {
     
     let itemName: UILabel = {
         let label = UILabel()
+        label.numberOfLines = 1
         label.font = UIFont(name: "AvenirNext-Demibold", size: 20)
         return label
     }()
@@ -143,7 +190,7 @@ class MenuItemCell: UITableViewCell {
     let itemDescription: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "AvenirNext-Medium", size: 14)
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         label.textColor = UIColor.gray
         return label
     }()
@@ -173,6 +220,7 @@ class MenuItemCell: UITableViewCell {
             
             itemName.leftAnchor.constraint(equalTo: itemImage.rightAnchor, constant: 10),
             itemName.topAnchor.constraint(equalTo: itemImage.topAnchor),
+            itemName.rightAnchor.constraint(equalTo: rightAnchor, constant: -10),
             
             itemDescription.topAnchor.constraint(equalTo: itemName.bottomAnchor, constant: 5),
             itemDescription.leadingAnchor.constraint(equalTo: itemName.leadingAnchor),

@@ -8,17 +8,14 @@
 
 import UIKit
 
-class MenuDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MenuDetailVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var item: MenuItem?
-    var masterTableView = SelfSizedTableView()
-    let contentToLoad = ["One", "Two", "Three", "Four", "", "", "", "", ""]
-    let cellID = "cell1234"
+    var cvCellID = "collectionviewid"
     
     // Interface Builder Outlets
-    
-    @IBOutlet weak var checkoutButtonView: UIView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var checkoutButtonView: UIView!
     @IBOutlet weak var scrollview: UIScrollView!
     
     @objc func backTapped() {
@@ -30,8 +27,8 @@ class MenuDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         contentView.topAnchor.constraint(equalTo: scrollview.topAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo:scrollview.bottomAnchor).isActive = true
         setupViews()
+        setupCV()
         setupGradientLayer()
-        setupTableView()
     }
     
     let backwardsButton: UIButton = {
@@ -44,6 +41,7 @@ class MenuDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     let nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "AvenirNext-Bold", size: 30)
+        label.numberOfLines = 0
         return label
     }()
     
@@ -102,6 +100,19 @@ class MenuDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         return subview
     }()
     
+    let masterCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 30
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return cv
+    }()
+    
+    let microCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        return cv
+    }()
+    
     let counterView: UIView = {
         let view = UIView()
         let separatorBar = UIView()
@@ -119,8 +130,8 @@ class MenuDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource
              
              smallSeparator.topAnchor.constraint(equalTo: view.topAnchor, constant: 41),
              smallSeparator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-             smallSeparator.leftAnchor.constraint(equalTo: view.leftAnchor),
-             smallSeparator.rightAnchor.constraint(equalTo: view.rightAnchor),
+             smallSeparator.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
+             smallSeparator.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
              smallSeparator.heightAnchor.constraint(equalToConstant: 1/4)
             ])
         return view
@@ -225,11 +236,11 @@ class MenuDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         addShadowView(view: cardView, color: UIColor.black)
         addShadowView(view: checkoutButtonView, color: UIColor.black)
         
-        contentView.addSubview(masterTableView)
         contentView.addSubview(itemImage)
         contentView.addSubview(backwardsButton)
-        contentView.addSubview(cardView)
         contentView.addSubview(counterView)
+        contentView.addSubview(masterCollectionView)
+        contentView.addSubview(cardView)
         
         cardView.addSubview(nameLabel)
         cardView.addSubview(descriptionLabel)
@@ -291,13 +302,14 @@ class MenuDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             
             nameLabel.leftAnchor.constraint(equalTo: cardView.leftAnchor, constant: 20),
             nameLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 10),
+            nameLabel.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -20),
             
             priceLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             
-            masterTableView.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 20),
-            masterTableView.bottomAnchor.constraint(equalTo: counterView.topAnchor, constant: -20),
-            masterTableView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
-            masterTableView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10),
+            masterCollectionView.topAnchor.constraint(equalTo: cardView.bottomAnchor),
+            masterCollectionView.bottomAnchor.constraint(equalTo: counterView.topAnchor),
+            masterCollectionView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            masterCollectionView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             
             counterView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             counterView.widthAnchor.constraint(equalToConstant: contentView.frame.width),
@@ -341,10 +353,15 @@ class MenuDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             ])
     }
     
-    func setupTableView() {
-        masterTableView.delegate = self
-        masterTableView.dataSource = self
-        masterTableView.register(UITableViewCell.self, forCellReuseIdentifier: cellID)
+    func setupCV() {
+        masterCollectionView.dataSource = self
+        masterCollectionView.delegate = self
+        masterCollectionView.register(CustomizeMasterCell.self, forCellWithReuseIdentifier: cvCellID)
+        masterCollectionView.backgroundColor = UIColor.white
+        
+        //Layout things. Sets margins
+        let collectionViewLayout = masterCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
+        collectionViewLayout?.invalidateLayout()
     }
     
     func setupGradientLayer() {
@@ -357,22 +374,19 @@ class MenuDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource
 }
 
 extension MenuDetailVC {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return contentToLoad.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        cell.textLabel?.text = contentToLoad[indexPath.row]
-        //cell.selectionStyle = UITableViewCell.SelectionStyle.none
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cvCellID, for: indexPath) as! CustomizeMasterCell
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let index = self.masterTableView.indexPathForSelectedRow {
-            tableView.deselectRow(at: index, animated: true)
-        }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 5
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 300)
+    }
+    
 }
 
 extension NSLayoutConstraint {

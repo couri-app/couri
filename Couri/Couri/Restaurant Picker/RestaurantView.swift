@@ -47,10 +47,13 @@ extension RestaurantLibrary {
         let sliverPizzeria = Restaurant(restaurantName: "Sliver Pizzeria", categoryDescription: "Pizza, Salad", description: "Socially conscious pie parlor showcases specialty pizzas, a full bar, and live bands in a funky space.", imageName: #imageLiteral(resourceName: "sliver"), categories: ["Popular"])
         let gypsys = Restaurant(restaurantName: "Gypsy's", categoryDescription: "Italian, Pastas, Salads", description: "Fast food outfit with late hours provides Italian comfort dishes to student-heavy clientele", imageName: #imageLiteral(resourceName: "gypsys"), categories: ["Popular"])
         let tapiocaExpress = Restaurant(restaurantName: "Tapioca Express", categoryDescription: "Coffee & Tea, Juice Bars & Smoothies, Bubble Tea, Boba", description: "Tapioca Express harvests the finest ingredients from Taiwan and provides quality teas, boba, and snacks to our customers.", imageName: #imageLiteral(resourceName: "tapioca express"), categories: ["Popular", "Milk Tea", "Snacks", "Tea", "Snow Bubble"])
+        let gongCha = Restaurant(restaurantName: "Gong Cha", categoryDescription: "Milk Tea, Fruit Teas, Smoothie blends", description: "At Gong Cha USA, we believe in serving quality bubble tea and boba tea. Our teas can be blended with a variety of fruits, toppings and creative mixes.", imageName: UIImage(named: "Gongcha Cover")!, categories: ["Popular", "Milk Tea", "Tea"])
+        
         tapiocaExpress.menuItems = menuLibrary.tapiocaExpressMenu
         rareTeaBancroft.menuItems = menuLibrary.rareTeaMenu
         sliverPizzeria.menuItems = menuLibrary.sliverMenu
+        gongCha.menuItems = menuLibrary.gongchaMenu
         
-        restaurants = [tapiocaExpress, rareTeaBancroft, cupcakinBakeShop, sliverPizzeria, gypsys]
+        restaurants = [tapiocaExpress, gongCha, rareTeaBancroft, cupcakinBakeShop, sliverPizzeria, gypsys]
     }
 }

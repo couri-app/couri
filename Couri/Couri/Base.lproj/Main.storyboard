@@ -708,7 +708,7 @@
                     <connections>
                         <outlet property="checkoutButtonView" destination="QV0-O9-cFh" id="4Nt-jf-75l"/>
                         <outlet property="contentView" destination="14E-vd-PB2" id="GE9-nC-f3L"/>
-                        <outlet property="scrollview" destination="HXp-dq-tE6" id="LNV-rI-pyc"/>
+                        <outlet property="scrollview" destination="HXp-dq-tE6" id="QuJ-N8-FhP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VLt-Jc-ARe" userLabel="First Responder" sceneMemberID="firstResponder"/>
