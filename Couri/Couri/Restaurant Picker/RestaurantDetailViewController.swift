@@ -30,29 +30,9 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        masterTableView.isScrollEnabled = false
-        masterTableView.maxHeight = view.frame.height
-        masterTableView.alwaysBounceVertical = false
-        masterTableView.register(MenuItemCell.self, forCellReuseIdentifier: "menuCell")
-        masterTableView.rowHeight = UITableView.automaticDimension
-        masterTableView.estimatedRowHeight = 100
-        masterTableView.delegate = self
-        masterTableView.dataSource = self
-    
-        restaurantNameLabel.text = restaurant?.restaurantName
-        restaurantImage.image = restaurant?.imageName
-        restaurantCategories.text = restaurant?.categoryDescription
-        restaurantCategories.numberOfLines = 0
+        setupViews()
+        setupTableView()
         setupCV()
-        
-        //Aesthetics
-        containerView.layer.cornerRadius = 20
-        addShadowObject(object: containerView)
-        addShadowButton(button: backButton)
-        restaurantImage.layer.cornerRadius = 10
-        restaurantImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        addGradientLayerInForeground(frame: restaurantImage.frame, colors: [UIColor.white.withAlphaComponent(0), UIColor.white])
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +50,32 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
         let collectionViewLayout = menuCategoryCV.collectionViewLayout as? UICollectionViewFlowLayout
         collectionViewLayout?.sectionInset = UIEdgeInsets(top: 0, left: 19, bottom: 0, right: 19)
         collectionViewLayout?.invalidateLayout()
+    }
+    
+    func setupViews() {
+        restaurantNameLabel.text = restaurant?.restaurantName
+        restaurantImage.image = restaurant?.imageName
+        restaurantCategories.text = restaurant?.categoryDescription
+        restaurantCategories.numberOfLines = 0
+        
+        //Aesthetics
+        containerView.layer.cornerRadius = 20
+        addShadowObject(object: containerView)
+        addShadowButton(button: backButton)
+        restaurantImage.layer.cornerRadius = 10
+        restaurantImage.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        addGradientLayerInForeground(frame: restaurantImage.frame, colors: [UIColor.white.withAlphaComponent(0), UIColor.white])
+    }
+    
+    func setupTableView() {
+        masterTableView.isScrollEnabled = false
+        masterTableView.maxHeight = view.frame.height
+        masterTableView.alwaysBounceVertical = false
+        masterTableView.register(MenuItemCell.self, forCellReuseIdentifier: "menuCell")
+        masterTableView.rowHeight = UITableView.automaticDimension
+        masterTableView.estimatedRowHeight = 100
+        masterTableView.delegate = self
+        masterTableView.dataSource = self
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -131,24 +137,9 @@ extension RestaurantDetailViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = masterTableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as! MenuItemCell
         
-        // If there is an item description, set it. If there isn't, anchor the price label's top constraint to the item name instead of the item description
-        if restaurant?.menuItems[indexPath.row].itemDescription != nil {
-            cell.itemDescription.text = restaurant?.menuItems[indexPath.row].itemDescription
-        } else {
-            cell.itemPrice.topAnchor.constraint(equalTo: cell.itemName.bottomAnchor, constant: 5).isActive = true
-        }
+        let currentItem = restaurant?.menuItems[indexPath.row]
+        cell.item = currentItem
         
-        // If there is an item image, set it. If there isn't, anchor the name lable's left hand side to the left-most side of the cell.
-        if restaurant?.menuItems[indexPath.row].itemImage != nil {
-            cell.itemImage.image = restaurant?.menuItems[indexPath.row].itemImage
-        } else {
-            cell.itemName.leftAnchor.constraint(equalTo: cell.leftAnchor).isActive = true
-            cell.itemName.topAnchor.constraint(equalTo: cell.topAnchor, constant: 10).isActive = true
-        }
-        
-        // Since menu items require both names and prices, these don't need if statements to be set.
-        cell.itemName.text = restaurant?.menuItems[indexPath.row].itemName
-        cell.itemPrice.text = "$\(String(format: "%.2f", (restaurant?.menuItems[indexPath.row].itemPrice)!))"
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
         return cell

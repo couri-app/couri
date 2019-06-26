@@ -9,4 +9,12 @@
 import Foundation
 import UIKit
 
+class customizeChoicesCell {
+    var selectionIcon = UIImageView()
+    var choiceTitle = UILabel()
+    var addedPrice: Double?
+}
 
+struct choicesLibrary {
+    
+}

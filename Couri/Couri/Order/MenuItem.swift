@@ -95,6 +95,28 @@ struct MenuLibrary {
 
 class MenuItemCell: UITableViewCell {
     
+    var item: MenuItem! {
+        didSet {
+            if item.itemDescription != nil {
+                itemDescription.text = item.itemDescription!
+            } else {
+                itemPrice.topAnchor.constraint(equalTo: itemName.bottomAnchor, constant: 5).isActive = true
+            }
+            
+            // If there is an item image, set it. If there isn't, anchor the name lable's left hand side to the left-most side of the cell.
+            if item.itemImage != nil {
+                itemImage.image = item.itemImage
+            } else {
+                itemName.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+                itemName.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
+            }
+            
+            // Since menu items require both names and prices, these don't need if statements to be set.
+            itemName.text = item.itemName
+            itemPrice.text = "$\(String(format: "%.2f", item.itemPrice))"
+            }
+        }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
