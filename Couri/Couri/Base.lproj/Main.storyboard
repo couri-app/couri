@@ -20,12 +20,31 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="FDG-eL-CzR" kind="relationship" relationship="rootViewController" id="t7Q-LG-tH8"/>
+                        <segue destination="ig4-9e-wsJ" kind="relationship" relationship="rootViewController" id="wqS-Fx-MQr"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Alo-zG-kPA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="105" y="-1418"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="nwH-wX-gfZ">
+            <objects>
+                <viewController id="ig4-9e-wsJ" customClass="HomeViewController" customModule="Couri" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dux-H7-Sfk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="k2V-qe-ORr"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4IX-K3-frd"/>
+                    <connections>
+                        <segue destination="iPm-Qy-J0I" kind="show" identifier="showrestaurantdetail" id="nqG-uv-16I"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eYA-yX-ehm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="937" y="-1419"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Zyy-KS-Y5e">
@@ -367,7 +386,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJQ-NU-NPt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="937" y="-1419"/>
+            <point key="canvasLocation" x="105" y="-696"/>
         </scene>
         <!--RestaurantUI View Controller-->
         <scene sceneID="qOQ-aJ-c0b">
@@ -709,11 +728,27 @@
                         <outlet property="checkoutButtonView" destination="QV0-O9-cFh" id="4Nt-jf-75l"/>
                         <outlet property="contentView" destination="14E-vd-PB2" id="GE9-nC-f3L"/>
                         <outlet property="scrollview" destination="HXp-dq-tE6" id="QuJ-N8-FhP"/>
+                        <segue destination="qsq-ye-pZ2" kind="show" identifier="checkoutSegue" id="7FW-Iy-z8s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VLt-Jc-ARe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3400.8000000000002" y="-1419.4581280788177"/>
+        </scene>
+        <!--Checkout View Controller-->
+        <scene sceneID="Zww-1k-LmD">
+            <objects>
+                <viewController id="qsq-ye-pZ2" customClass="CheckoutViewController" customModule="Couri" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="teg-te-0u3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="paE-RW-rjg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Of-h4-5Ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4180" y="-1419"/>
         </scene>
         <!--TransferVC-->
         <scene sceneID="731-My-tcL">
@@ -1043,6 +1078,6 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KL2-hA-kGO"/>
+        <segue reference="nqG-uv-16I"/>
     </inferredMetricsTieBreakers>
 </document>

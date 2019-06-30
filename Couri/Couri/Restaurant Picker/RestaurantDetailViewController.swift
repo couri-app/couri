@@ -13,6 +13,7 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
     
     private let cellID = "categoryCellID"
     var restaurant: Restaurant?
+    var categoryCellSelected = 0
     
     @IBOutlet weak var restaurantNameLabel: UILabel!
     @IBOutlet weak var backButton: UIButton!
@@ -98,6 +99,11 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        categoryCellSelected = indexPath.item
+        masterTableView.reloadData()
+    }
+
     func addGradientLayerInForeground(frame: CGRect, colors:[UIColor]) {
         let gradient = CAGradientLayer()
         gradient.frame = frame
@@ -126,39 +132,38 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
 
 //MARK: Setup Menu TableView
 extension RestaurantDetailViewController {
+    // returns the number of menu items in category
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = restaurant?.menuItems.count {
+        let currentCategory = restaurant?.categories[categoryCellSelected]
+        if let currentItems = restaurant?.menuItems[currentCategory!] {
+            let count = currentItems.count
             return count
-        } else {
-            return 0
         }
+        return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = masterTableView.dequeueReusableCell(withIdentifier: "menuCell", for: indexPath) as! MenuItemCell
-        
-        let currentItem = restaurant?.menuItems[indexPath.row]
-        cell.item = currentItem
-        
         cell.selectionStyle = UITableViewCell.SelectionStyle.none
         
+        let currentCategory = restaurant?.categories[categoryCellSelected]
+        let currentItem = restaurant?.menuItems[currentCategory!]?[indexPath.row]
+        
+        cell.item = currentItem
         return cell
     }
     
     // Different cell heights depending on whether or not there is an image and/or description
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if restaurant?.menuItems[indexPath.row].itemImage != nil, restaurant?.menuItems[indexPath.row].itemDescription == nil {
-            return 90
-        } else if restaurant?.menuItems[indexPath.row].itemDescription != nil {
-            return 110
-        } else {
-            return 70
-        }
+        return 100
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? MenuDetailVC {
-            destination.item = restaurant?.menuItems[(masterTableView.indexPathForSelectedRow?.row)!]
+            let currentCategory = restaurant?.categories[categoryCellSelected]
+            if let currentItem = restaurant?.menuItems[currentCategory!] {
+                destination.item = currentItem[masterTableView.indexPathForSelectedRow!.row]
+            }
         }
     }
     

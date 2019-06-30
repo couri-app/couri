@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class CustomizeCell: UICollectionViewCell {
+    
     var customizable: CustomizableOptions? {
         didSet {
             if customizable?.isSingleSelection == true {
@@ -38,7 +39,11 @@ class CustomizeCell: UICollectionViewCell {
             titleLabel.text = customizable?.title
             
             if customizable?.addedPrice != nil {
-                addedPriceLabel.text = "+$\(String(format: "%.2f", (customizable?.addedPrice!)!))"
+                if let addedPrice = customizable?.addedPrice {
+                    addedPriceLabel.text = "+$\(String(format: "%.2f", addedPrice))"
+                }
+            } else {
+                addedPriceLabel.text = ""
             }
         }
     }
@@ -88,7 +93,6 @@ class CustomizeCell: UICollectionViewCell {
     }()
     
     func setupViews() {
-        backgroundColor = UIColor.white
         addSubview(selectionView)
         addSubview(titleLabel)
         addSubview(addedPriceLabel)
@@ -103,7 +107,7 @@ class CustomizeCell: UICollectionViewCell {
             titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             titleLabel.leftAnchor.constraint(equalTo: selectionView.rightAnchor, constant: 10),
             
-            addedPriceLabel.trailingAnchor.constraint(equalTo: separatorBar.trailingAnchor, constant: -20),
+            addedPriceLabel.trailingAnchor.constraint(equalTo: separatorBar.trailingAnchor, constant: -10),
             addedPriceLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
             
             separatorBar.heightAnchor.constraint(equalToConstant: 1),
@@ -111,5 +115,85 @@ class CustomizeCell: UICollectionViewCell {
             separatorBar.rightAnchor.constraint(equalTo: rightAnchor, constant: -20),
             separatorBar.bottomAnchor.constraint(equalTo: bottomAnchor)
             ])
+    }
+}
+
+class CustomizeCellHeader: UICollectionReusableView, ChangeHeaderDelegate {
+    func changeTitle() {
+        reqLabel.backgroundColor = UIColor.white
+    }
+    
+    var masterCustomizable: MasterCustomize? {
+        didSet {
+            if let title = masterCustomizable?.title {
+                headerTitle.text = title.uppercased()
+            }
+            if let requireBool = masterCustomizable?.isRequired {
+                if requireBool == true {
+                    reqLabel.text = " REQUIRED "
+                    reqLabel.backgroundColor = UIColor(named: "honeyYellow")
+                } else {
+                    reqLabel.text = " OPTIONAL "
+                    reqLabel.backgroundColor = UIColor.white
+                }
+            }
+        }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override class var layerClass: AnyClass {
+        get { return CustomLayer.self }
+    }
+    
+    let headerTitle: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "AvenirNext-Bold", size: 18)
+        label.text = "CHOOSE YOUR TOPPING"
+        label.numberOfLines = 2
+        return label
+    }()
+    
+    let reqLabel: UILabel = {
+        let label = UILabel()
+        label.text = " REQUIRED "
+        label.font = UIFont(name: "AvenirNext-Bold", size: 12)
+        label.backgroundColor = UIColor(named: "honeyYellow")
+        return label
+    }()
+    
+    func setupViews() {
+        layer.shadowRadius = 10
+        layer.shadowOffset = CGSize(width: 0, height: 5)
+        layer.shadowOpacity = 0.1
+        layer.shadowColor = UIColor.gray.cgColor
+        
+        addSubview(headerTitle)
+        addSubview(reqLabel)
+        
+        backgroundColor = .white
+        NSLayoutConstraint.useAndActivateConstraints(constraints: [
+            headerTitle.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 15),
+            headerTitle.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -5),
+            headerTitle.rightAnchor.constraint(equalTo: reqLabel.leftAnchor),
+            
+            reqLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -15),
+            reqLabel.widthAnchor.constraint(equalToConstant: 70),
+            reqLabel.centerYAnchor.constraint(equalTo: headerTitle.centerYAnchor)
+            ])
+    }
+}
+
+class CustomLayer: CALayer {
+    override var zPosition: CGFloat {
+        get { return 0 }
+        set {}
     }
 }

@@ -16,13 +16,26 @@ class MenuItem {
     var itemCategory = String()
     var quantity = 0
     var itemDescription: String? = nil
+    var customizables: [MasterCustomize] = []
 }
 
 struct MenuLibrary {
-    var tapiocaExpressMenu: [MenuItem] = []
+    let teLib = TemporaryMasterCustomizableLibrary()
+    
+    var tapiocaExpressPopular: [MenuItem] = []
+    var tapiocaExpressMilkTea: [MenuItem] = []
+    var tapiocaExpressSnacks: [MenuItem] = []
+    var tapiocaExpressTea: [MenuItem] = []
+    var tapiocaExpressSnowbubble: [MenuItem] = []
     var rareTeaMenu: [MenuItem] = []
     var sliverMenu: [MenuItem] = []
     var gongchaMenu: [MenuItem] = []
+    
+    var tapiocaCategories: [String: [MenuItem]] = [:]
+    var gongchaCategories: [String: [MenuItem]] = [:]
+    var rareTeaCategories: [String: [MenuItem]] = [:]
+    var sliverCategories: [String: [MenuItem]] = [:]
+    
     
     init() {
         generateLibrary()
@@ -34,6 +47,7 @@ struct MenuLibrary {
         item1.itemPrice = 5.35
         item1.itemImage = UIImage(named: "crispy chicken")
         item1.itemCategory = "Snacks"
+        item1.customizables = [teLib.spicy]
         
         let item2 = MenuItem()
         item2.itemName = "T.E. Crispy Chicken"
@@ -41,25 +55,53 @@ struct MenuLibrary {
         item2.itemImage = UIImage(named: "crispy chicken salad")
         item2.itemCategory = "Snacks"
         item2.itemDescription = "Served with side salad. No combo drink substitutions."
+        item2.customizables = [teLib.drink, teLib.sweet, teLib.spicy]
         
         let item3 = MenuItem()
         item3.itemName = "Thai Tea"
         item3.itemPrice = 3.50
         item3.itemImage = UIImage(named: "thai tea")
         item3.itemCategory = "Milk Tea"
+        item3.customizables = [teLib.addOn, teLib.temp, teLib.ice, teLib.sweet, teLib.sub, teLib.boba, teLib.jelly]
         
         let item4 = MenuItem()
         item4.itemName = "T.E. Fried Potstickers"
         item4.itemPrice = 4.35
         item4.itemImage = UIImage(named: "potstickers")
         item4.itemCategory = "Snacks"
+        item4.customizables = [teLib.spicy]
         
         let item5 = MenuItem()
         item5.itemName = "Korean Short Ribs"
         item5.itemPrice = 9.95
-        item5.itemCategory = "Snacks"
+        item5.itemCategory = "Popular"
         item5.itemDescription = "Served with side salad. No combo drink substitution"
-
+        item5.customizables = [teLib.spicy]
+        
+        let item6 = MenuItem()
+        item6.itemName = "Milk Tea"
+        item6.itemPrice = 3.25
+        item6.itemImage = UIImage(named: "Milk Tea-1")
+        item6.itemCategory = "Milk Tea"
+        item6.customizables = [teLib.addOn, teLib.temp, teLib.ice, teLib.sweet, teLib.boba, teLib.jelly]
+        
+        let item7 = MenuItem()
+        item7.itemName = "Almond Milk Tea"
+        item7.itemPrice = 3.50
+        item7.itemCategory = "Milk Tea"
+        item7.customizables = [teLib.addOn, teLib.temp, teLib.ice, teLib.sweet, teLib.boba, teLib.jelly]
+        
+        let item8 = MenuItem()
+        item8.itemName = "Barley Tea"
+        item8.itemPrice = 3.75
+        item8.itemCategory = "Tea"
+        item8.customizables = [teLib.addOn, teLib.temp, teLib.ice, teLib.sweet, teLib.boba, teLib.jelly]
+        
+        let item9 = MenuItem()
+        item9.itemName = "Almond Snow Bubble"
+        item9.itemPrice = 3.95
+        item9.customizables = [teLib.addOn, teLib.sub, teLib.boba, teLib.jelly]
+        
         let rareTea1 = MenuItem()
         rareTea1.itemName = "Thai Milk Tea"
         rareTea1.itemPrice = 4.50
@@ -133,9 +175,18 @@ struct MenuLibrary {
         
         gongchaMenu = [gc1, gc2, gc3, gc4, gc5, gc6, gc7, gc8]
         sliverMenu = [sliver1]
-        tapiocaExpressMenu = [item1, item2, item3, item4, item5]
+        
+        tapiocaExpressPopular = [item3, item6, item7, item8, item1, item2, item4, item5]
+        tapiocaExpressMilkTea = [item3, item6, item7]
+        tapiocaExpressSnacks = [item1, item2, item4, item5]
+        tapiocaExpressTea = [item8]
+        tapiocaExpressSnowbubble = [item9]
+        
         rareTeaMenu = [rareTea1, rareTea2, rareTea3, rareTea4, rareTea5]
         
+        gongchaCategories = ["Popular" : gongchaMenu]
+        tapiocaCategories = ["Popular" : tapiocaExpressPopular, "Milk Tea" : tapiocaExpressMilkTea, "Snacks" : tapiocaExpressSnacks, "Tea" : tapiocaExpressTea, "Snow Bubble" : tapiocaExpressSnowbubble]
+        rareTeaCategories = ["Popular" : rareTeaMenu]
     }
 }
 
@@ -143,18 +194,31 @@ class MenuItemCell: UITableViewCell {
     
     var item: MenuItem! {
         didSet {
+            itemDescription.text = item?.itemDescription
             if item.itemDescription != nil {
                 itemDescription.text = item.itemDescription!
             } else {
                 itemPrice.topAnchor.constraint(equalTo: itemName.bottomAnchor, constant: 5).isActive = true
             }
             
-            // If there is an item image, set it. If there isn't, anchor the name lable's left hand side to the left-most side of the cell.
+            // If there is an item image, set it. If there isn't, anchor the name label's left hand side to the left-most side of the cell.
             if item.itemImage != nil {
                 itemImage.image = item.itemImage
+                
+                NSLayoutConstraint.useAndActivateConstraints(constraints: [
+                    itemImage.widthAnchor.constraint(equalToConstant: 70),
+                    itemImage.heightAnchor.constraint(equalToConstant: 70),
+                    itemImage.leftAnchor.constraint(equalTo: self.leftAnchor),
+                    itemImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
+                    
+                    itemName.leftAnchor.constraint(equalTo: itemImage.rightAnchor, constant: 10),
+                    itemName.topAnchor.constraint(equalTo: itemImage.topAnchor)
+                    ])
             } else {
-                itemName.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-                itemName.topAnchor.constraint(equalTo: topAnchor, constant: 10).isActive = true
+                NSLayoutConstraint.useAndActivateConstraints(constraints: [
+                    itemName.leftAnchor.constraint(equalTo: leftAnchor),
+                    itemName.topAnchor.constraint(equalTo: topAnchor, constant: 20)
+                    ])
             }
             
             // Since menu items require both names and prices, these don't need if statements to be set.
@@ -207,17 +271,7 @@ class MenuItemCell: UITableViewCell {
         addSubview(itemDescription)
         addSubview(itemPrice)
         
-        itemImage.translatesAutoresizingMaskIntoConstraints = false
-        itemName.translatesAutoresizingMaskIntoConstraints = false
-        itemDescription.translatesAutoresizingMaskIntoConstraints = false
-        itemPrice.translatesAutoresizingMaskIntoConstraints = false
-        
-        addConstraints([
-            itemImage.widthAnchor.constraint(equalToConstant: 70),
-            itemImage.heightAnchor.constraint(equalToConstant: 70),
-            itemImage.leftAnchor.constraint(equalTo: self.leftAnchor),
-            itemImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 10),
-            
+        NSLayoutConstraint.useAndActivateConstraints(constraints: [
             itemName.leftAnchor.constraint(equalTo: itemImage.rightAnchor, constant: 10),
             itemName.topAnchor.constraint(equalTo: itemImage.topAnchor),
             itemName.rightAnchor.constraint(equalTo: rightAnchor, constant: -10),
