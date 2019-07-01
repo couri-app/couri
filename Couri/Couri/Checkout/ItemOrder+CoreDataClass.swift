@@ -1,5 +1,5 @@
 //
-//  Order+CoreDataClass.swift
+//  ItemOrder+CoreDataClass.swift
 //  Couri
 //
 //  Created by David Chen on 6/29/19.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-@objc(Order)
-public class Order: NSManagedObject {
+
+public class ItemOrder: NSManagedObject {
 
 }

@@ -108,8 +108,9 @@ extension CourierLibrary {
         let courier4 = Courier(courierImage: #imageLiteral(resourceName: "Shrey Icon"), colorProfile: #colorLiteral(red: 0.8078431487, green: 0.02745098062, blue: 0.3333333433, alpha: 1), courierName: "Shrey V.", ratingAverage: 4.8, timeAway: 23, deliveriesMade: 17)
         let courier5 = Courier(courierImage: #imageLiteral(resourceName: "Tushar Icon"), colorProfile: #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1), courierName: "Tushar S.", ratingAverage: 4.5, timeAway: 34, deliveriesMade: 21)
         let courier6 = Courier(courierImage: #imageLiteral(resourceName: "Jamal Icon"), colorProfile: #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1), courierName: "Jamal J.", ratingAverage: 4.5, timeAway: 35, deliveriesMade: 20)
+        let courier7 = Courier(courierImage: #imageLiteral(resourceName: "avataaars-8"), colorProfile: #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1), courierName: "Nathan C.", ratingAverage: 1.0, timeAway: 10, deliveriesMade: 75)
     
-        couriers = [courier1, courier2, courier3, courier4, courier5, courier6]
+        couriers = [courier7, courier1, courier2, courier3, courier4, courier5, courier6]
     }
 }
 

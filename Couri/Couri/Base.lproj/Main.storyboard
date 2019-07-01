@@ -16,9 +16,13 @@
         <scene sceneID="ZHa-tD-feh">
             <objects>
                 <navigationController navigationBarHidden="YES" id="C61-j5-8yZ" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="fPb-Qd-beW">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="AUZ-OG-vlB">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="ig4-9e-wsJ" kind="relationship" relationship="rootViewController" id="wqS-Fx-MQr"/>
                     </connections>
@@ -657,6 +661,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WcL-3j-CEe"/>
                     </view>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="backButton" destination="O2H-0P-fsn" id="TWo-ui-wr4"/>
                         <outlet property="containerView" destination="O7c-tP-C4e" id="qPO-Jg-XyH"/>
@@ -728,7 +733,7 @@
                         <outlet property="checkoutButtonView" destination="QV0-O9-cFh" id="4Nt-jf-75l"/>
                         <outlet property="contentView" destination="14E-vd-PB2" id="GE9-nC-f3L"/>
                         <outlet property="scrollview" destination="HXp-dq-tE6" id="QuJ-N8-FhP"/>
-                        <segue destination="qsq-ye-pZ2" kind="show" identifier="checkoutSegue" id="7FW-Iy-z8s"/>
+                        <segue destination="qsq-ye-pZ2" kind="show" identifier="checkoutSegue" customClass="BottomToTopSegue" customModule="Couri" customModuleProvider="target" id="7FW-Iy-z8s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VLt-Jc-ARe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -745,8 +750,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="paE-RW-rjg"/>
                     </view>
+                    <connections>
+                        <segue destination="iwW-QS-4vk" kind="custom" identifier="backtomenu" customClass="BottomToTopSegue" customModule="Couri" customModuleProvider="target" id="WP4-V4-PGP"/>
+                        <segue destination="vxJ-DT-Wco" kind="unwind" identifier="unwindToRestaurant" unwindAction="unwindSegueToRestaurantWithSegue:" id="zbo-vQ-fbn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Of-h4-5Ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vxJ-DT-Wco" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4180" y="-1419"/>
         </scene>
@@ -1058,7 +1068,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u9X-gV-8MT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1793" y="-696"/>
+            <point key="canvasLocation" x="4927" y="-1419"/>
         </scene>
     </scenes>
     <resources>

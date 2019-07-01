@@ -118,7 +118,7 @@ class CustomizeCell: UICollectionViewCell {
     }
 }
 
-class CustomizeCellHeader: UICollectionReusableView, ChangeHeaderDelegate {
+class CustomizeCellHeader: UICollectionReusableView {
     func changeTitle() {
         reqLabel.backgroundColor = UIColor.white
     }

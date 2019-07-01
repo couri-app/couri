@@ -28,6 +28,8 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
     @IBAction func backTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func unwindSegueToRestaurant(segue: UIStoryboardSegue) {}
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -161,8 +163,8 @@ extension RestaurantDetailViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? MenuDetailVC {
             let currentCategory = restaurant?.categories[categoryCellSelected]
-            if let currentItem = restaurant?.menuItems[currentCategory!] {
-                destination.item = currentItem[masterTableView.indexPathForSelectedRow!.row]
+            if let currentItems = restaurant?.menuItems[currentCategory!] {
+                destination.item = currentItems[masterTableView.indexPathForSelectedRow!.row]
             }
         }
     }

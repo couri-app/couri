@@ -8,17 +8,13 @@
 
 import UIKit
 
-protocol ChangeHeaderDelegate: class {
-    func changeTitle()
-}
-
 class MenuDetailVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // Item gives this view controller access to the MenuItem class. masterCustomizables does the same thing, but returns an array of MasterCustomize class. Remember, MasterCustomize is akin to each section in the collectionview. Its instance variables are: .isRequired -> Bool, choices -> [CustomizableChoices], and .title -> String
     var item: MenuItem?
     var cvCellID = "collectionviewid"
     var masterCustomizables: [MasterCustomize]?
-    var delegate: ChangeHeaderDelegate?
+    let checkoutView = CheckoutView()
     
     // Interface Builder Outlets
     @IBOutlet weak var contentView: UIView!
@@ -39,6 +35,7 @@ class MenuDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         masterCustomizables = item?.customizables
+        checkoutView.hide()
         contentView.topAnchor.constraint(equalTo: scrollview.topAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo:scrollview.bottomAnchor).isActive = true
     }
@@ -316,8 +313,14 @@ class MenuDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? CheckoutViewController {
-            
+        if segue.destination is CheckoutViewController {
+            let itemOrder = ItemOrder(context: PersistenceService.context)
+            itemOrder.name = item?.itemName
+            itemOrder.quantity = Int16(itemCount)
+            itemOrder.price = multipliedOrderPrice
+            itemOrder.customizables = listOfChoices.joined(separator: ", ")
+            itemOrder.indexPath = masterCollectionView.indexPathsForSelectedItems ?? []
+            PersistenceService.saveContext()
         }
     }
     
