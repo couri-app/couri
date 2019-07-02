@@ -18,6 +18,16 @@ extension CheckoutViewController {
         }
     }
     
+    func handlePriceEdits() {
+        subtotal = 0.0
+        quantity = 0
+        for itemOrder in itemOrderArray ?? [] {
+            subtotal += itemOrder.price
+            quantity += Int(itemOrder.quantity)
+        }
+        calculateOrder(price: subtotal, quantity: quantity, time: time)
+    }
+    
     func addShadowToView(view: UIView, opacity: Double, radius: Int) {
         view.layer.shadowRadius = CGFloat(radius)
         view.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -27,19 +37,18 @@ extension CheckoutViewController {
     
     @objc func backwards() {
         performSegue(withIdentifier: "unwindToRestaurant", sender: self)
-        //self.dismiss(animated: true, completion: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
     }
     
     func setupViews() {
         let guide = view.safeAreaLayoutGuide
         
-        view.addSubview(contentView)
         view.addSubview(backwardsButton)
+        view.addSubview(cardView)
+        view.addSubview(contentView)
         view.addSubview(clearAllDataButton)
+        
+        cardView.addSubview(deliveringToLabel)
+        cardView.addSubview(addressLabel)
         
         contentView.addSubview(checkoutTableView)
         contentView.addSubview(subtotalView)
@@ -60,29 +69,45 @@ extension CheckoutViewController {
         checkoutTableView.delegate = self
         checkoutTableView.dataSource = self
         checkoutTableView.register(OrderCell.self, forCellReuseIdentifier: cellID)
+        checkoutTableView.separatorStyle = .none
         
         checkoutButtonLabel.text = "Checkout"
+        addressLabel.text = defaults.object(forKey: "address") as? String ?? ""
+        addressLabel.numberOfLines = 0
         
         backwardsButton.addTarget(self, action: #selector(backwards), for: .touchUpInside)
         clearAllDataButton.addTarget(self, action: #selector(purgeAllData), for: .touchUpInside)
         
         addShadowToView(view: backwardsButton, opacity: 0.2, radius: 10)
         addShadowToView(view: contentView, opacity: 0.1, radius: 10)
+        addShadowToView(view: cardView, opacity: 0.1, radius: 10)
         
         NSLayoutConstraint.useAndActivateConstraints(constraints: [
             backwardsButton.topAnchor.constraint(equalTo: guide.topAnchor, constant: 10),
             backwardsButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
             
-            clearAllDataButton.bottomAnchor.constraint(equalTo: contentView.topAnchor, constant: -10),
-            clearAllDataButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            clearAllDataButton.bottomAnchor.constraint(equalTo: checkoutLabel.bottomAnchor),
+            clearAllDataButton.trailingAnchor.constraint(equalTo: subtotalPriceLabel.trailingAnchor),
             
-            contentView.topAnchor.constraint(equalTo: guide.topAnchor, constant: 200),
+            cardView.topAnchor.constraint(equalTo: backwardsButton.bottomAnchor, constant: 10),
+            cardView.heightAnchor.constraint(equalToConstant: 150),
+            cardView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
+            cardView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
+            
+            deliveringToLabel.topAnchor.constraint(equalTo: cardView.topAnchor, constant: 30),
+            deliveringToLabel.leftAnchor.constraint(equalTo: cardView.leftAnchor, constant: 20),
+            
+            addressLabel.topAnchor.constraint(equalTo: deliveringToLabel.bottomAnchor, constant: 10),
+            addressLabel.leadingAnchor.constraint(equalTo: deliveringToLabel.leadingAnchor),
+            addressLabel.widthAnchor.constraint(equalToConstant: 130),
+            
+            contentView.topAnchor.constraint(equalTo: cardView.bottomAnchor, constant: 30),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             contentView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
             contentView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
             
             checkoutLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            checkoutLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
+            checkoutLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20),
             
             checkoutStrip.topAnchor.constraint(equalTo: checkoutLabel.bottomAnchor, constant: -3),
             checkoutStrip.heightAnchor.constraint(equalToConstant: 3),
@@ -100,7 +125,7 @@ extension CheckoutViewController {
             subtotalView.bottomAnchor.constraint(equalTo: checkoutButton.topAnchor),
             
             subtotalLabel.topAnchor.constraint(equalTo: subtotalView.topAnchor, constant: 10),
-            subtotalLabel.leftAnchor.constraint(equalTo: subtotalView.leftAnchor),
+            subtotalLabel.leadingAnchor.constraint(equalTo: checkoutButtonLabel.leadingAnchor),
             
             subtotalPriceLabel.topAnchor.constraint(equalTo: subtotalLabel.topAnchor),
             subtotalPriceLabel.rightAnchor.constraint(equalTo: subtotalView.rightAnchor, constant: -10),

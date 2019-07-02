@@ -11,6 +11,7 @@ import UIKit
 class MenuDetailVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     // Item gives this view controller access to the MenuItem class. masterCustomizables does the same thing, but returns an array of MasterCustomize class. Remember, MasterCustomize is akin to each section in the collectionview. Its instance variables are: .isRequired -> Bool, choices -> [CustomizableChoices], and .title -> String
+    
     var item: MenuItem?
     var cvCellID = "collectionviewid"
     var masterCustomizables: [MasterCustomize]?
@@ -301,9 +302,6 @@ class MenuDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
     // Segues into same restaurant detail view controller as before, with a new view at the bottom of the screen with the order count
     @objc func addToOrder() {
         if isOrderComplete() {
-            if let name = item?.itemName, let selections = masterCollectionView.indexPathsForSelectedItems {
-                print("Phantom added to Order: Item: \(name), Quantity: \(itemCount) Price: $\(multipliedOrderPrice), Choices: \(listOfChoices), indexPathSelected: \(selections)")
-            }
             performSegue(withIdentifier: "checkoutSegue", sender: self)
         } else {
             let alert = UIAlertController(title: "Why were you even born?", message: "The next time you try to add to order without completing, I will spank you.", preferredStyle: .alert)
@@ -320,6 +318,7 @@ class MenuDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
             itemOrder.price = multipliedOrderPrice
             itemOrder.customizables = listOfChoices.joined(separator: ", ")
             itemOrder.indexPath = masterCollectionView.indexPathsForSelectedItems ?? []
+            
             PersistenceService.saveContext()
         }
     }

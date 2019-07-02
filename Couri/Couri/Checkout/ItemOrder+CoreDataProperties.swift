@@ -21,4 +21,5 @@ extension ItemOrder {
     @NSManaged public var customizables: String?
     @NSManaged public var quantity: Int16
     @NSManaged public var indexPath: [Any]
+    @NSManaged public var restaurant: String?
 }

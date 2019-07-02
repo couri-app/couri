@@ -12,10 +12,11 @@ import CoreData
 class CheckoutViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var itemOrderArray: [ItemOrder]?
     let cellID = "checkoutCellID"
+    let defaults = UserDefaults.standard
     
     var subtotal = 0.0
     var quantity = 0
-    var time = 5
+    var time = 12
     var deliveryFee = 0
     
     override func viewDidLoad() {
@@ -31,8 +32,28 @@ class CheckoutViewController: UIViewController, UITableViewDelegate, UITableView
     let backwardsButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(named: "xout"), for: .normal)
-        button.frame.size = CGSize(width: 30, height: 30)
+        button.frame.size = CGSize(width: 15, height: 15)
         return button
+    }()
+    
+    let cardView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.white
+        view.layer.cornerRadius = 20
+        return view
+    }()
+    
+    let deliveringToLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "AvenirNext-Bold", size: 20)
+        label.text = "Delivering To"
+        return label
+    }()
+    
+    let addressLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "AvenirNext-Medium", size: 16)
+        return label
     }()
     
     let contentView: UIView = {
@@ -92,8 +113,10 @@ class CheckoutViewController: UIViewController, UITableViewDelegate, UITableView
     
     let clearAllDataButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Clear All", for: .normal)
-        button.setTitleColor(UIColor.black, for: .normal)
+        button.setTitle("  Clear All Orders  ", for: .normal)
+        button.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 16)
+        button.backgroundColor = .red
+        button.layer.cornerRadius = 15
         return button
     }()
     
@@ -162,6 +185,28 @@ class CheckoutViewController: UIViewController, UITableViewDelegate, UITableView
     @objc func showCheckout() {
         checkoutView.show()
     }
+    
+    func deleteData(index: Int) {
+        let fetchRequest: NSFetchRequest<ItemOrder> = ItemOrder.fetchRequest()
+        let context = PersistenceService.context
+        
+        do {
+            let itemOrderArray = try context.fetch(fetchRequest)
+            let itemOrderData = itemOrderArray as [NSManagedObject]
+            
+            if itemOrderData.count > 0 {
+                context.delete(itemOrderData[index])
+            }
+            
+            do {
+                try context.save()
+            } catch {
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
+    }
 }
 
 extension CheckoutViewController {
@@ -184,7 +229,19 @@ extension CheckoutViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "backtomenu", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            deleteData(index: indexPath.row)
+            
+            itemOrderArray?.remove(at: indexPath.row)
+            
+            handlePriceEdits()
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
 }
 

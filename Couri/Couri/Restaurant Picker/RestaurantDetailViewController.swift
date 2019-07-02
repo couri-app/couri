@@ -39,7 +39,7 @@ class RestaurantDetailViewController: UIViewController, UICollectionViewDelegate
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        menuCategoryCV.selectItem(at: IndexPath(row: 0, section: 0), animated: false, scrollPosition: [])
+        menuCategoryCV.selectItem(at: IndexPath(row: categoryCellSelected, section: 0), animated: false, scrollPosition: [])
     }
     
     // MARK: Setup Category CollectionView

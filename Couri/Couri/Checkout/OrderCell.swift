@@ -52,11 +52,18 @@ class OrderCell: UITableViewCell {
         return label
     }()
     
+    let separatorStrip: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.lightGray.withAlphaComponent(0.4)
+        return view
+    }()
+    
     func setupViews() {
         addSubview(nameLabel)
         addSubview(customizeLabel)
         addSubview(quantityLabel)
         addSubview(priceLabel)
+        addSubview(separatorStrip)
         
         NSLayoutConstraint.useAndActivateConstraints(constraints: [
             quantityLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
@@ -70,7 +77,12 @@ class OrderCell: UITableViewCell {
             
             customizeLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
             customizeLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor),
-            customizeLabel.trailingAnchor.constraint(equalTo: priceLabel.trailingAnchor)
+            customizeLabel.trailingAnchor.constraint(equalTo: priceLabel.trailingAnchor),
+            
+            separatorStrip.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -1),
+            separatorStrip.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+            separatorStrip.rightAnchor.constraint(equalTo: rightAnchor),
+            separatorStrip.heightAnchor.constraint(equalToConstant: 1)
             ])
     }
 }

@@ -15,38 +15,12 @@ protocol RestaurantSegueDelegate: class {
 class ShopViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var restaurantLibrary = RestaurantLibrary()
     weak var restaurantSegueDelegate: RestaurantSegueDelegate?
+    var userAddress = String()
     
     override func viewDidLoad() {
+        setupDefaults()
         setupViews()
     }
-    
-    let restaurantBreadcrumb: UIView = {
-        let view = UIView()
-        view.frame.size = CGSize(width: 50, height: 10)
-        view.backgroundColor = UIColor(named: "honeyYellow")
-        return view
-    }()
-    
-    let orderBreadcrumb: UIView = {
-        let view = UIView()
-        view.frame.size = CGSize(width: 50, height: 10)
-        view.backgroundColor = UIColor(named: "honeyYellow")
-        return view
-    }()
-    
-    let checkoutBreadcrumb: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(named: "honeyYellow")
-        view.frame.size = CGSize(width: 50, height: 10)
-        return view
-    }()
-    
-    let courierBreadcrumb: UIView = {
-        let view = UIView()
-        view.backgroundColor = UIColor(named: "honeyYellow")
-        view.frame.size = CGSize(width: 50, height: 10)
-        return view
-    }()
     
     let contentView: UIView = {
         let view = UIView()
@@ -55,9 +29,27 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         return view
     }()
     
-    let restaurantsTableView = UITableView()
+    let restaurantsLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "AvenirNext-Bold", size: 25)
+        label.text = "NEARBY RESTAURANTS"
+        return label
+    }()
     
-    let breadcrumbStackView = UIStackView()
+    let restaurantStrip: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "honeyYellow")
+        view.layer.cornerRadius = 1
+        return view
+    }()
+    
+    let deliveringToLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "AvenirNext-Medium", size: 16)
+        return label
+    }()
+    
+    let restaurantsTableView = UITableView()
     
     func addShadowToView(view: UIView, opacity: Double, radius: Int) {
         view.layer.shadowRadius = CGFloat(radius)
@@ -66,11 +58,24 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.layer.shadowOpacity = Float(CGFloat(opacity))
     }
     
+    let defaults = UserDefaults.standard
+    
+    func setupDefaults() {
+        let address = "2401 Durant, Room 613"
+        defaults.set(address, forKey: "address")
+    }
+    
     func setupViews() {
+        userAddress = defaults.object(forKey: "address") as? String ?? ""
+        deliveringToLabel.text = "Delivering To: \(userAddress)"
+        
         view.backgroundColor = UIColor.white
-        view.addSubview(breadcrumbStackView)
         view.addSubview(contentView)
         view.addSubview(restaurantsTableView)
+        
+        contentView.addSubview(restaurantsLabel)
+        contentView.addSubview(restaurantStrip)
+        contentView.addSubview(deliveringToLabel)
         
         addShadowToView(view: contentView, opacity: 0.1, radius: 10)
         
@@ -78,26 +83,24 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         restaurantsTableView.dataSource = self
         restaurantsTableView.delegate = self
         
-        breadcrumbStackView.axis = .horizontal
-        breadcrumbStackView.distribution = .equalSpacing
-        breadcrumbStackView.isLayoutMarginsRelativeArrangement = true
-        
-        breadcrumbStackView.addArrangedSubview(restaurantBreadcrumb)
-        breadcrumbStackView.addArrangedSubview(orderBreadcrumb)
-        breadcrumbStackView.addArrangedSubview(checkoutBreadcrumb)
-        breadcrumbStackView.addArrangedSubview(courierBreadcrumb)
-        
         NSLayoutConstraint.useAndActivateConstraints(constraints: [
-            contentView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            contentView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
             contentView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
             contentView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            breadcrumbStackView.topAnchor.constraint(equalTo: view.topAnchor, constant: 30),
-            breadcrumbStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            breadcrumbStackView.widthAnchor.constraint(equalToConstant: view.frame.width),
+            restaurantsLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            restaurantsLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
             
-            restaurantsTableView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 50),
+            restaurantStrip.topAnchor.constraint(equalTo: restaurantsLabel.bottomAnchor, constant: -3),
+            restaurantStrip.heightAnchor.constraint(equalToConstant: 3),
+            restaurantStrip.leadingAnchor.constraint(equalTo: restaurantsLabel.leadingAnchor),
+            restaurantStrip.widthAnchor.constraint(equalToConstant: 200),
+            
+            deliveringToLabel.topAnchor.constraint(equalTo: restaurantStrip.bottomAnchor, constant: 10),
+            deliveringToLabel.leadingAnchor.constraint(equalTo: restaurantsLabel.leadingAnchor),
+            
+            restaurantsTableView.topAnchor.constraint(equalTo: deliveringToLabel.bottomAnchor, constant: 10),
             restaurantsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             restaurantsTableView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
             restaurantsTableView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10),
