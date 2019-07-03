@@ -175,18 +175,22 @@ class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDele
     }
     
     @objc func switchWasSelected() {
+        let impactFeedbackGenerator = UIImpactFeedbackGenerator(style: .heavy)
+        impactFeedbackGenerator.prepare()
         if isShop {
             let height = switchView.frame.height - switchButton.frame.height - 7
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 3, initialSpringVelocity: 1, options: [], animations: {
                 self.switchButton.transform = CGAffineTransform(translationX: 0, y: height)
             })
             displayDeliverViewController()
+            impactFeedbackGenerator.impactOccurred()
             isShop = false
         } else {
             UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 3, initialSpringVelocity: 1, options: [], animations: {
                 self.switchButton.transform = CGAffineTransform(translationX: 0, y: 0)
             })
             removeDeliveryViewController()
+            impactFeedbackGenerator.impactOccurred()
             isShop = true
         }
     }

@@ -8,15 +8,18 @@
 
 import UIKit
 import CoreData
+import CoreLocation
+import MapKit
 
 class CheckoutViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var itemOrderArray: [ItemOrder]?
     let cellID = "checkoutCellID"
     let defaults = UserDefaults.standard
+    let checkoutView = CheckoutView()
     
     var subtotal = 0.0
     var quantity = 0
-    var time = 12
+    var time = 5
     var deliveryFee = 0
     
     override func viewDidLoad() {
@@ -25,6 +28,7 @@ class CheckoutViewController: UIViewController, UITableViewDelegate, UITableView
         setupFetchRequest()
         handlePricing()
         calculateOrder(price: subtotal, quantity: quantity, time: time)
+        calculateETA()
     }
     
     let checkoutTableView = UITableView()
@@ -178,12 +182,6 @@ class CheckoutViewController: UIViewController, UITableViewDelegate, UITableView
             self.itemOrderArray = itemOrderArray
             self.checkoutTableView.reloadData()
         } catch {}
-    }
-    
-    let checkoutView = CheckoutView()
-    
-    @objc func showCheckout() {
-        checkoutView.show()
     }
     
     func deleteData(index: Int) {

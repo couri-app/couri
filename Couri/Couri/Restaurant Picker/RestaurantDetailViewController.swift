@@ -165,6 +165,7 @@ extension RestaurantDetailViewController {
             let currentCategory = restaurant?.categories[categoryCellSelected]
             if let currentItems = restaurant?.menuItems[currentCategory!] {
                 destination.item = currentItems[masterTableView.indexPathForSelectedRow!.row]
+                destination.restaurant = restaurant
             }
         }
     }

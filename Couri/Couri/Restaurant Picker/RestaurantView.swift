@@ -12,7 +12,7 @@ import UIKit
 //Our RestaurantView class that gets its information from our RestaurantView.xib
 
 class Restaurant {
-    var courierCount = 0
+    var courierCount = 7
     var restaurantName: String
     var categoryDescription: String
     var description: String
@@ -48,7 +48,7 @@ extension RestaurantLibrary {
         let sliverPizzeria = Restaurant(restaurantName: "Sliver Pizzeria", categoryDescription: "Pizza, Salad", description: "Socially conscious pie parlor showcases specialty pizzas, a full bar, and live bands in a funky space.", imageName: #imageLiteral(resourceName: "sliver"), categories: ["Popular"], address: "2174 Shattuck Ave, Berkeley, CA 94704")
         let gypsys = Restaurant(restaurantName: "Gypsy's", categoryDescription: "Italian, Pastas, Salads", description: "Fast food outfit with late hours provides Italian comfort dishes to student-heavy clientele", imageName: #imageLiteral(resourceName: "gypsys"), categories: ["Popular"], address: "2519 Durant Ave, Berkeley, CA 94704")
         let tapiocaExpress = Restaurant(restaurantName: "Tapioca Express", categoryDescription: "Coffee & Tea, Juice Bars & Smoothies, Bubble Tea, Boba", description: "Tapioca Express harvests the finest ingredients from Taiwan and provides quality teas, boba, and snacks to our customers.", imageName: #imageLiteral(resourceName: "tapioca express"), categories: ["Popular", "Milk Tea", "Snacks", "Tea", "Snow Bubble"], address: "Some San Diego Address")
-        let gongCha = Restaurant(restaurantName: "Gong Cha", categoryDescription: "Milk Tea, Fruit Teas, Smoothie blends", description: "At Gong Cha USA, we believe in serving quality bubble tea and boba tea. Our teas can be blended with a variety of fruits, toppings and creative mixes.", imageName: UIImage(named: "Gongcha Cover")!, categories: ["Popular", "Milk Tea", "Tea"], address: "2431b Durant Ave Suite B, Berkeley, CA 94704")
+        let gongCha = Restaurant(restaurantName: "Gong Cha", categoryDescription: "Milk Tea, Fruit Teas, Smoothie blends", description: "At Gong Cha USA, we believe in serving quality bubble tea and boba tea. Our teas can be blended with a variety of fruits, toppings and creative mixes.", imageName: UIImage(named: "Gongcha Cover")!, categories: ["Popular", "Milk Tea", "Tea"], address: "2431 Durant Ave, Unit B, Berkeley, CA 94704")
         
         tapiocaExpress.menuItems = menuLibrary.tapiocaCategories
         rareTeaBancroft.menuItems = menuLibrary.rareTeaCategories

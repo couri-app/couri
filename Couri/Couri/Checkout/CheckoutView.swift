@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+protocol CheckoutDelegate: class {
+    func goToCheckout()
+}
+
 class CheckoutView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -18,54 +22,58 @@ class CheckoutView: UIView {
         super.init(coder: aDecoder)
     }
     
-    let view: UICollectionView = {
+    weak var delegate: CheckoutDelegate?
+    
+    let checkoutView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = UIColor.white
+        cv.backgroundColor = UIColor.clear
         return cv
     }()
     
-    let buttonView: UIView = {
+    let view: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.lightGray
+        view.backgroundColor = UIColor.white
+        view.frame = CGRect(x: 10, y: 10, width: 300, height: 50)
         return view
     }()
     
-    let noteTextField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = UIColor.lightGray
-        textField.placeholder = "Leave a note for the kitchen"
-        textField.font = UIFont(name: "AvenirNext-Regular", size: 16)
-        textField.keyboardType = UIKeyboardType.default
-        textField.returnKeyType = UIReturnKeyType.done
-        textField.layer.cornerRadius = 4
-        return textField
+    let checkoutButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("View Cart", for: .normal)
+        button.backgroundColor = UIColor(named: "honeyYellow")
+        button.setTitleColor(UIColor.black, for: .normal)
+        button.titleLabel?.font = UIFont(name: "AvenirNext-Medium", size: 16)
+        button.layer.cornerRadius = 10
+        return button
     }()
     
     func show() {
         if let window = UIApplication.shared.keyWindow {
-            window.addSubview(view)
+            window.addSubview(checkoutView)
             
             let height: CGFloat = 70
             let yOrigin = window.frame.height - height
             
-            view.frame = CGRect(x: 0, y: yOrigin, width: window.frame.width, height: height)
+            checkoutView.frame = CGRect(x: 0, y: yOrigin, width: window.frame.width, height: height)
+            
+            checkoutView.addSubview(checkoutButton)
+            checkoutButton.addTarget(self, action: #selector(hide), for: .touchUpInside)
+            
+            NSLayoutConstraint.useAndActivateConstraints(constraints: [
+                checkoutButton.topAnchor.constraint(equalTo: checkoutView.topAnchor),
+                checkoutButton.leftAnchor.constraint(equalTo: window.leftAnchor, constant: 20),
+                checkoutButton.rightAnchor.constraint(equalTo: window.rightAnchor, constant: -20),
+                checkoutButton.heightAnchor.constraint(equalToConstant: 50)
+                ])
         }
-        
-        view.addSubview(buttonView)
-        
-        NSLayoutConstraint.useAndActivateConstraints(constraints: [
-            buttonView.topAnchor.constraint(equalTo: view.topAnchor),
-            buttonView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20),
-            buttonView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
-            buttonView.heightAnchor.constraint(equalToConstant: 100)
-            ])
     }
     
-    func hide() {
+    @objc func hide() {
+        delegate?.goToCheckout()
         if let window = UIApplication.shared.keyWindow {
-            view.removeFromSuperview()
-            self.view.frame = CGRect(x: 0, y: window.frame.height, width: self.view.frame.width, height: self.view.frame.height)
+            checkoutView.removeFromSuperview()
+            self.checkoutView.frame = CGRect(x: 0, y: window.frame.height, width: self.checkoutView.frame.width, height: self.checkoutView.frame.height)
         }
     }
 }

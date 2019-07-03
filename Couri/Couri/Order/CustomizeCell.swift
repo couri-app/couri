@@ -82,7 +82,6 @@ class CustomizeCell: UICollectionViewCell {
     let addedPriceLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "AvenirNext-Demibold", size: 16)
-        //label.textColor = UIColor.gray
         return label
     }()
     

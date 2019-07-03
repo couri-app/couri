@@ -66,6 +66,8 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func setupViews() {
+        let guide = view.safeAreaLayoutGuide
+        
         userAddress = defaults.object(forKey: "address") as? String ?? ""
         deliveringToLabel.text = "Delivering To: \(userAddress)"
         
@@ -82,6 +84,7 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         restaurantsTableView.register(RestaurantDisplay.self, forCellReuseIdentifier: "restaurantdisplay")
         restaurantsTableView.dataSource = self
         restaurantsTableView.delegate = self
+        restaurantsTableView.separatorStyle = .none
         
         NSLayoutConstraint.useAndActivateConstraints(constraints: [
             contentView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
@@ -101,9 +104,9 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
             deliveringToLabel.leadingAnchor.constraint(equalTo: restaurantsLabel.leadingAnchor),
             
             restaurantsTableView.topAnchor.constraint(equalTo: deliveringToLabel.bottomAnchor, constant: 10),
-            restaurantsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            restaurantsTableView.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
-            restaurantsTableView.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10),
+            restaurantsTableView.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
+            restaurantsTableView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            restaurantsTableView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
             ])
     }
 }

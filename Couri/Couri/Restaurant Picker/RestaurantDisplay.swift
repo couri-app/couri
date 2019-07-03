@@ -16,7 +16,12 @@ class RestaurantDisplay: UITableViewCell {
             restaurantName.text = restaurant.restaurantName
             categoryDescription.text = restaurant.categoryDescription
             restaurantDescription.text = restaurant.description
-            courierLabel.text = "\(String(restaurant.courierCount)) Couriers at \(restaurant.restaurantName)"
+            courierCountLabel.text = String(restaurant.courierCount)
+            if restaurant.courierCount == 1 {
+                courierLabel.text = "Courier"
+            } else {
+                courierLabel.text = "Couriers"
+            }
         }
     }
     
@@ -32,7 +37,8 @@ class RestaurantDisplay: UITableViewCell {
     
     let restaurantImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.layer.cornerRadius = 5
+        imageView.layer.cornerRadius = 20
+        imageView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         imageView.clipsToBounds = true
         imageView.contentMode = .scaleAspectFill
         return imageView
@@ -41,43 +47,64 @@ class RestaurantDisplay: UITableViewCell {
     let restaurantName: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "AvenirNext-Bold", size: 25)
-        label.textColor = UIColor.white
-        label.layer.shadowColor = UIColor.black.cgColor
-        label.layer.shadowOffset = CGSize(width: 0, height: 0)
-        label.layer.shadowOpacity = 0.5
-        label.layer.shadowRadius = 5
+        label.textColor = UIColor.black
         return label
     }()
     
     let restaurantDescription: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "AvenirNext-Regular", size: 16)
+        label.font = UIFont(name: "AvenirNext-Regular", size: 14)
         label.numberOfLines = 0
         return label
     }()
     
     let categoryDescription: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "AvenirNext-Medium", size: 16)
-        label.textColor = UIColor.white
-        label.numberOfLines = 0
+        label.font = UIFont(name: "AvenirNext-Regular", size: 14)
+        label.textColor = UIColor.black
         return label
     }()
     
     let courierLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "AvenirNext-Demibold", size: 16)
+        label.font = UIFont(name: "AvenirNext-Bold", size: 14)
         return label
     }()
     
-    let gradientView: UIView = {
+    let courierCountLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "AvenirNext-Bold", size: 25)
+        return label
+    }()
+    
+    let courierCountView: UIView = {
         let view = UIView()
+        view.backgroundColor = UIColor.white
+        view.frame = CGRect(x: 20, y: 20, width: 50, height: 50)
+        view.layer.cornerRadius = view.frame.width / 2
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 3)
+        view.layer.shadowOpacity = 0.2
+        view.layer.shadowRadius = 5
         return view
     }()
     
+    let cardView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.white
+        view.layer.cornerRadius = 20
+        view.layer.shadowColor = UIColor.black.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view.layer.shadowOpacity = 0.1
+        view.layer.shadowRadius = 7
+        return view
+    }()
+    
+    let gradientView = UIView()
+    
     func setupGradientLayer() {
         let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.withAlphaComponent(0.5).cgColor]
+        gradientLayer.colors = [UIColor.white.cgColor, UIColor.white.withAlphaComponent(0).cgColor]
         gradientLayer.locations = [0, 1]
         
         gradientView.layer.addSublayer(gradientLayer)
@@ -86,45 +113,45 @@ class RestaurantDisplay: UITableViewCell {
     }
     
     func setupViews() {
+        addSubview(cardView)
         
-        addSubview(restaurantImage)
-        addSubview(restaurantName)
-        addSubview(restaurantDescription)
-        addSubview(categoryDescription)
-        addSubview(courierLabel)
+        cardView.addSubview(restaurantImage)
+        cardView.addSubview(courierCountView)
+        courierCountView.addSubview(courierCountLabel)
+        cardView.addSubview(courierLabel)
+        cardView.addSubview(restaurantName)
+        cardView.addSubview(restaurantDescription)
+        cardView.addSubview(categoryDescription)
+        
         restaurantImage.addSubview(gradientView)
         
-        restaurantImage.translatesAutoresizingMaskIntoConstraints = false
-        restaurantName.translatesAutoresizingMaskIntoConstraints = false
-        restaurantDescription.translatesAutoresizingMaskIntoConstraints = false
-        categoryDescription.translatesAutoresizingMaskIntoConstraints = false
-        courierLabel.translatesAutoresizingMaskIntoConstraints = false
-        gradientView.translatesAutoresizingMaskIntoConstraints = false
-        
-        addConstraints([
-            restaurantImage.leftAnchor.constraint(equalTo: leftAnchor),
-            restaurantImage.rightAnchor.constraint(equalTo: rightAnchor),
-            restaurantImage.heightAnchor.constraint(equalToConstant: 200),
-            restaurantImage.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+        NSLayoutConstraint.useAndActivateConstraints(constraints: [
+            cardView.leftAnchor.constraint(equalTo: leftAnchor, constant: 10),
+            cardView.rightAnchor.constraint(equalTo: rightAnchor, constant: -10),
+            cardView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            cardView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
             
-            restaurantName.bottomAnchor.constraint(equalTo: categoryDescription.topAnchor),
-            restaurantName.leadingAnchor.constraint(equalTo: restaurantImage.leadingAnchor, constant: 10),
+            restaurantImage.leadingAnchor.constraint(equalTo: cardView.leadingAnchor),
+            restaurantImage.trailingAnchor.constraint(equalTo: cardView.trailingAnchor),
+            restaurantImage.bottomAnchor.constraint(equalTo: cardView.bottomAnchor),
+            restaurantImage.topAnchor.constraint(equalTo: cardView.centerYAnchor, constant: -30),
             
+            restaurantName.topAnchor.constraint(equalTo: courierCountView.topAnchor),
+            restaurantName.leadingAnchor.constraint(equalTo: courierCountView.trailingAnchor, constant: 20),
+            
+            categoryDescription.topAnchor.constraint(equalTo: restaurantName.bottomAnchor),
             categoryDescription.leadingAnchor.constraint(equalTo: restaurantName.leadingAnchor),
-            categoryDescription.bottomAnchor.constraint(equalTo: restaurantImage.bottomAnchor, constant: -10),
-            categoryDescription.rightAnchor.constraint(equalTo: rightAnchor),
+            categoryDescription.trailingAnchor.constraint(equalTo: cardView.trailingAnchor, constant: -20),
             
-            courierLabel.topAnchor.constraint(equalTo: restaurantImage.bottomAnchor, constant: 10),
-            courierLabel.leadingAnchor.constraint(equalTo: restaurantImage.leadingAnchor),
+            courierCountLabel.centerXAnchor.constraint(equalTo: courierCountView.centerXAnchor),
+            courierCountLabel.centerYAnchor.constraint(equalTo: courierCountView.centerYAnchor, constant: 2),
             
-            restaurantDescription.topAnchor.constraint(equalTo: courierLabel.bottomAnchor, constant: 5),
-            restaurantDescription.leadingAnchor.constraint(equalTo: restaurantImage.leadingAnchor),
-            restaurantDescription.rightAnchor.constraint(equalTo: rightAnchor),
+            courierLabel.centerXAnchor.constraint(equalTo: courierCountView.centerXAnchor),
+            courierLabel.topAnchor.constraint(equalTo: courierCountView.bottomAnchor, constant: 10),
             
-            gradientView.leftAnchor.constraint(equalTo: leftAnchor),
-            gradientView.rightAnchor.constraint(equalTo: rightAnchor),
-            gradientView.topAnchor.constraint(equalTo: restaurantName.topAnchor, constant: -5),
-            gradientView.bottomAnchor.constraint(equalTo: restaurantImage.bottomAnchor),
+            restaurantDescription.topAnchor.constraint(equalTo: courierLabel.topAnchor),
+            restaurantDescription.leadingAnchor.constraint(equalTo: categoryDescription.leadingAnchor),
+            restaurantDescription.rightAnchor.constraint(equalTo: cardView.rightAnchor, constant: -20)
             ])
     }
 }

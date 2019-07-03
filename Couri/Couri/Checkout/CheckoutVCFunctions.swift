@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 extension CheckoutViewController {
     
@@ -15,6 +16,31 @@ extension CheckoutViewController {
         for itemOrder in itemOrderArray ?? [] {
             subtotal += itemOrder.price
             quantity += Int(itemOrder.quantity)
+        }
+    }
+    
+    func calculateETA() {
+        let userAddress = defaults.object(forKey: "address") as! String
+        let itemOrder = itemOrderArray?[0]
+        let restaurantAddress = itemOrder?.restaurant
+        
+        getLocation(from: userAddress) { location in
+            print("User Location is:", location!)
+        }
+        
+        getLocation(from: restaurantAddress!) { location in
+            print("Restaurant Location is:", location!)
+        }
+    }
+    
+    func getLocation(from address: String, completion: @escaping (_ location: CLLocationCoordinate2D?) -> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(address) { (placemarks, error) in
+            guard let placemarks = placemarks,
+                let location = placemarks.first?.location?.coordinate else {
+                    return
+            }
+            completion(location)
         }
     }
     
@@ -28,6 +54,10 @@ extension CheckoutViewController {
         calculateOrder(price: subtotal, quantity: quantity, time: time)
     }
     
+    @objc func showCheckout() {
+        checkoutView.show()
+    }
+    
     func addShadowToView(view: UIView, opacity: Double, radius: Int) {
         view.layer.shadowRadius = CGFloat(radius)
         view.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
@@ -37,6 +67,11 @@ extension CheckoutViewController {
     
     @objc func backwards() {
         performSegue(withIdentifier: "unwindToRestaurant", sender: self)
+        //showCheckout()
+    }
+    
+    @objc func segueToCourier() {
+        performSegue(withIdentifier: "toCourierSelection", sender: self)
     }
     
     func setupViews() {
@@ -77,6 +112,7 @@ extension CheckoutViewController {
         
         backwardsButton.addTarget(self, action: #selector(backwards), for: .touchUpInside)
         clearAllDataButton.addTarget(self, action: #selector(purgeAllData), for: .touchUpInside)
+        checkoutButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(segueToCourier)))
         
         addShadowToView(view: backwardsButton, opacity: 0.2, radius: 10)
         addShadowToView(view: contentView, opacity: 0.1, radius: 10)
