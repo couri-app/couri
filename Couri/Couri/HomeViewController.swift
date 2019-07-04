@@ -63,7 +63,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDele
     
     let switchButton: UIView = {
         let view = UIView()
-        view.frame = CGRect(x: 0, y: 0, width: 50, height: 200)
+        view.frame = CGRect(x: 0, y: 0, width: 46, height: 200)
         view.layer.cornerRadius = view.frame.width / 2
         view.backgroundColor = UIColor.white
         return view
@@ -178,10 +178,6 @@ class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDele
         print(index)
     }
     
-    func sendInfo() {
-        print("You did it")
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? RestaurantDetailViewController {
             destination.restaurant = restaurantLibrary.restaurants[selectedIndex]
@@ -256,6 +252,13 @@ class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDele
     
     func setupViews() {
         let guide = view.safeAreaLayoutGuide
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(switchWasSelected))
+        swipeUp.direction = .up
+        switchButton.addGestureRecognizer(swipeUp)
+        
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(switchWasSelected))
+        swipeDown.direction = .down
+        switchButton.addGestureRecognizer(swipeDown)
         
         view.addSubview(cardView)
         view.addSubview(switchView)

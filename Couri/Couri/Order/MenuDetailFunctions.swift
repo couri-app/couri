@@ -32,8 +32,10 @@ extension MenuDetailVC {
         baseOrderPrice = immutableOrderPrice + sumPrices
         multipliedOrderPrice = baseOrderPrice * Double(itemCount)
         checkoutPriceLabel.text = "$\(String(format: "%.2f", (multipliedOrderPrice)))"
-        
         listOfChoices = choiceArray
+        
+        let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+        selectionFeedbackGenerator.selectionChanged()
     }
     
     @objc func handleMore() {
@@ -47,6 +49,8 @@ extension MenuDetailVC {
         multipliedOrderPrice = Double(itemCount)*baseOrderPrice
         minusButton.setTitleColor(UIColor.black, for: .normal)
         checkoutPriceLabel.text = "$\(String(format: "%.2f", (multipliedOrderPrice)))"
+        let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+        selectionFeedbackGenerator.selectionChanged()
     }
     
     // Called exclusively by the minus button. Subtracts 1 from item count each time it's called, unless the item count is 1. If the item count is greater than 2, the item simply does the reverse of the plus button.
@@ -63,6 +67,8 @@ extension MenuDetailVC {
             countLabel.text = String(itemCount)
             minusButton.setTitleColor(UIColor.white, for: .normal)
         }
+        let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+        selectionFeedbackGenerator.selectionChanged()
     }
     
     func isOrderComplete() -> Bool {

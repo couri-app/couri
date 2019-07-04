@@ -72,5 +72,7 @@ class CheckoutView: UIView {
     @objc func segueToCheckout() {
         checkoutView.removeFromSuperview()
         delegate?.goToCheckout()
+        let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+        selectionFeedbackGenerator.selectionChanged()
     }
 }

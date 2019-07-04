@@ -55,7 +55,7 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         return label
     }()
     
-    let restaurantsTableView = UITableView()
+    let restaurantsTableView = UITableView(frame: .zero, style: .grouped)
     
     func addShadowToView(view: UIView, opacity: Double, radius: Int) {
         view.layer.shadowRadius = CGFloat(radius)
@@ -84,16 +84,14 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.addSubview(contentView)
         view.addSubview(restaurantsTableView)
         
-        contentView.addSubview(restaurantsLabel)
-        contentView.addSubview(restaurantStrip)
-        contentView.addSubview(deliveringToLabel)
-        
         addShadowToView(view: contentView, opacity: 0.1, radius: 10)
         
         restaurantsTableView.register(RestaurantDisplay.self, forCellReuseIdentifier: "restaurantdisplay")
         restaurantsTableView.dataSource = self
         restaurantsTableView.delegate = self
         restaurantsTableView.separatorStyle = .none
+        restaurantsTableView.layer.cornerRadius = 20
+        restaurantsTableView.backgroundColor = .white
         
         NSLayoutConstraint.useAndActivateConstraints(constraints: [
             contentView.topAnchor.constraint(equalTo: view.topAnchor, constant: 10),
@@ -101,18 +99,7 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
             contentView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
-            restaurantsLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            restaurantsLabel.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10),
-            
-            restaurantStrip.topAnchor.constraint(equalTo: restaurantsLabel.bottomAnchor, constant: -3),
-            restaurantStrip.heightAnchor.constraint(equalToConstant: 3),
-            restaurantStrip.leadingAnchor.constraint(equalTo: restaurantsLabel.leadingAnchor),
-            restaurantStrip.widthAnchor.constraint(equalToConstant: 200),
-            
-            deliveringToLabel.topAnchor.constraint(equalTo: restaurantStrip.bottomAnchor, constant: 10),
-            deliveringToLabel.leadingAnchor.constraint(equalTo: restaurantsLabel.leadingAnchor),
-            
-            restaurantsTableView.topAnchor.constraint(equalTo: deliveringToLabel.bottomAnchor, constant: 10),
+            restaurantsTableView.topAnchor.constraint(equalTo: contentView.topAnchor),
             restaurantsTableView.bottomAnchor.constraint(equalTo: guide.bottomAnchor),
             restaurantsTableView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
             restaurantsTableView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
@@ -137,6 +124,33 @@ extension ShopViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath)
         self.restaurantSegueDelegate?.segue(index: indexPath.row)
+        let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
+        selectionFeedbackGenerator.selectionChanged()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.addSubview(restaurantsLabel)
+        headerView.addSubview(restaurantStrip)
+        headerView.addSubview(deliveringToLabel)
+        
+        NSLayoutConstraint.useAndActivateConstraints(constraints: [
+            restaurantsLabel.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 20),
+            restaurantsLabel.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 10),
+            
+            restaurantStrip.topAnchor.constraint(equalTo: restaurantsLabel.bottomAnchor, constant: -3),
+            restaurantStrip.heightAnchor.constraint(equalToConstant: 3),
+            restaurantStrip.leadingAnchor.constraint(equalTo: restaurantsLabel.leadingAnchor),
+            restaurantStrip.widthAnchor.constraint(equalToConstant: 200),
+            
+            deliveringToLabel.topAnchor.constraint(equalTo: restaurantStrip.bottomAnchor, constant: 10),
+            deliveringToLabel.leadingAnchor.constraint(equalTo: restaurantsLabel.leadingAnchor),])
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 100
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -21,16 +21,16 @@ extension CheckoutViewController {
     
     func calculateETA() {
         let userAddress = defaults.object(forKey: "address") as! String
-        let itemOrder = itemOrderArray?[0]
-        let restaurantAddress = itemOrder?.restaurant
+        //let itemOrder = itemOrderArray?[0]
+        //let restaurantAddress = itemOrder?.restaurant
         
         getLocation(from: userAddress) { location in
             print("User Location is:", location!)
         }
-        
-        getLocation(from: restaurantAddress!) { location in
-            print("Restaurant Location is:", location!)
-        }
+//
+//        getLocation(from: restaurantAddress!) { location in
+//            print("Restaurant Location is:", location!)
+//        }
     }
     
     func getLocation(from address: String, completion: @escaping (_ location: CLLocationCoordinate2D?) -> Void) {
