@@ -40,7 +40,6 @@ class MenuDetailVC: UIViewController, UICollectionViewDelegate, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         masterCustomizables = item?.customizables
-        checkoutView.hide()
         contentView.topAnchor.constraint(equalTo: scrollview.topAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo:scrollview.bottomAnchor).isActive = true
     }

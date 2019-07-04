@@ -19,5 +19,6 @@ target 'Couri' do
 
   pod 'Firebase/Core'
   pod 'FirebaseUI'
+  pod 'Plaid'
 
 end

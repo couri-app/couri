@@ -7,19 +7,25 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 protocol RestaurantSegueDelegate: class {
     func segue(index: Int)
 }
 
 class ShopViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    fileprivate var query: Query?
     var restaurantLibrary = RestaurantLibrary()
     weak var restaurantSegueDelegate: RestaurantSegueDelegate?
+    let defaults = UserDefaults.standard
+    
     var userAddress = String()
     
     override func viewDidLoad() {
         setupDefaults()
         setupViews()
+        query = baseQuery()
     }
     
     let contentView: UIView = {
@@ -58,7 +64,10 @@ class ShopViewController: UIViewController, UITableViewDelegate, UITableViewData
         view.layer.shadowOpacity = Float(CGFloat(opacity))
     }
     
-    let defaults = UserDefaults.standard
+    fileprivate func baseQuery() -> Query {
+        let firestore: Firestore = Firestore.firestore()
+        return firestore.collection("restaurants").limit(to: 50)
+    }
     
     func setupDefaults() {
         let address = "2401 Durant, Room 613"

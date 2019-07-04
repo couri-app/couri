@@ -44,6 +44,7 @@
                     <navigationItem key="navigationItem" id="4IX-K3-frd"/>
                     <connections>
                         <segue destination="iPm-Qy-J0I" kind="show" identifier="showrestaurantdetail" id="nqG-uv-16I"/>
+                        <segue destination="qsq-ye-pZ2" kind="custom" identifier="homeToCheckout" customClass="BottomToTopSegue" customModule="Couri" customModuleProvider="target" id="6sg-eb-n8S"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eYA-yX-ehm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1103,6 +1104,7 @@
         </namedColor>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="6sg-eb-n8S"/>
         <segue reference="nqG-uv-16I"/>
     </inferredMetricsTieBreakers>
 </document>

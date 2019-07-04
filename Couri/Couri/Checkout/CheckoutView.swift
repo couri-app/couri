@@ -58,7 +58,7 @@ class CheckoutView: UIView {
             checkoutView.frame = CGRect(x: 0, y: yOrigin, width: window.frame.width, height: height)
             
             checkoutView.addSubview(checkoutButton)
-            checkoutButton.addTarget(self, action: #selector(hide), for: .touchUpInside)
+            checkoutButton.addTarget(self, action: #selector(segueToCheckout), for: .touchUpInside)
             
             NSLayoutConstraint.useAndActivateConstraints(constraints: [
                 checkoutButton.topAnchor.constraint(equalTo: checkoutView.topAnchor),
@@ -69,11 +69,8 @@ class CheckoutView: UIView {
         }
     }
     
-    @objc func hide() {
+    @objc func segueToCheckout() {
+        checkoutView.removeFromSuperview()
         delegate?.goToCheckout()
-        if let window = UIApplication.shared.keyWindow {
-            checkoutView.removeFromSuperview()
-            self.checkoutView.frame = CGRect(x: 0, y: window.frame.height, width: self.checkoutView.frame.width, height: self.checkoutView.frame.height)
-        }
     }
 }

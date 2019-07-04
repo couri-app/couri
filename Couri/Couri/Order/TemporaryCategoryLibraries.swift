@@ -21,6 +21,8 @@ struct TemporaryCustomizableLibrary {
     var size: [CustomizableOptions] = []
     var sub: [CustomizableOptions] = []
     
+    var sliverSauces: [CustomizableOptions] = []
+    
     init() {
         generateLibrary()
     }
@@ -232,6 +234,19 @@ struct TemporaryCustomizableLibrary {
         sub1.isSingleSelection = false
         sub1.addedPrice = 0.5
         
+        let sliver1 = CustomizableOptions()
+        sliver1.title = "Red Salsa"
+        sliver1.isSingleSelection = true
+        
+        let sliver2 = CustomizableOptions()
+        sliver2.title = "Pesto"
+        sliver2.isSingleSelection = true
+        sliver2.addedPrice = 0.5
+        
+        let sliver3 = CustomizableOptions()
+        sliver3.title = "No sauces"
+        sliver3.isSingleSelection = true
+        
         boba = [bobaChoice1, bobaChoice2, bobaChoice3, bobaChoice4, bobaChoice5, bobaChoice6, bobaChoice7]
         jelly = [jellyChoice1, jellyChoice2, jellyChoice3, jellyChoice4, jellyChoice5, jellyChoice6, jellyChoice7, jellyChoice8, jellyChoice9, jellyChoice10]
         addOn = [addOn1, addOn2, addOn3, addOn4]
@@ -242,6 +257,7 @@ struct TemporaryCustomizableLibrary {
         spicy = [spicy1, spicy2, spicy3, spicy4]
         size = [size1, size2]
         sub = [sub1]
+        sliverSauces = [sliver1, sliver2, sliver3]
     }
 }
 
@@ -258,6 +274,7 @@ struct TemporaryMasterCustomizableLibrary {
     var size = MasterCustomize()
     var sub = MasterCustomize()
     
+    var sliverSauceMaster = MasterCustomize()
     init() {
         generateLibrary()
     }
@@ -302,5 +319,9 @@ struct TemporaryMasterCustomizableLibrary {
         sub.title = "Choice of Substitution"
         sub.isRequired = false
         sub.choices = temporaryCustomizableLibrary.sub
+        
+        sliverSauceMaster.title = "Choose your Sauce!"
+        sliverSauceMaster.isRequired = true
+        sliverSauceMaster.choices = temporaryCustomizableLibrary.sliverSauces
     }
 }

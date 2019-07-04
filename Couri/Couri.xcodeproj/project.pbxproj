@@ -18,11 +18,30 @@
 		3C78797D22A0D99F00F058FE /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C78797C22A0D99F00F058FE /* Welcome.storyboard */; };
 		3CFB92D822AEE30200E6C990 /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB92D522AEE30200E6C990 /* RestaurantView.swift */; };
 		3CFB92DA22AEE30200E6C990 /* RestaurantViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */; };
+		6B487B027D95945F93675A19 /* Pods_Couri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB1331C53BBF44FEDA15A04C /* Pods_Couri.framework */; };
 		8B0FB20C22AE20BB00B6D740 /* CourierView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B0FB20B22AE20BB00B6D740 /* CourierView.xib */; };
 		8B0FB20E22AE216900B6D740 /* CourierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0FB20D22AE216900B6D740 /* CourierView.swift */; };
 		8B14EF4F22BDAB2B004DF590 /* MenuDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B14EF4E22BDAB2B004DF590 /* MenuDetailVC.swift */; };
-		8B14EF5122BDF822004DF590 /* CustomizeOrderTblVw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B14EF5022BDF822004DF590 /* CustomizeOrderTblVw.swift */; };
 		8B14EF5322C02AD7004DF590 /* RestaurantDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B14EF5222C02AD7004DF590 /* RestaurantDisplay.swift */; };
+		8B44980122C306F600A28188 /* CustomizeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B44980022C306F600A28188 /* CustomizeModels.swift */; };
+		8B44980722C4323800A28188 /* CustomizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B44980622C4323800A28188 /* CustomizeCell.swift */; };
+		8B44980B22C4350800A28188 /* TemporaryCategoryLibraries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B44980A22C4350800A28188 /* TemporaryCategoryLibraries.swift */; };
+		8B44980D22C6094700A28188 /* SpecialInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B44980C22C6094700A28188 /* SpecialInstructionsView.swift */; };
+		8B44980F22C6BF9F00A28188 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B44980E22C6BF9E00A28188 /* HomeViewController.swift */; };
+		8B44981222C6F35A00A28188 /* ShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B44981122C6F35A00A28188 /* ShopViewController.swift */; };
+		8B44981422C6F3C500A28188 /* DeliverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B44981322C6F3C500A28188 /* DeliverViewController.swift */; };
+		8B44981722C7622300A28188 /* DeliveryRestaurantCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B44981622C7622300A28188 /* DeliveryRestaurantCell.swift */; };
+		8B44981A22C8389D00A28188 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B44981922C8389D00A28188 /* CheckoutViewController.swift */; };
+		8B44984E22C8767800A28188 /* Couri.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B44984C22C8767800A28188 /* Couri.xcdatamodeld */; };
+		8B44985022C877B800A28188 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B44984F22C877B700A28188 /* PersistenceService.swift */; };
+		8B7D910E22CD3805008F42C5 /* MenuDetailFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D910D22CD3805008F42C5 /* MenuDetailFunctions.swift */; };
+		8B7D911022CD4CDA008F42C5 /* CourierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D910F22CD4CDA008F42C5 /* CourierViewController.swift */; };
+		8BA35AFE22C881E000ED9EB7 /* ItemOrder+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA35AFC22C881E000ED9EB7 /* ItemOrder+CoreDataClass.swift */; };
+		8BA35AFF22C881E000ED9EB7 /* ItemOrder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA35AFD22C881E000ED9EB7 /* ItemOrder+CoreDataProperties.swift */; };
+		8BA35B0122C88B1A00ED9EB7 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA35B0022C88B1A00ED9EB7 /* OrderCell.swift */; };
+		8BA35B0322C9781100ED9EB7 /* DeliveryFee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA35B0222C9781000ED9EB7 /* DeliveryFee.swift */; };
+		8BA35B0522C99CDD00ED9EB7 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA35B0422C99CDD00ED9EB7 /* CheckoutView.swift */; };
+		8BA35B0722CA75AA00ED9EB7 /* CheckoutVCFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA35B0622CA75AA00ED9EB7 /* CheckoutVCFunctions.swift */; };
 		8BA4565822B47600003A01D7 /* Scrollview.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BA4565722B47600003A01D7 /* Scrollview.xib */; };
 		8BCA2F0C22B8DBA100A8874D /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCA2F0B22B8DBA100A8874D /* RestaurantDetailViewController.swift */; };
 		8BCA2F0F22B9656900A8874D /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCA2F0E22B9656900A8874D /* MenuItem.swift */; };
@@ -30,7 +49,9 @@
 		8BCD7F0522AED3AE00C7E0E1 /* CourierSelectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */; };
 		8BCD7F2F22B00BAD00C7E0E1 /* SidebarLauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F2E22B00BAD00C7E0E1 /* SidebarLauncher.swift */; };
 		8BCD7F3422B057F100C7E0E1 /* userInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCD7F3322B057F100C7E0E1 /* userInfo.swift */; };
+		B9B8CB5DF35D77FDAD868B24 /* Pods_CouriUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F4FEA307965B0E01AE5684F /* Pods_CouriUITests.framework */; };
 		F99D3B1622B954BD00CFF346 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F99D3B1522B954BD00CFF346 /* GoogleService-Info.plist */; };
+		FF21C27934043F362C6E6F37 /* Pods_CouriTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 329DFD552E825C75E213994B /* Pods_CouriTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +73,7 @@
 
 /* Begin PBXFileReference section */
 		27F5524C9FC972C46AC39A7A /* Pods-CouriTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CouriTests.debug.xcconfig"; path = "Target Support Files/Pods-CouriTests/Pods-CouriTests.debug.xcconfig"; sourceTree = "<group>"; };
+		329DFD552E825C75E213994B /* Pods_CouriTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CouriTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C787941229E321B00F058FE /* Couri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Couri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C787944229E321B00F058FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3C787946229E321B00F058FE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -70,11 +92,31 @@
 		3CFB92D522AEE30200E6C990 /* RestaurantView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
 		3CFB92D722AEE30200E6C990 /* RestaurantViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RestaurantViewController.swift; sourceTree = "<group>"; };
 		450B5E9A1DF99AAE0315E4E0 /* Pods-CouriTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CouriTests.release.xcconfig"; path = "Target Support Files/Pods-CouriTests/Pods-CouriTests.release.xcconfig"; sourceTree = "<group>"; };
+		4F4FEA307965B0E01AE5684F /* Pods_CouriUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CouriUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B0FB20B22AE20BB00B6D740 /* CourierView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourierView.xib; sourceTree = "<group>"; };
 		8B0FB20D22AE216900B6D740 /* CourierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourierView.swift; sourceTree = "<group>"; };
 		8B14EF4E22BDAB2B004DF590 /* MenuDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailVC.swift; sourceTree = "<group>"; };
-		8B14EF5022BDF822004DF590 /* CustomizeOrderTblVw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeOrderTblVw.swift; sourceTree = "<group>"; };
 		8B14EF5222C02AD7004DF590 /* RestaurantDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDisplay.swift; sourceTree = "<group>"; };
+		8B44980022C306F600A28188 /* CustomizeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeModels.swift; sourceTree = "<group>"; };
+		8B44980622C4323800A28188 /* CustomizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeCell.swift; sourceTree = "<group>"; };
+		8B44980A22C4350800A28188 /* TemporaryCategoryLibraries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryCategoryLibraries.swift; sourceTree = "<group>"; };
+		8B44980C22C6094700A28188 /* SpecialInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialInstructionsView.swift; sourceTree = "<group>"; };
+		8B44980E22C6BF9E00A28188 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8B44981122C6F35A00A28188 /* ShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewController.swift; sourceTree = "<group>"; };
+		8B44981322C6F3C500A28188 /* DeliverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DeliverViewController.swift; path = ../DeliverViewController.swift; sourceTree = "<group>"; };
+		8B44981622C7622300A28188 /* DeliveryRestaurantCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryRestaurantCell.swift; sourceTree = "<group>"; };
+		8B44981922C8389D00A28188 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		8B44984D22C8767800A28188 /* Couri.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Couri.xcdatamodel; sourceTree = "<group>"; };
+		8B44984F22C877B700A28188 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		8B7D910B22CB2F7A008F42C5 /* LinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LinkKit.framework; path = "../../../Downloads/plaid-link-ios/LinkKit.framework"; sourceTree = "<group>"; };
+		8B7D910D22CD3805008F42C5 /* MenuDetailFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailFunctions.swift; sourceTree = "<group>"; };
+		8B7D910F22CD4CDA008F42C5 /* CourierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourierViewController.swift; sourceTree = "<group>"; };
+		8BA35AFC22C881E000ED9EB7 /* ItemOrder+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemOrder+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8BA35AFD22C881E000ED9EB7 /* ItemOrder+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ItemOrder+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8BA35B0022C88B1A00ED9EB7 /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
+		8BA35B0222C9781000ED9EB7 /* DeliveryFee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryFee.swift; sourceTree = "<group>"; };
+		8BA35B0422C99CDD00ED9EB7 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutView.swift; sourceTree = "<group>"; };
+		8BA35B0622CA75AA00ED9EB7 /* CheckoutVCFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutVCFunctions.swift; sourceTree = "<group>"; };
 		8BA4565722B47600003A01D7 /* Scrollview.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Scrollview.xib; sourceTree = "<group>"; };
 		8BCA2F0B22B8DBA100A8874D /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RestaurantDetailViewController.swift; path = "../Restaurant Picker/RestaurantDetailViewController.swift"; sourceTree = "<group>"; };
 		8BCA2F0E22B9656900A8874D /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
@@ -86,6 +128,7 @@
 		8C0EEC36D9757ECEADCC8719 /* Pods-CouriUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CouriUITests.debug.xcconfig"; path = "Target Support Files/Pods-CouriUITests/Pods-CouriUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		9112DEEAB8C8C11450D59D10 /* Pods-Couri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Couri.debug.xcconfig"; path = "Target Support Files/Pods-Couri/Pods-Couri.debug.xcconfig"; sourceTree = "<group>"; };
 		C2E0F23F22D310FAEA8AC1A1 /* Pods-CouriUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CouriUITests.release.xcconfig"; path = "Target Support Files/Pods-CouriUITests/Pods-CouriUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DB1331C53BBF44FEDA15A04C /* Pods_Couri.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Couri.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F99D3B1522B954BD00CFF346 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +137,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B487B027D95945F93675A19 /* Pods_Couri.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +145,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF21C27934043F362C6E6F37 /* Pods_CouriTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +153,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9B8CB5DF35D77FDAD868B24 /* Pods_CouriUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,11 +163,14 @@
 		3C787938229E321B00F058FE = {
 			isa = PBXGroup;
 			children = (
+				8B7D910B22CB2F7A008F42C5 /* LinkKit.framework */,
+				8B44984C22C8767800A28188 /* Couri.xcdatamodeld */,
 				3C787943229E321B00F058FE /* Couri */,
 				3C787958229E321D00F058FE /* CouriTests */,
 				3C787963229E321D00F058FE /* CouriUITests */,
 				3C787942229E321B00F058FE /* Products */,
 				D89530BE68082C988EDF6CAA /* Pods */,
+				A0B8913CAF32B2DF70FB9309 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -138,17 +187,22 @@
 		3C787943229E321B00F058FE /* Couri */ = {
 			isa = PBXGroup;
 			children = (
+				8B44981822C8387300A28188 /* Checkout */,
 				8BCA2F0D22B964E600A8874D /* Order */,
 				8BCD7F2D22B009E600C7E0E1 /* Profile */,
 				8BCD7F3022B00C9900C7E0E1 /* Restaurant Picker */,
 				8BCD7F3122B00D8100C7E0E1 /* Courier Picker */,
 				8BCD7F3222B00E5E00C7E0E1 /* Welcome Pages */,
+				8B44981522C761BA00A28188 /* DeliverUI */,
 				3C787944229E321B00F058FE /* AppDelegate.swift */,
 				3C787946229E321B00F058FE /* ViewController.swift */,
+				8B44980E22C6BF9E00A28188 /* HomeViewController.swift */,
+				8B44981122C6F35A00A28188 /* ShopViewController.swift */,
 				3C787948229E321B00F058FE /* Main.storyboard */,
 				3C78794D229E321C00F058FE /* LaunchScreen.storyboard */,
 				3C787950229E321C00F058FE /* Info.plist */,
 				F99D3B1522B954BD00CFF346 /* GoogleService-Info.plist */,
+				8B44984F22C877B700A28188 /* PersistenceService.swift */,
 				3C78794B229E321C00F058FE /* Assets.xcassets */,
 			);
 			path = Couri;
@@ -172,14 +226,41 @@
 			path = CouriUITests;
 			sourceTree = "<group>";
 		};
+		8B44981522C761BA00A28188 /* DeliverUI */ = {
+			isa = PBXGroup;
+			children = (
+				8B44981322C6F3C500A28188 /* DeliverViewController.swift */,
+				8B44981622C7622300A28188 /* DeliveryRestaurantCell.swift */,
+			);
+			path = DeliverUI;
+			sourceTree = "<group>";
+		};
+		8B44981822C8387300A28188 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+				8BA35AFC22C881E000ED9EB7 /* ItemOrder+CoreDataClass.swift */,
+				8BA35AFD22C881E000ED9EB7 /* ItemOrder+CoreDataProperties.swift */,
+				8B44981922C8389D00A28188 /* CheckoutViewController.swift */,
+				8BA35B0622CA75AA00ED9EB7 /* CheckoutVCFunctions.swift */,
+				8BA35B0222C9781000ED9EB7 /* DeliveryFee.swift */,
+				8BA35B0422C99CDD00ED9EB7 /* CheckoutView.swift */,
+				8BA35B0022C88B1A00ED9EB7 /* OrderCell.swift */,
+			);
+			path = Checkout;
+			sourceTree = "<group>";
+		};
 		8BCA2F0D22B964E600A8874D /* Order */ = {
 			isa = PBXGroup;
 			children = (
 				8BCA2F0B22B8DBA100A8874D /* RestaurantDetailViewController.swift */,
 				8B14EF4E22BDAB2B004DF590 /* MenuDetailVC.swift */,
-				8BCA2F0E22B9656900A8874D /* MenuItem.swift */,
+				8B7D910D22CD3805008F42C5 /* MenuDetailFunctions.swift */,
+				8B44980C22C6094700A28188 /* SpecialInstructionsView.swift */,
 				8BCA2F1022BA0CF200A8874D /* MenuCategoryModels.swift */,
-				8B14EF5022BDF822004DF590 /* CustomizeOrderTblVw.swift */,
+				8BCA2F0E22B9656900A8874D /* MenuItem.swift */,
+				8B44980622C4323800A28188 /* CustomizeCell.swift */,
+				8B44980022C306F600A28188 /* CustomizeModels.swift */,
+				8B44980A22C4350800A28188 /* TemporaryCategoryLibraries.swift */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -210,6 +291,7 @@
 				8B0FB20B22AE20BB00B6D740 /* CourierView.xib */,
 				8BCD7F0422AED3AE00C7E0E1 /* CourierSelectionVC.swift */,
 				8B0FB20D22AE216900B6D740 /* CourierView.swift */,
+				8B7D910F22CD4CDA008F42C5 /* CourierViewController.swift */,
 			);
 			path = "Courier Picker";
 			sourceTree = "<group>";
@@ -221,6 +303,16 @@
 				3C78797C22A0D99F00F058FE /* Welcome.storyboard */,
 			);
 			path = "Welcome Pages";
+			sourceTree = "<group>";
+		};
+		A0B8913CAF32B2DF70FB9309 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DB1331C53BBF44FEDA15A04C /* Pods_Couri.framework */,
+				329DFD552E825C75E213994B /* Pods_CouriTests.framework */,
+				4F4FEA307965B0E01AE5684F /* Pods_CouriUITests.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		D89530BE68082C988EDF6CAA /* Pods */ = {
@@ -480,19 +572,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C78797B229E699400F058FE /* PageViewController.swift in Sources */,
+				8BA35B0522C99CDD00ED9EB7 /* CheckoutView.swift in Sources */,
+				8B44980F22C6BF9F00A28188 /* HomeViewController.swift in Sources */,
+				8B44980722C4323800A28188 /* CustomizeCell.swift in Sources */,
 				8B14EF4F22BDAB2B004DF590 /* MenuDetailVC.swift in Sources */,
+				8B44981A22C8389D00A28188 /* CheckoutViewController.swift in Sources */,
+				8B44981722C7622300A28188 /* DeliveryRestaurantCell.swift in Sources */,
+				8BA35B0122C88B1A00ED9EB7 /* OrderCell.swift in Sources */,
 				3CFB92DA22AEE30200E6C990 /* RestaurantViewController.swift in Sources */,
+				8BA35AFE22C881E000ED9EB7 /* ItemOrder+CoreDataClass.swift in Sources */,
+				8B44981222C6F35A00A28188 /* ShopViewController.swift in Sources */,
 				8BCA2F1122BA0CF200A8874D /* MenuCategoryModels.swift in Sources */,
+				8B44980D22C6094700A28188 /* SpecialInstructionsView.swift in Sources */,
 				8BCA2F0C22B8DBA100A8874D /* RestaurantDetailViewController.swift in Sources */,
 				8B0FB20E22AE216900B6D740 /* CourierView.swift in Sources */,
 				8BCD7F0522AED3AE00C7E0E1 /* CourierSelectionVC.swift in Sources */,
+				8BA35AFF22C881E000ED9EB7 /* ItemOrder+CoreDataProperties.swift in Sources */,
+				8B44980122C306F600A28188 /* CustomizeModels.swift in Sources */,
+				8B44980B22C4350800A28188 /* TemporaryCategoryLibraries.swift in Sources */,
+				8B44985022C877B800A28188 /* PersistenceService.swift in Sources */,
 				8BCA2F0F22B9656900A8874D /* MenuItem.swift in Sources */,
+				8B7D910E22CD3805008F42C5 /* MenuDetailFunctions.swift in Sources */,
+				8B44981422C6F3C500A28188 /* DeliverViewController.swift in Sources */,
+				8B44984E22C8767800A28188 /* Couri.xcdatamodeld in Sources */,
 				8B14EF5322C02AD7004DF590 /* RestaurantDisplay.swift in Sources */,
 				3C787947229E321B00F058FE /* ViewController.swift in Sources */,
+				8BA35B0322C9781100ED9EB7 /* DeliveryFee.swift in Sources */,
 				3CFB92D822AEE30200E6C990 /* RestaurantView.swift in Sources */,
 				8BCD7F3422B057F100C7E0E1 /* userInfo.swift in Sources */,
+				8BA35B0722CA75AA00ED9EB7 /* CheckoutVCFunctions.swift in Sources */,
 				8BCD7F2F22B00BAD00C7E0E1 /* SidebarLauncher.swift in Sources */,
-				8B14EF5122BDF822004DF590 /* CustomizeOrderTblVw.swift in Sources */,
+				8B7D911022CD4CDA008F42C5 /* CourierViewController.swift in Sources */,
 				3C787945229E321B00F058FE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -828,6 +938,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8B44984C22C8767800A28188 /* Couri.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8B44984D22C8767800A28188 /* Couri.xcdatamodel */,
+			);
+			currentVersion = 8B44984D22C8767800A28188 /* Couri.xcdatamodel */;
+			path = Couri.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3C787939229E321B00F058FE /* Project object */;
 }

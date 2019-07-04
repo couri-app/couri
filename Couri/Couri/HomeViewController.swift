@@ -11,20 +11,28 @@ import Firebase
 import FirebaseUI
 import FirebaseAuth
 import Foundation
+import CoreData
 
-class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDelegate {
+class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDelegate, CheckoutDelegate {
     
     fileprivate(set) var auth:Auth?
     fileprivate(set) var authUI: FUIAuth?
     fileprivate(set) var authStateListenerHandle: AuthStateDidChangeListenerHandle?
     
+    @IBAction func unwindSegueToRestaurant(segue: UIStoryboardSegue) {}
+    
     var restaurantLibrary = RestaurantLibrary()
     var selectedIndex = 0
+    var itemOrderArray: [ItemOrder]?
+    let checkoutView = CheckoutView()
     
     override func viewWillAppear(_ animated: Bool) {
         setupViews()
+        checkoutView.delegate = self
         //setupFirebase()
         displayShopViewController()
+        setupFetchRequest()
+        displayCheckoutView()
     }
     
     override func viewDidLoad() {
@@ -91,6 +99,24 @@ class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDele
         button.frame.size = CGSize(width: 50, height: 50)
         return button
     }()
+    
+    func setupFetchRequest() {
+        let fetchRequest: NSFetchRequest<ItemOrder> = ItemOrder.fetchRequest()
+        do {
+            let itemOrderArray = try PersistenceService.context.fetch(fetchRequest)
+            self.itemOrderArray = itemOrderArray
+        } catch {}
+    }
+    
+    func goToCheckout() {
+        performSegue(withIdentifier: "homeToCheckout", sender: self)
+    }
+    
+    func displayCheckoutView() {
+        if (itemOrderArray?.count)! > 0 {
+            checkoutView.show()
+        }
+    }
     
     func displayDeliverViewController() {
         view.addSubview(deliverViewController.view)

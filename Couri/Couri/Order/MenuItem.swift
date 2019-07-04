@@ -28,14 +28,13 @@ struct MenuLibrary {
     var tapiocaExpressTea: [MenuItem] = []
     var tapiocaExpressSnowbubble: [MenuItem] = []
     var rareTeaMenu: [MenuItem] = []
-    var sliverMenu: [MenuItem] = []
+    var sliverPopular: [MenuItem] = []
     var gongchaMenu: [MenuItem] = []
     
     var tapiocaCategories: [String: [MenuItem]] = [:]
     var gongchaCategories: [String: [MenuItem]] = [:]
     var rareTeaCategories: [String: [MenuItem]] = [:]
     var sliverCategories: [String: [MenuItem]] = [:]
-    
     
     init() {
         generateLibrary()
@@ -46,14 +45,12 @@ struct MenuLibrary {
         item1.itemName = "T.E. Crispy Chicken"
         item1.itemPrice = 5.35
         item1.itemImage = UIImage(named: "crispy chicken")
-        item1.itemCategory = "Snacks"
         item1.customizables = [teLib.spicy]
         
         let item2 = MenuItem()
         item2.itemName = "T.E. Crispy Chicken"
         item2.itemPrice = 8.25
         item2.itemImage = UIImage(named: "crispy chicken salad")
-        item2.itemCategory = "Snacks"
         item2.itemDescription = "Served with side salad. No combo drink substitutions."
         item2.customizables = [teLib.drink, teLib.sweet, teLib.spicy]
         
@@ -61,7 +58,6 @@ struct MenuLibrary {
         item3.itemName = "Thai Tea"
         item3.itemPrice = 3.50
         item3.itemImage = UIImage(named: "thai tea")
-        item3.itemCategory = "Milk Tea"
         item3.customizables = [teLib.addOn, teLib.temp, teLib.ice, teLib.sweet, teLib.sub, teLib.boba, teLib.jelly]
         
         let item4 = MenuItem()
@@ -74,7 +70,6 @@ struct MenuLibrary {
         let item5 = MenuItem()
         item5.itemName = "Korean Short Ribs"
         item5.itemPrice = 9.95
-        item5.itemCategory = "Popular"
         item5.itemDescription = "Served with side salad. No combo drink substitution"
         item5.customizables = [teLib.spicy]
         
@@ -82,19 +77,16 @@ struct MenuLibrary {
         item6.itemName = "Milk Tea"
         item6.itemPrice = 3.25
         item6.itemImage = UIImage(named: "Milk Tea-1")
-        item6.itemCategory = "Milk Tea"
         item6.customizables = [teLib.addOn, teLib.temp, teLib.ice, teLib.sweet, teLib.boba, teLib.jelly]
         
         let item7 = MenuItem()
         item7.itemName = "Almond Milk Tea"
         item7.itemPrice = 3.50
-        item7.itemCategory = "Milk Tea"
         item7.customizables = [teLib.addOn, teLib.temp, teLib.ice, teLib.sweet, teLib.boba, teLib.jelly]
         
         let item8 = MenuItem()
         item8.itemName = "Barley Tea"
         item8.itemPrice = 3.75
-        item8.itemCategory = "Tea"
         item8.customizables = [teLib.addOn, teLib.temp, teLib.ice, teLib.sweet, teLib.boba, teLib.jelly]
         
         let item9 = MenuItem()
@@ -105,27 +97,22 @@ struct MenuLibrary {
         let rareTea1 = MenuItem()
         rareTea1.itemName = "Thai Milk Tea"
         rareTea1.itemPrice = 4.50
-        rareTea1.itemCategory = "Milk Tea"
         
         let rareTea2 = MenuItem()
         rareTea2.itemName = "Black Milk Tea"
         rareTea2.itemPrice = 4.50
-        rareTea2.itemCategory = "Milk Tea"
         
         let rareTea3 = MenuItem()
         rareTea3.itemName = "Oolong Milk Tea"
         rareTea3.itemPrice = 4.50
-        rareTea3.itemCategory = "Milk Tea"
         
         let rareTea4 = MenuItem()
         rareTea4.itemName = "Taro Milk Tea"
         rareTea4.itemPrice = 4.50
-        rareTea4.itemCategory = "Milk Tea"
         
         let rareTea5 = MenuItem()
         rareTea5.itemName = "Wintermelon Tea"
         rareTea5.itemPrice = 4.50
-        rareTea5.itemCategory = "Tea"
         
         let sliver1 = MenuItem()
         sliver1.itemName = "Slice of Pepperoni"
@@ -173,8 +160,15 @@ struct MenuLibrary {
         gc8.itemImage = UIImage(named: "GC Sparkling")
         gc8.itemPrice = 4.50
         
+        let pepperoniPizza = MenuItem()
+        pepperoniPizza.itemName = "Pepperoni Pizza"
+        pepperoniPizza.itemPrice = 3.50
+        pepperoniPizza.itemDescription = "The best pepperoni you'll have ever."
+        pepperoniPizza.customizables = [teLib.sliverSauceMaster]
+        
         gongchaMenu = [gc1, gc2, gc3, gc4, gc5, gc6, gc7, gc8]
-        sliverMenu = [sliver1]
+        
+        sliverPopular = [sliver1, pepperoniPizza]
         
         tapiocaExpressPopular = [item3, item6, item7, item8, item1, item2, item4, item5]
         tapiocaExpressMilkTea = [item3, item6, item7]
@@ -187,6 +181,7 @@ struct MenuLibrary {
         gongchaCategories = ["Popular" : gongchaMenu]
         tapiocaCategories = ["Popular" : tapiocaExpressPopular, "Milk Tea" : tapiocaExpressMilkTea, "Snacks" : tapiocaExpressSnacks, "Tea" : tapiocaExpressTea, "Snow Bubble" : tapiocaExpressSnowbubble]
         rareTeaCategories = ["Popular" : rareTeaMenu]
+        sliverCategories = ["Popular" : sliverPopular]
     }
 }
 

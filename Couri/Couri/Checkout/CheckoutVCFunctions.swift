@@ -67,7 +67,6 @@ extension CheckoutViewController {
     
     @objc func backwards() {
         performSegue(withIdentifier: "unwindToRestaurant", sender: self)
-        //showCheckout()
     }
     
     @objc func segueToCourier() {
