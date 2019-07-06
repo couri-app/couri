@@ -9,35 +9,26 @@
 import Foundation
 import UIKit
 
-class SelectedRestaurants: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class SelectedRestaurants: UICollectionView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     let cellID = "DeliverCellID"
     var restaurantArray: [Restaurant]?
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
+        super.init(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
         setupViews()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
     }
     
-    let collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.sectionHeadersPinToVisibleBounds = true
-        layout.minimumLineSpacing = 0
-        layout.estimatedItemSize = CGSize(width: 1, height: 1)
-        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        return cv
-    }()
-    
     func setupViews() {
-        collectionView.register(DeliveryRestaurantCell.self, forCellWithReuseIdentifier: cellID)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.allowsSelection = false
-        collectionView.frame = self.frame
+        self.register(DeliveryRestaurantCell.self, forCellWithReuseIdentifier: cellID)
+        self.delegate = self
+        self.dataSource = self
+        self.allowsSelection = false
+        self.backgroundColor = UIColor(named: "darkMode")
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -51,5 +42,9 @@ class SelectedRestaurants: UIView, UICollectionViewDelegate, UICollectionViewDat
         cell.isSelected = true
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.frame.width, height: 60)
     }
 }

@@ -22,6 +22,8 @@
 		8B0FB20E22AE216900B6D740 /* CourierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0FB20D22AE216900B6D740 /* CourierView.swift */; };
 		8B14EF4F22BDAB2B004DF590 /* MenuDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B14EF4E22BDAB2B004DF590 /* MenuDetailVC.swift */; };
 		8B14EF5322C02AD7004DF590 /* RestaurantDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B14EF5222C02AD7004DF590 /* RestaurantDisplay.swift */; };
+		8B16E26C22D07C240057E1DA /* DeliverySetupFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B16E26B22D07C240057E1DA /* DeliverySetupFunctions.swift */; };
+		8B16E26F22D08A9A0057E1DA /* DeliveryAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B16E26E22D08A9A0057E1DA /* DeliveryAddressViewController.swift */; };
 		8B44980122C306F600A28188 /* CustomizeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B44980022C306F600A28188 /* CustomizeModels.swift */; };
 		8B44980722C4323800A28188 /* CustomizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B44980622C4323800A28188 /* CustomizeCell.swift */; };
 		8B44980B22C4350800A28188 /* TemporaryCategoryLibraries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B44980A22C4350800A28188 /* TemporaryCategoryLibraries.swift */; };
@@ -97,6 +99,8 @@
 		8B0FB20D22AE216900B6D740 /* CourierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourierView.swift; sourceTree = "<group>"; };
 		8B14EF4E22BDAB2B004DF590 /* MenuDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailVC.swift; sourceTree = "<group>"; };
 		8B14EF5222C02AD7004DF590 /* RestaurantDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDisplay.swift; sourceTree = "<group>"; };
+		8B16E26B22D07C240057E1DA /* DeliverySetupFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverySetupFunctions.swift; sourceTree = "<group>"; };
+		8B16E26E22D08A9A0057E1DA /* DeliveryAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryAddressViewController.swift; sourceTree = "<group>"; };
 		8B44980022C306F600A28188 /* CustomizeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeModels.swift; sourceTree = "<group>"; };
 		8B44980622C4323800A28188 /* CustomizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizeCell.swift; sourceTree = "<group>"; };
 		8B44980A22C4350800A28188 /* TemporaryCategoryLibraries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryCategoryLibraries.swift; sourceTree = "<group>"; };
@@ -228,12 +232,30 @@
 			path = CouriUITests;
 			sourceTree = "<group>";
 		};
+		8B16E26A22D07BBF0057E1DA /* Delivery Setup */ = {
+			isa = PBXGroup;
+			children = (
+				8B7D911122CFEB8F008F42C5 /* DeliverSetupViewController.swift */,
+				8B16E26B22D07C240057E1DA /* DeliverySetupFunctions.swift */,
+			);
+			path = "Delivery Setup";
+			sourceTree = "<group>";
+		};
+		8B16E26D22D08A870057E1DA /* Delivery Address */ = {
+			isa = PBXGroup;
+			children = (
+				8B16E26E22D08A9A0057E1DA /* DeliveryAddressViewController.swift */,
+			);
+			path = "Delivery Address";
+			sourceTree = "<group>";
+		};
 		8B44981522C761BA00A28188 /* DeliverUI */ = {
 			isa = PBXGroup;
 			children = (
+				8B16E26D22D08A870057E1DA /* Delivery Address */,
+				8B16E26A22D07BBF0057E1DA /* Delivery Setup */,
 				8B44981322C6F3C500A28188 /* DeliverViewController.swift */,
 				8B44981622C7622300A28188 /* DeliveryRestaurantCell.swift */,
-				8B7D911122CFEB8F008F42C5 /* DeliverSetupViewController.swift */,
 				8B7D911322CFF105008F42C5 /* SelectedRestaurants.swift */,
 			);
 			path = DeliverUI;
@@ -582,6 +604,7 @@
 				8B44981A22C8389D00A28188 /* CheckoutViewController.swift in Sources */,
 				8B44981722C7622300A28188 /* DeliveryRestaurantCell.swift in Sources */,
 				8BA35B0122C88B1A00ED9EB7 /* OrderCell.swift in Sources */,
+				8B16E26C22D07C240057E1DA /* DeliverySetupFunctions.swift in Sources */,
 				8BA35AFE22C881E000ED9EB7 /* ItemOrder+CoreDataClass.swift in Sources */,
 				8B44981222C6F35A00A28188 /* ShopViewController.swift in Sources */,
 				8B7D911222CFEB90008F42C5 /* DeliverSetupViewController.swift in Sources */,
@@ -596,6 +619,7 @@
 				8B44985022C877B800A28188 /* PersistenceService.swift in Sources */,
 				8BCA2F0F22B9656900A8874D /* MenuItem.swift in Sources */,
 				8B7D910E22CD3805008F42C5 /* MenuDetailFunctions.swift in Sources */,
+				8B16E26F22D08A9A0057E1DA /* DeliveryAddressViewController.swift in Sources */,
 				8B44981422C6F3C500A28188 /* DeliverViewController.swift in Sources */,
 				8B44984E22C8767800A28188 /* Couri.xcdatamodeld in Sources */,
 				8B14EF5322C02AD7004DF590 /* RestaurantDisplay.swift in Sources */,

@@ -14,7 +14,7 @@ import Foundation
 import CoreData
 
 class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDelegate, CheckoutDelegate, SegueDelegate {
-    
+
     fileprivate(set) var auth:Auth?
     fileprivate(set) var authUI: FUIAuth?
     fileprivate(set) var authStateListenerHandle: AuthStateDidChangeListenerHandle?
@@ -23,6 +23,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDele
     
     var restaurantLibrary = RestaurantLibrary()
     var selectedIndex = 0
+    var deliverRestaurantArray: [Restaurant]?
     var itemOrderArray: [ItemOrder]?
     let checkoutView = CheckoutView()
     
@@ -30,13 +31,14 @@ class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDele
         setupViews()
         checkoutView.delegate = self
         //setupFirebase()
-        displayShopViewController()
+        displayOnLoad()
         setupFetchRequest()
         displayCheckoutView()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        isShop = true
         deliverViewController.segueDelegate = self
         shopViewController.restaurantSegueDelegate = self
     }
@@ -45,7 +47,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDele
     let shopViewController = ShopViewController()
     let sidebarLauncher = SidebarLauncher()
     let userInfo = UserInfo().userInfo
-    var isShop = true
+    var isShop = Bool()
     
     let cardView: UIView = {
         let view = UIView()
@@ -172,6 +174,14 @@ class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDele
             ])
     }
     
+    func displayOnLoad() {
+        if isShop == true {
+            displayShopViewController()
+        } else {
+            displayDeliverViewController()
+        }
+    }
+    
     let restaurantDVC = RestaurantDetailViewController()
     
     func segue(index: Int) {
@@ -183,7 +193,11 @@ class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDele
         if let destination = segue.destination as? RestaurantDetailViewController {
             destination.restaurant = restaurantLibrary.restaurants[selectedIndex]
         } else if let destination = segue.destination as? DeliverSetupViewController {
-            destination.restaurants = deliverViewController.restaurantCollectionView.indexPathsForSelectedItems
+            var restaurantsArray: [Restaurant] = []
+            for indexPath in (deliverViewController.restaurantCollectionView.indexPathsForSelectedItems)! {
+                restaurantsArray.append(restaurantLibrary.restaurants[indexPath.row])
+            }
+            destination.restaurants = restaurantsArray
         }
     }
     

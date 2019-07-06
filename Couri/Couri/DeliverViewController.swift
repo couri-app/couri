@@ -79,13 +79,14 @@ class DeliverViewController: UIViewController, UICollectionViewDelegate, UIColle
         }
         
         if selectedCount > 0 {
+            let guide = view.safeAreaLayoutGuide
             view.addSubview(nextButton)
             
             nextButton.addTarget(self, action: #selector(didSelectNext), for: .touchUpInside)
             
             NSLayoutConstraint.useAndActivateConstraints(constraints: [
                 nextButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
-                nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
+                nextButton.bottomAnchor.constraint(equalTo: guide.bottomAnchor, constant: -25)
                 ])
             
         } else {
@@ -166,16 +167,6 @@ extension DeliverViewController {
             return true
         } else {
             return false
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destination = segue.destination as? DeliverSetupViewController {
-            var restaurantsArray: [Restaurant] = []
-            for indexPath in (restaurantCollectionView.indexPathsForSelectedItems)! {
-                restaurantsArray.append(restaurantLibrary.restaurants[indexPath.row])
-            }
-            destination.restaurants = restaurantsArray
         }
     }
 }
