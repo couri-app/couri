@@ -122,7 +122,6 @@ extension ShopViewController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
         self.restaurantSegueDelegate?.segue(index: indexPath.row)
         let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
         selectionFeedbackGenerator.selectionChanged()

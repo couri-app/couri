@@ -11,6 +11,8 @@ import UIKit
 import CoreData
 
 extension MenuDetailVC {
+    
+    // Function that does the math to update your order price. Makes a new array based on the optional added price of each customizable, and is called every time a user selects or deselects a customizable. Sums the array to create the base order price, which is then multiplied by the item count to produce the multiplied order price.
     func updateOrderInfo() {
         let selectedIndexPath = masterCollectionView.indexPathsForSelectedItems
         var pricesArray: [Double] = []
@@ -71,6 +73,7 @@ extension MenuDetailVC {
         selectionFeedbackGenerator.selectionChanged()
     }
     
+    // Determines whether or not the order is complete (returns a Bool) by comparing the number of "is single selection" customizable cells selected with the number of "is required" master customizables.
     func isOrderComplete() -> Bool {
         var requiredCount = 0
         for masterCustomizable in masterCustomizables ?? [] {
@@ -97,6 +100,7 @@ extension MenuDetailVC {
         }
     }
     
+    // Sets Menu Detail View Controller's item order array variable to the persisted item order array.
     func setupFetchRequest() {
         let fetchRequest: NSFetchRequest<ItemOrder> = ItemOrder.fetchRequest()
         do {
@@ -105,6 +109,8 @@ extension MenuDetailVC {
         } catch {}
     }
     
+    
+    // Purges all data in the ItemOrder entity, and performs the segue (which calls the add new order function directly below)
     func clearCartAddNew(action: UIAlertAction) {
         let fetchRequest: NSFetchRequest<ItemOrder> = ItemOrder.fetchRequest()
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest as! NSFetchRequest<NSFetchRequestResult>)
@@ -114,6 +120,7 @@ extension MenuDetailVC {
         performSegue(withIdentifier: "checkoutSegue", sender: self)
     }
     
+    // All of the data included with each order: Name, quantity, price, customizables (the customizables array joined into a string), indexPath for selected items, and restaurant address (stored as a string).
     func addNewOrder() {
         let itemOrder = ItemOrder(context: PersistenceService.context)
         itemOrder.name = item?.itemName
@@ -125,7 +132,7 @@ extension MenuDetailVC {
         PersistenceService.saveContext()
     }
     
-    // Segues into same restaurant detail view controller as before, with a new view at the bottom of the screen with the order count
+    // Function that is made up mostly of alerts. If the user does not have an ongoing order from another restaurant, and her order is complete, the app will segue into the checkout view controller. If either of these (or both) are not true, the app will give an alert informing her of such.
     @objc func addToOrder() {
         if (itemOrderArray?.count)! > 0, itemOrderArray?[0].restaurant != restaurant?.address {
             if isOrderComplete() {
@@ -149,12 +156,14 @@ extension MenuDetailVC {
         }
     }
     
+    // Calls the add new order function, if the segue destination is checkout view controller.
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is CheckoutViewController {
             addNewOrder()
         }
     }
     
+    // Puts everything on the view controller.
     func setupViews() {
         contentView.backgroundColor = UIColor.white
         checkoutButtonView.backgroundColor = UIColor.white
@@ -288,6 +297,7 @@ extension MenuDetailVC {
             ])
     }
     
+    // Sets up the Collection View of customizables, and its header.
     func setupCV() {
         masterCollectionView.dataSource = self
         masterCollectionView.delegate = self
@@ -301,6 +311,7 @@ extension MenuDetailVC {
         collectionViewLayout?.invalidateLayout()
     }
     
+    // Aesthetic gradient layer.
     func setupGradientLayer() {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [UIColor.white.cgColor, UIColor.white.withAlphaComponent(0).cgColor]

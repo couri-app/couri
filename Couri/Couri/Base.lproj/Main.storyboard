@@ -45,11 +45,27 @@
                     <connections>
                         <segue destination="iPm-Qy-J0I" kind="show" identifier="showrestaurantdetail" id="nqG-uv-16I"/>
                         <segue destination="qsq-ye-pZ2" kind="custom" identifier="homeToCheckout" customClass="BottomToTopSegue" customModule="Couri" customModuleProvider="target" id="6sg-eb-n8S"/>
+                        <segue destination="qG8-nQ-7U4" kind="show" identifier="deliverySetupSegue" id="v9c-on-sry"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eYA-yX-ehm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="937" y="-1419"/>
+        </scene>
+        <!--Deliver Setup View Controller-->
+        <scene sceneID="O9e-Xt-bSQ">
+            <objects>
+                <viewController id="qG8-nQ-7U4" customClass="DeliverSetupViewController" customModule="Couri" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wlN-0a-Pi0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="AzG-ve-NxO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4qr-i4-Uxs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="937" y="-689"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Zyy-KS-Y5e">
@@ -168,9 +184,6 @@
                                             <constraint firstAttribute="height" constant="50" id="ydA-Gz-m7l"/>
                                         </constraints>
                                         <state key="normal" image="forward"/>
-                                        <connections>
-                                            <segue destination="JWq-cb-9Ny" kind="show" id="ZAm-3x-Dtq"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -391,73 +404,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJQ-NU-NPt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="105" y="-696"/>
-        </scene>
-        <!--RestaurantUI View Controller-->
-        <scene sceneID="qOQ-aJ-c0b">
-            <objects>
-                <viewController id="JWq-cb-9Ny" customClass="RestaurantUIViewController" customModule="Couri" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="i4o-rz-Kyp">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEARBY RESTAURANTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9M2-xy-uHU">
-                                <rect key="frame" x="20" y="64" width="266" height="35"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="lOl-aZ-XiJ">
-                                <rect key="frame" x="20" y="114" width="335" height="696"/>
-                                <color key="backgroundColor" white="1" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="restaurantdisplay" id="PJf-2Q-kGN">
-                                        <rect key="frame" x="0.0" y="28" width="335" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PJf-2Q-kGN" id="sJe-kO-2hV">
-                                            <rect key="frame" x="0.0" y="0.0" width="335" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oAw-5b-xRj">
-                                <rect key="frame" x="306" y="56.666666666666657" width="50" height="50"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="50" id="9b3-EU-SrA"/>
-                                    <constraint firstAttribute="height" constant="50" id="jZE-de-bYu"/>
-                                </constraints>
-                                <state key="normal" image="backwards"/>
-                                <connections>
-                                    <action selector="backPage:" destination="JWq-cb-9Ny" eventType="touchUpInside" id="qQ0-zt-YjU"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="oAw-5b-xRj" firstAttribute="trailing" secondItem="lOl-aZ-XiJ" secondAttribute="trailing" constant="1" id="5OJ-TR-2vp"/>
-                            <constraint firstItem="394-6X-2ZZ" firstAttribute="trailing" secondItem="lOl-aZ-XiJ" secondAttribute="trailing" constant="20" id="8OU-ps-xWi"/>
-                            <constraint firstItem="lOl-aZ-XiJ" firstAttribute="top" secondItem="9M2-xy-uHU" secondAttribute="bottom" constant="15" id="Mpw-Lx-WRq"/>
-                            <constraint firstItem="9M2-xy-uHU" firstAttribute="top" secondItem="394-6X-2ZZ" secondAttribute="top" constant="20" id="WRt-QO-R7I"/>
-                            <constraint firstItem="oAw-5b-xRj" firstAttribute="leading" secondItem="9M2-xy-uHU" secondAttribute="trailing" constant="20" id="Yop-0M-Emd"/>
-                            <constraint firstItem="lOl-aZ-XiJ" firstAttribute="leading" secondItem="394-6X-2ZZ" secondAttribute="leading" constant="20" id="buD-w0-a6s"/>
-                            <constraint firstItem="oAw-5b-xRj" firstAttribute="centerY" secondItem="9M2-xy-uHU" secondAttribute="centerY" id="h1g-XJ-9dz"/>
-                            <constraint firstItem="9M2-xy-uHU" firstAttribute="leading" secondItem="lOl-aZ-XiJ" secondAttribute="leading" id="qhF-Jc-S4d"/>
-                            <constraint firstItem="394-6X-2ZZ" firstAttribute="bottom" secondItem="lOl-aZ-XiJ" secondAttribute="bottom" constant="-32" id="zt5-SE-XBU"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="394-6X-2ZZ"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="18J-cI-Fd1"/>
-                    <connections>
-                        <outlet property="backButton" destination="oAw-5b-xRj" id="OYz-TE-vAe"/>
-                        <outlet property="tableView" destination="lOl-aZ-XiJ" id="cFS-Tm-1Ek"/>
-                        <outlet property="titleLabel" destination="9M2-xy-uHU" id="WQG-e1-fa8"/>
-                        <segue destination="iPm-Qy-J0I" kind="show" identifier="ShowRestaurantDetail" id="GMT-BH-Jkz"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nAs-aM-FtT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1793" y="-1419"/>
+            <point key="canvasLocation" x="105" y="-2113"/>
         </scene>
         <!--Restaurant Detail View Controller-->
         <scene sceneID="10J-T0-xYA">
@@ -678,7 +625,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fz-95-pO5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2592.8000000000002" y="-1419.4581280788177"/>
+            <point key="canvasLocation" x="1833" y="-1419"/>
         </scene>
         <!--Menu DetailVC-->
         <scene sceneID="Ha1-vF-EcV">
@@ -739,7 +686,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VLt-Jc-ARe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3400.8000000000002" y="-1419.4581280788177"/>
+            <point key="canvasLocation" x="2737" y="-1419"/>
         </scene>
         <!--Checkout View Controller-->
         <scene sceneID="Zww-1k-LmD">
@@ -759,7 +706,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Of-h4-5Ba" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="vxJ-DT-Wco" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4180" y="-1419"/>
+            <point key="canvasLocation" x="3615" y="-1419"/>
         </scene>
         <!--TransferVC-->
         <scene sceneID="731-My-tcL">
@@ -799,7 +746,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6k7-ed-Uzx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="937" y="-696"/>
+            <point key="canvasLocation" x="937" y="-2113"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="S1S-V3-waw">
@@ -814,7 +761,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hVo-qz-HtB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4991" y="-1419"/>
+            <point key="canvasLocation" x="4481" y="-1419"/>
         </scene>
         <!--Courier Selection View Controller-->
         <scene sceneID="pA5-OB-Vh4">
@@ -1084,7 +1031,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u9X-gV-8MT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5804" y="-1419"/>
+            <point key="canvasLocation" x="5266" y="-1419"/>
         </scene>
     </scenes>
     <resources>

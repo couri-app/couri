@@ -13,7 +13,7 @@ import FirebaseAuth
 import Foundation
 import CoreData
 
-class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDelegate, CheckoutDelegate {
+class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDelegate, CheckoutDelegate, SegueDelegate {
     
     fileprivate(set) var auth:Auth?
     fileprivate(set) var authUI: FUIAuth?
@@ -37,6 +37,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        deliverViewController.segueDelegate = self
         shopViewController.restaurantSegueDelegate = self
     }
     
@@ -124,6 +125,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDele
         shopViewController.view.removeFromSuperview()
         shopViewController.removeFromParent()
         deliverViewController.restaurantCollectionView.reloadData()
+        deliverViewController.nextButton.removeFromSuperview()
         
         shopLabel.text = "DELIVER"
         shopLabel.textColor = UIColor(named: "honeyYellow")
@@ -175,12 +177,13 @@ class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDele
     func segue(index: Int) {
         selectedIndex = index
         self.performSegue(withIdentifier: "showrestaurantdetail", sender: self)
-        print(index)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? RestaurantDetailViewController {
             destination.restaurant = restaurantLibrary.restaurants[selectedIndex]
+        } else if let destination = segue.destination as? DeliverSetupViewController {
+            destination.restaurants = deliverViewController.restaurantCollectionView.indexPathsForSelectedItems
         }
     }
     
@@ -215,6 +218,10 @@ class HomeViewController: UIViewController, FUIAuthDelegate, RestaurantSegueDele
             impactFeedbackGenerator.impactOccurred()
             isShop = true
         }
+    }
+    
+    func segue() {
+        performSegue(withIdentifier: "deliverySetupSegue", sender: self)
     }
     
     func setupFirebase() {

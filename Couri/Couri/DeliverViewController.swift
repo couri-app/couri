@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol SegueDelegate: class {
+    func segue()
+}
+
 class DeliverViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     let restaurantLibrary = RestaurantLibrary()
     let cellID = "DeliverCellID"
+    weak var segueDelegate: SegueDelegate?
     
     override func viewDidLoad() {
         setupViews()
@@ -49,11 +54,47 @@ class DeliverViewController: UIViewController, UICollectionViewDelegate, UIColle
         return label
     }()
     
+    let nextButton: UIButton = {
+        let button = UIButton()
+        button.frame.size = CGSize(width: 200, height: 60)
+        button.layer.cornerRadius = 25
+        button.backgroundColor = UIColor(named: "honeyYellow")
+        button.setTitle("     Next     ", for: .normal)
+        button.titleLabel?.font = UIFont(name: "AvenirNext-Demibold", size: 25)
+        button.setTitleColor(UIColor(named: "darkMode"), for: .normal)
+        return button
+    }()
+    
     func addShadowToView(view: UIView, opacity: Double, radius: Int) {
         view.layer.shadowRadius = CGFloat(radius)
         view.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         view.layer.shadowOffset = CGSize(width: 0, height: 0)
         view.layer.shadowOpacity = Float(CGFloat(opacity))
+    }
+    
+    func updateWillDisplayNext() {
+        var selectedCount = 0
+        for _ in restaurantCollectionView.indexPathsForSelectedItems! {
+            selectedCount += 1
+        }
+        
+        if selectedCount > 0 {
+            view.addSubview(nextButton)
+            
+            nextButton.addTarget(self, action: #selector(didSelectNext), for: .touchUpInside)
+            
+            NSLayoutConstraint.useAndActivateConstraints(constraints: [
+                nextButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20),
+                nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
+                ])
+            
+        } else {
+            nextButton.removeFromSuperview()
+        }
+    }
+    
+    @objc func didSelectNext() {
+        segueDelegate?.segue()
     }
     
     func setupViews() {
@@ -109,11 +150,13 @@ extension DeliverViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        updateWillDisplayNext()
         let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
         selectionFeedbackGenerator.selectionChanged()
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        updateWillDisplayNext()
         let selectionFeedbackGenerator = UISelectionFeedbackGenerator()
         selectionFeedbackGenerator.selectionChanged()
     }
@@ -123,6 +166,16 @@ extension DeliverViewController {
             return true
         } else {
             return false
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? DeliverSetupViewController {
+            var restaurantsArray: [Restaurant] = []
+            for indexPath in (restaurantCollectionView.indexPathsForSelectedItems)! {
+                restaurantsArray.append(restaurantLibrary.restaurants[indexPath.row])
+            }
+            destination.restaurants = restaurantsArray
         }
     }
 }
