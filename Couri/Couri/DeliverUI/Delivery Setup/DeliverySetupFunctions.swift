@@ -62,6 +62,12 @@ extension DeliverSetupViewController {
             contentView.addSubview(subview)
         }
         
+        var height = 140
+        
+        if restaurants?.count == 1 {
+            height = 70
+        }
+        
         durationPlusButton.addTarget(self, action: #selector(addMinutes), for: .touchUpInside)
         durationMinusButton.addTarget(self, action: #selector(subtractMinutes), for: .touchUpInside)
         deliveryPlusButton.addTarget(self, action: #selector(addDeliveries), for: .touchUpInside)
@@ -71,13 +77,14 @@ extension DeliverSetupViewController {
         deliveryCountLabel.text = String(deliveriesCount)
         
         backwardsButton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(forwardTapped), for: .touchUpInside)
         
         NSLayoutConstraint.useAndActivateConstraints(constraints: [
             hamburgerButton.topAnchor.constraint(equalTo: guide.topAnchor, constant: 10),
             hamburgerButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             
             selectedRestaurantsView.topAnchor.constraint(equalTo: hamburgerButton.bottomAnchor, constant: 20),
-            selectedRestaurantsView.heightAnchor.constraint(equalToConstant: 140),
+            selectedRestaurantsView.heightAnchor.constraint(equalToConstant: CGFloat(height)),
             selectedRestaurantsView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
             selectedRestaurantsView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -10),
             

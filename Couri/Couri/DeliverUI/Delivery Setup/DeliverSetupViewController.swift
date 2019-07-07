@@ -176,4 +176,14 @@ class DeliverSetupViewController: UIViewController {
     @objc func backTapped() {
         navigationController?.popViewController(animated: true)
     }
+    
+    @objc func forwardTapped() {
+        performSegue(withIdentifier: "toDeliveryAddress", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destination = segue.destination as? DeliveryAddressViewController {
+            destination.restaurants = self.restaurants
+        }
+    }
 }
