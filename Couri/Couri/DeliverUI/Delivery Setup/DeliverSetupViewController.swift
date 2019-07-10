@@ -184,6 +184,8 @@ class DeliverSetupViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destination = segue.destination as? DeliveryAddressViewController {
             destination.restaurants = self.restaurants
+            destination.minutesCount = self.minutesCount
+            destination.deliveriesCount = self.deliveriesCount
         }
     }
 }

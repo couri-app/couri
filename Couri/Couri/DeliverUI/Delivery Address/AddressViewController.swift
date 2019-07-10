@@ -63,6 +63,7 @@ class AddressViewController: UIViewController, CLLocationManagerDelegate, UISear
         searchBar?.sizeToFit()
         searchBar?.placeholder = "Enter your return location"
         searchBar?.delegate = self
+        searchBar?.keyboardAppearance = .dark
         navigationItem.titleView = resultSearchController?.searchBar
         
         resultSearchController?.hidesNavigationBarDuringPresentation = false

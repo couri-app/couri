@@ -82,16 +82,17 @@
                     </view>
                     <connections>
                         <segue destination="gc9-oD-aNx" kind="custom" identifier="addressSegue" customClass="BottomToTopSegue" customModule="Couri" customModuleProvider="target" id="kmg-bz-kbg"/>
+                        <segue destination="pg1-Qb-gHv" kind="show" identifier="toConfirmationSegue" id="6GI-R9-hE2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahh-61-L9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1833" y="-689"/>
         </scene>
-        <!--View Controller-->
+        <!--Delivery Confirmation View Controller-->
         <scene sceneID="zPh-j1-L00">
             <objects>
-                <viewController id="pg1-Qb-gHv" sceneMemberID="viewController">
+                <viewController id="pg1-Qb-gHv" customClass="DeliveryConfirmationViewController" customModule="Couri" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qI0-AA-Kzc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

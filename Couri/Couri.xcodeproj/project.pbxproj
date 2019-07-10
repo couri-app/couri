@@ -37,6 +37,8 @@
 		8B44981A22C8389D00A28188 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B44981922C8389D00A28188 /* CheckoutViewController.swift */; };
 		8B44984E22C8767800A28188 /* Couri.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B44984C22C8767800A28188 /* Couri.xcdatamodeld */; };
 		8B44985022C877B800A28188 /* PersistenceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B44984F22C877B700A28188 /* PersistenceService.swift */; };
+		8B725FD822D1940500AD9404 /* DeliveryConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B725FD722D1940500AD9404 /* DeliveryConfirmationViewController.swift */; };
+		8B725FDA22D2CADD00AD9404 /* FIRFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B725FD922D2CADD00AD9404 /* FIRFirestoreService.swift */; };
 		8B7D910E22CD3805008F42C5 /* MenuDetailFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D910D22CD3805008F42C5 /* MenuDetailFunctions.swift */; };
 		8B7D911022CD4CDA008F42C5 /* CourierViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D910F22CD4CDA008F42C5 /* CourierViewController.swift */; };
 		8B7D911222CFEB90008F42C5 /* DeliverSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7D911122CFEB8F008F42C5 /* DeliverSetupViewController.swift */; };
@@ -116,6 +118,8 @@
 		8B44981922C8389D00A28188 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		8B44984D22C8767800A28188 /* Couri.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Couri.xcdatamodel; sourceTree = "<group>"; };
 		8B44984F22C877B700A28188 /* PersistenceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceService.swift; sourceTree = "<group>"; };
+		8B725FD722D1940500AD9404 /* DeliveryConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliveryConfirmationViewController.swift; sourceTree = "<group>"; };
+		8B725FD922D2CADD00AD9404 /* FIRFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FIRFirestoreService.swift; sourceTree = "<group>"; };
 		8B7D910B22CB2F7A008F42C5 /* LinkKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LinkKit.framework; path = "../../../Downloads/plaid-link-ios/LinkKit.framework"; sourceTree = "<group>"; };
 		8B7D910D22CD3805008F42C5 /* MenuDetailFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuDetailFunctions.swift; sourceTree = "<group>"; };
 		8B7D910F22CD4CDA008F42C5 /* CourierViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourierViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 				F99D3B1522B954BD00CFF346 /* GoogleService-Info.plist */,
 				8B44984F22C877B700A28188 /* PersistenceService.swift */,
 				3C78794B229E321C00F058FE /* Assets.xcassets */,
+				8B725FD922D2CADD00AD9404 /* FIRFirestoreService.swift */,
 			);
 			path = Couri;
 			sourceTree = "<group>";
@@ -258,6 +263,7 @@
 		8B44981522C761BA00A28188 /* DeliverUI */ = {
 			isa = PBXGroup;
 			children = (
+				8B725FD622D193C000AD9404 /* Delivery Confirmation */,
 				8B16E26D22D08A870057E1DA /* Delivery Address */,
 				8B16E26A22D07BBF0057E1DA /* Delivery Setup */,
 				8B44981322C6F3C500A28188 /* DeliverViewController.swift */,
@@ -279,6 +285,14 @@
 				8BA35B0022C88B1A00ED9EB7 /* OrderCell.swift */,
 			);
 			path = Checkout;
+			sourceTree = "<group>";
+		};
+		8B725FD622D193C000AD9404 /* Delivery Confirmation */ = {
+			isa = PBXGroup;
+			children = (
+				8B725FD722D1940500AD9404 /* DeliveryConfirmationViewController.swift */,
+			);
+			path = "Delivery Confirmation";
 			sourceTree = "<group>";
 		};
 		8BCA2F0D22B964E600A8874D /* Order */ = {
@@ -627,6 +641,7 @@
 				8BCA2F0F22B9656900A8874D /* MenuItem.swift in Sources */,
 				8B7D910E22CD3805008F42C5 /* MenuDetailFunctions.swift in Sources */,
 				8B16E26F22D08A9A0057E1DA /* DeliveryAddressViewController.swift in Sources */,
+				8B725FDA22D2CADD00AD9404 /* FIRFirestoreService.swift in Sources */,
 				8B44981422C6F3C500A28188 /* DeliverViewController.swift in Sources */,
 				8B44984E22C8767800A28188 /* Couri.xcdatamodeld in Sources */,
 				8B14EF5322C02AD7004DF590 /* RestaurantDisplay.swift in Sources */,
@@ -638,6 +653,7 @@
 				8BCD7F3422B057F100C7E0E1 /* userInfo.swift in Sources */,
 				8BA35B0722CA75AA00ED9EB7 /* CheckoutVCFunctions.swift in Sources */,
 				8BCD7F2F22B00BAD00C7E0E1 /* SidebarLauncher.swift in Sources */,
+				8B725FD822D1940500AD9404 /* DeliveryConfirmationViewController.swift in Sources */,
 				8B7D911022CD4CDA008F42C5 /* CourierViewController.swift in Sources */,
 				3C787945229E321B00F058FE /* AppDelegate.swift in Sources */,
 			);

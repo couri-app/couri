@@ -14,6 +14,9 @@ class DeliveryAddressViewController: UIViewController, MKMapViewDelegate, Addres
     var restaurants: [Restaurant]?
     let selectedRestaurantsView = SelectedRestaurants()
     let mapView = MKMapView()
+    var minutesCount = Int()
+    var deliveriesCount = Int()
+    var returnPlacemark: MKPlacemark?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,8 +116,18 @@ class DeliveryAddressViewController: UIViewController, MKMapViewDelegate, Addres
         performSegue(withIdentifier: "addressSegue", sender: self)
     }
     
+    @objc func toConfirmationSegue() {
+        if addressLabel.text == "Enter an address" {
+            print("not yet")
+        } else {
+            performSegue(withIdentifier: "toConfirmationSegue", sender: self)
+        }
+    }
+    
     func sendPlacemarkBack(placemark: MKPlacemark) {
         // name, subThoroughfare, thoroughfare, locality, administrative area
+        returnPlacemark = placemark
+        
         let name = placemark.name
         let addressNumber = placemark.subThoroughfare
         let addressTitle = placemark.thoroughfare
@@ -124,6 +137,7 @@ class DeliveryAddressViewController: UIViewController, MKMapViewDelegate, Addres
         enterAddressLabel.text = "\(name ?? ""): \(addressNumber ?? "") \(addressTitle ?? ""), \(city ?? "") \(state ?? "") \(zip ?? "")"
         
         contentView.addSubview(mapView)
+        view.addSubview(nextButton)
         mapView.delegate = self
         let span = MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
         let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
@@ -139,18 +153,31 @@ class DeliveryAddressViewController: UIViewController, MKMapViewDelegate, Addres
         mapView.isScrollEnabled = false
         mapView.isZoomEnabled = false
         
+        nextButton.addTarget(self, action: #selector(toConfirmationSegue), for: .touchUpInside)
+        
         NSLayoutConstraint.useAndActivateConstraints(constraints: [
             mapView.topAnchor.constraint(equalTo: decoyAddressSearchView.bottomAnchor, constant: 10),
             mapView.leadingAnchor.constraint(equalTo: decoyAddressSearchView.leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: decoyAddressSearchView.trailingAnchor),
-            mapView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -10)
+            mapView.bottomAnchor.constraint(equalTo: nextButton.topAnchor, constant: -10),
+            
+            nextButton.heightAnchor.constraint(equalToConstant: 80),
+            nextButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            nextButton.leftAnchor.constraint(equalTo: contentView.leftAnchor),
+            nextButton.rightAnchor.constraint(equalTo: contentView.rightAnchor)
             ])
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nav = segue.destination as! UINavigationController
-        let destination = nav.topViewController as! AddressViewController
-        destination.addressDelegate = self
+        if let destination = segue.destination as? DeliveryConfirmationViewController {
+            destination.restaurants = self.restaurants
+            destination.minutesCount = self.minutesCount
+            destination.deliveriesCount = self.deliveriesCount
+            destination.returnPlacemark = self.returnPlacemark!
+        } else if let nav = segue.destination as? UINavigationController {
+            let destination = nav.topViewController as! AddressViewController
+            destination.addressDelegate = self
+        }
     }
     
     func setupViews() {
@@ -167,7 +194,6 @@ class DeliveryAddressViewController: UIViewController, MKMapViewDelegate, Addres
         view.addSubview(selectedRestaurantsView)
         view.addSubview(backwardsButton)
         view.addSubview(contentView)
-        view.addSubview(nextButton)
         
         contentView.addSubview(addressLabel)
         contentView.addSubview(addressDescriptionLabel)
@@ -210,12 +236,7 @@ class DeliveryAddressViewController: UIViewController, MKMapViewDelegate, Addres
             
             enterAddressLabel.centerYAnchor.constraint(equalTo: decoyAddressSearchView.centerYAnchor),
             enterAddressLabel.leftAnchor.constraint(equalTo: decoyAddressSearchView.leftAnchor, constant: 40),
-            enterAddressLabel.rightAnchor.constraint(equalTo: decoyAddressSearchView.rightAnchor),
-            
-            nextButton.heightAnchor.constraint(equalToConstant: 80),
-            nextButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            nextButton.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            nextButton.rightAnchor.constraint(equalTo: contentView.rightAnchor)
+            enterAddressLabel.rightAnchor.constraint(equalTo: decoyAddressSearchView.rightAnchor)
             ])
     }
 }
